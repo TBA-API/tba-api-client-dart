@@ -1,8 +1,8 @@
-# openapi.api.TBAApi
+# TBA-API-Client.api.TBAApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 All URIs are relative to *https://www.thebluealliance.com/api/v3*
@@ -21,7 +21,7 @@ Returns API status, and TBA status information.
 
 ### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

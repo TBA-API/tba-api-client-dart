@@ -1,8 +1,8 @@
-# openapi.model.EventInsights2018
+# TBA-API-Client.model.EventInsights2018
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

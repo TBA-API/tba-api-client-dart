@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class TeamEventStatusRankSortOrderInfo {
   /* The number of digits of precision used for this value, eg `2` would correspond to a value of `101.11` while `0` would correspond to `101`. */

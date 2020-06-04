@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class EventRankingSortOrderInfo {
   /* Integer expressing the number of digits of precision in the number provided in `sort_orders`. */

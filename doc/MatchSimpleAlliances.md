@@ -1,8 +1,8 @@
-# openapi.model.MatchSimpleAlliances
+# TBA-API-Client.model.MatchSimpleAlliances
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

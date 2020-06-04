@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class AwardRecipient {
   /* The TBA team key for the team that was given the award. May be null. */

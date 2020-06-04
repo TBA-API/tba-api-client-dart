@@ -1,8 +1,8 @@
-# openapi.model.TeamEventStatusPlayoff
+# TBA-API-Client.model.TeamEventStatusPlayoff
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

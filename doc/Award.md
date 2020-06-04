@@ -1,8 +1,8 @@
-# openapi.model.Award
+# TBA-API-Client.model.Award
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

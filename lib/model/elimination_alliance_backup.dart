@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class EliminationAllianceBackup {
   /* Team key that was called in as the backup. */

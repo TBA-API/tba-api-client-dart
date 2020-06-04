@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class OAuth implements Authentication {
   String _accessToken;

@@ -1,4 +1,4 @@
-# openapi
+# TBA-API-Client
 # Overview 
 
  Information and statistics about FIRST Robotics Competition teams and events. 
@@ -24,7 +24,7 @@ Dart 2.0 or later
 If this Dart package is published to Github, add the following dependency to your pubspec.yaml
 ```
 dependencies:
-  openapi:
+  TBA-API-Client:
     git: https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 ```
 
@@ -32,8 +32,8 @@ dependencies:
 To use the package in your local drive, add the following dependency to your pubspec.yaml
 ```
 dependencies:
-  openapi:
-    path: /path/to/openapi
+  TBA-API-Client:
+    path: /path/to/TBA-API-Client
 ```
 
 ## Tests
@@ -45,7 +45,7 @@ TODO
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';

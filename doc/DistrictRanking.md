@@ -1,8 +1,8 @@
-# openapi.model.DistrictRanking
+# TBA-API-Client.model.DistrictRanking
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

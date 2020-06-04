@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class EventDistrictPointsPoints {
   /* Total points awarded at this event. */

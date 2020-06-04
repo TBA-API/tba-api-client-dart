@@ -1,8 +1,8 @@
-# openapi.model.Webcast
+# TBA-API-Client.model.Webcast
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

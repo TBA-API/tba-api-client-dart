@@ -1,8 +1,8 @@
-# openapi.model.EventOPRs
+# TBA-API-Client.model.EventOPRs
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

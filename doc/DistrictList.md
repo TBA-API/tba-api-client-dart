@@ -1,8 +1,8 @@
-# openapi.model.DistrictList
+# TBA-API-Client.model.DistrictList
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

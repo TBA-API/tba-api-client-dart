@@ -1,8 +1,8 @@
-# openapi.model.EventRankingRankings
+# TBA-API-Client.model.EventRankingRankings
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

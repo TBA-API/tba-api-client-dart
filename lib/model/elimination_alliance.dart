@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class EliminationAlliance {
   /* Alliance name, may be null. */

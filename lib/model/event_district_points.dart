@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class EventDistrictPoints {
   /* Points gained for each team at the event. Stored as a key-value pair with the team key as the key, and an object describing the points as its value. */

@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class TeamEventStatusPlayoff {
   /* The highest playoff level the team reached. */

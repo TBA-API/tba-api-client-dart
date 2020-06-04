@@ -1,8 +1,8 @@
-# openapi.model.MatchScoreBreakdown2019Alliance
+# TBA-API-Client.model.MatchScoreBreakdown2019Alliance
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

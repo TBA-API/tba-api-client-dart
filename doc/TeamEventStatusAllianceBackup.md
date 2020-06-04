@@ -1,8 +1,8 @@
-# openapi.model.TeamEventStatusAllianceBackup
+# TBA-API-Client.model.TeamEventStatusAllianceBackup
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:TBA-API-Client/api.dart';
 ```
 
 ## Properties

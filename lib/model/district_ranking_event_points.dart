@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class DistrictRankingEventPoints {
   /* `true` if this event is a District Championship event. */

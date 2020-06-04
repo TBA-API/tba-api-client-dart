@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class ZebraTeam {
   /* The TBA team key for the Zebra MotionWorks data. */

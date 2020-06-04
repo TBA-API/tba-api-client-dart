@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class TeamEventStatusAllianceBackup {
   /* TBA key for the team replaced by the backup. */

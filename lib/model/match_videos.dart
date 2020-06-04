@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class MatchVideos {
   /* Can be one of 'youtube' or 'tba' */

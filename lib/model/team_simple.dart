@@ -1,4 +1,4 @@
-part of openapi.api;
+part of TBA-API-Client.api;
 
 class TeamSimple {
   /* TBA team key with the format `frcXXXX` with `XXXX` representing the team number. */
