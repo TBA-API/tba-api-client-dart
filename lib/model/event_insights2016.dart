@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class EventInsights2016 {
   /* For the Low Bar - An array with three values, number of times damaged, number of opportunities to damage, and percentage. */

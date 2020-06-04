@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class EventOPRs {
   /* A key-value pair with team key (eg `frc254`) as key and OPR as value. */

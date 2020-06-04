@@ -1,8 +1,8 @@
-# TBA-API-Client.api.DistrictApi
+# tba_api_client.api.DistrictApi
 
 ## Load the API package
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 ```
 
 All URIs are relative to *https://www.thebluealliance.com/api/v3*
@@ -30,7 +30,7 @@ Gets a list of events in the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -79,7 +79,7 @@ Gets a list of event keys for events in the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -128,7 +128,7 @@ Gets a short-form list of events in the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -177,7 +177,7 @@ Gets a list of team district rankings for the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -226,7 +226,7 @@ Gets a list of `Team` objects that competed in events in the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -275,7 +275,7 @@ Gets a list of `Team` objects that competed in events in the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -324,7 +324,7 @@ Gets a short-form list of `Team` objects that competed in events in the given di
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -373,7 +373,7 @@ Gets a list of districts and their corresponding district key, for the given yea
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -422,7 +422,7 @@ Gets a list of team rankings for the Event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -471,7 +471,7 @@ Gets an array of districts representing each year the team was in a district. Wi
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class EventInsights {
   /* Inights for the qualification round of an event */

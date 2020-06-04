@@ -1,8 +1,8 @@
-# TBA-API-Client.model.EventRankingSortOrderInfo
+# tba_api_client.model.EventRankingSortOrderInfo
 
 ## Load the model package
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 ```
 
 ## Properties

@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class MatchAlliance {
   /* Score for this alliance. Will be null or -1 for an unplayed match. */

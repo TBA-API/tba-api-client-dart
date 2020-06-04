@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class EventInsights2018 {
   /* An array with three values, number of times auto quest was completed, number of opportunities to complete the auto quest, and percentage. */

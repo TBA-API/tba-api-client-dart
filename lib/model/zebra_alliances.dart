@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class ZebraAlliances {
   /* Zebra MotionWorks data for teams on the red alliance */

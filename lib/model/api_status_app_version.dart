@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class APIStatusAppVersion {
   /* Internal use - Minimum application version required to correctly connect and process data. */

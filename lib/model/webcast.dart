@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class Webcast {
   /* Type of webcast, typically descriptive of the streaming provider. */

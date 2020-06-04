@@ -1,4 +1,4 @@
-name: TBA-API-Client
+name: tba_api_client
 version: 3.8.0
 description: (Unofficial) client library for the TheBlueAlliance.com API
 authors:

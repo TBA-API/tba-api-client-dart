@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class Team {
   /* TBA team key with the format `frcXXXX` with `XXXX` representing the team number. */

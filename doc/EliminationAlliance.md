@@ -1,8 +1,8 @@
-# TBA-API-Client.model.EliminationAlliance
+# tba_api_client.model.EliminationAlliance
 
 ## Load the model package
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 ```
 
 ## Properties

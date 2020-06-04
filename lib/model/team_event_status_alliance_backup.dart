@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class TeamEventStatusAllianceBackup {
   /* TBA key for the team replaced by the backup. */

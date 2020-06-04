@@ -1,4 +1,4 @@
-library TBA-API-Client.api;
+library tba_api_client.api;
 
 import 'dart:async';
 import 'dart:convert';

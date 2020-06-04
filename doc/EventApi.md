@@ -1,8 +1,8 @@
-# TBA-API-Client.api.EventApi
+# tba_api_client.api.EventApi
 
 ## Load the API package
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 ```
 
 All URIs are relative to *https://www.thebluealliance.com/api/v3*
@@ -55,7 +55,7 @@ Gets a list of events in the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -104,7 +104,7 @@ Gets a list of event keys for events in the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -153,7 +153,7 @@ Gets a short-form list of events in the given district.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -202,7 +202,7 @@ Gets an Event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -251,7 +251,7 @@ Gets a list of Elimination Alliances for the given Event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -300,7 +300,7 @@ Gets a list of awards from the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -349,7 +349,7 @@ Gets a list of team rankings for the Event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -398,7 +398,7 @@ Gets a set of Event-specific insights for the given Event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -447,7 +447,7 @@ Gets an array of Match Keys for the given event key that have timeseries data. R
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -496,7 +496,7 @@ Gets a list of matches for the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -545,7 +545,7 @@ Gets a list of match keys for the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -594,7 +594,7 @@ Gets a short-form list of matches for the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -643,7 +643,7 @@ Gets a set of Event OPRs (including OPR, DPR, and CCWM) for the given Event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -692,7 +692,7 @@ Gets information on TBA-generated predictions for the given Event. Contains year
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -741,7 +741,7 @@ Gets a list of team rankings for the Event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -790,7 +790,7 @@ Gets a short-form Event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -839,7 +839,7 @@ Gets a list of `Team` objects that competed in the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -888,7 +888,7 @@ Gets a list of `Team` keys that competed in the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -937,7 +937,7 @@ Gets a short-form list of `Team` objects that competed in the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -986,7 +986,7 @@ Gets a key-value list of the event statuses for teams competing at the given eve
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1035,7 +1035,7 @@ Gets a list of events in the given year.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1084,7 +1084,7 @@ Gets a list of event keys in the given year.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1133,7 +1133,7 @@ Gets a short-form list of events in the given year.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1182,7 +1182,7 @@ Gets a list of awards the given team won at the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1233,7 +1233,7 @@ Gets a list of matches for the given team and event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1284,7 +1284,7 @@ Gets a list of match keys for matches for the given team and event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1335,7 +1335,7 @@ Gets a short-form list of matches for the given team and event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1386,7 +1386,7 @@ Gets the competition rank and status of the team at the given event.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1437,7 +1437,7 @@ Gets a list of all events this team has competed at.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1486,7 +1486,7 @@ Gets a list of events this team has competed at in the given year.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1537,7 +1537,7 @@ Gets a list of the event keys for events this team has competed at in the given 
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1588,7 +1588,7 @@ Gets a short-form list of events this team has competed at in the given year.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1639,7 +1639,7 @@ Gets a list of the event keys for all events this team has competed at.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1688,7 +1688,7 @@ Gets a short-form list of all events this team has competed at.
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1737,7 +1737,7 @@ Gets a key-value list of the event statuses for events this team has competed at
 
 ### Example 
 ```dart
-import 'package:TBA-API-Client/api.dart';
+import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed

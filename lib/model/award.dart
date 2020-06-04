@@ -1,4 +1,4 @@
-part of TBA-API-Client.api;
+part of tba_api_client.api;
 
 class Award {
   /* The name of the award as provided by FIRST. May vary for the same award type. */
