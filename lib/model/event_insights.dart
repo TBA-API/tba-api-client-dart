@@ -1,53 +1,25 @@
-part of tba_api_client.api;
+            import 'package:built_value/json_object.dart';
+        import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
-class EventInsights {
-  /* Inights for the qualification round of an event */
-  Object qual = null;
-  /* Insights for the playoff round of an event */
-  Object playoff = null;
-  EventInsights();
+part 'event_insights.g.dart';
 
-  @override
-  String toString() {
-    return 'EventInsights[qual=$qual, playoff=$playoff, ]';
-  }
+abstract class EventInsights implements Built<EventInsights, EventInsightsBuilder> {
 
-  EventInsights.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    qual = json['qual'];
-    playoff = json['playoff'];
-  }
+    /* Inights for the qualification round of an event */
+        @nullable
+    @BuiltValueField(wireName: r'qual')
+    JsonObject get qual;
+    /* Insights for the playoff round of an event */
+        @nullable
+    @BuiltValueField(wireName: r'playoff')
+    JsonObject get playoff;
 
-  Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (qual != null)
-      json['qual'] = qual;
-    if (playoff != null)
-      json['playoff'] = playoff;
-    return json;
-  }
+    // Boilerplate code needed to wire-up generated code
+    EventInsights._();
 
-  static List<EventInsights> listFromJson(List<dynamic> json) {
-    return json == null ? List<EventInsights>() : json.map((value) => EventInsights.fromJson(value)).toList();
-  }
+    factory EventInsights([updates(EventInsightsBuilder b)]) = _$EventInsights;
+    static Serializer<EventInsights> get serializer => _$eventInsightsSerializer;
 
-  static Map<String, EventInsights> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, EventInsights>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = EventInsights.fromJson(value));
-    }
-    return map;
-  }
-
-  // maps a json object with a list of EventInsights-objects as value to a dart map
-  static Map<String, List<EventInsights>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<EventInsights>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = EventInsights.listFromJson(value);
-       });
-     }
-     return map;
-  }
 }
 

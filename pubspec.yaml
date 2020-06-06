@@ -1,12 +1,13 @@
 name: tba_api_client
-version: 3.8.0
+version: 1.0.0
 description: (Unofficial) client library for the TheBlueAlliance.com API
-authors:
-  - Eric Fletcher <tba-api@thefletcher.net>
-homepage: https://github.com/TBA-API/tba-api-client-dart
 environment:
-  sdk: '>=2.0.0 <3.0.0'
+    sdk: ">=2.3.0 <3.0.0"
 dependencies:
-  http: '>=0.12.0 <0.13.0'
+    dio: ^3.0.9
+    built_value: ^7.1.0
+    built_collection: ^4.3.2
 dev_dependencies:
-  test: ^1.3.0
+    built_value_generator: ^7.1.0
+    build_runner: ^1.7.1
+

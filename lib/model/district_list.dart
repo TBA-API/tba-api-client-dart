@@ -1,63 +1,32 @@
-part of tba_api_client.api;
+        import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
-class DistrictList {
-  /* The short identifier for the district. */
-  String abbreviation = null;
-  /* The long name for the district. */
-  String displayName = null;
-  /* Key for this district, e.g. `2016ne`. */
-  String key = null;
-  /* Year this district participated. */
-  int year = null;
-  DistrictList();
+part 'district_list.g.dart';
 
-  @override
-  String toString() {
-    return 'DistrictList[abbreviation=$abbreviation, displayName=$displayName, key=$key, year=$year, ]';
-  }
+abstract class DistrictList implements Built<DistrictList, DistrictListBuilder> {
 
-  DistrictList.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    abbreviation = json['abbreviation'];
-    displayName = json['display_name'];
-    key = json['key'];
-    year = json['year'];
-  }
+    /* The short identifier for the district. */
+        @nullable
+    @BuiltValueField(wireName: r'abbreviation')
+    String get abbreviation;
+    /* The long name for the district. */
+        @nullable
+    @BuiltValueField(wireName: r'display_name')
+    String get displayName;
+    /* Key for this district, e.g. `2016ne`. */
+        @nullable
+    @BuiltValueField(wireName: r'key')
+    String get key;
+    /* Year this district participated. */
+        @nullable
+    @BuiltValueField(wireName: r'year')
+    int get year;
 
-  Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (abbreviation != null)
-      json['abbreviation'] = abbreviation;
-    if (displayName != null)
-      json['display_name'] = displayName;
-    if (key != null)
-      json['key'] = key;
-    if (year != null)
-      json['year'] = year;
-    return json;
-  }
+    // Boilerplate code needed to wire-up generated code
+    DistrictList._();
 
-  static List<DistrictList> listFromJson(List<dynamic> json) {
-    return json == null ? List<DistrictList>() : json.map((value) => DistrictList.fromJson(value)).toList();
-  }
+    factory DistrictList([updates(DistrictListBuilder b)]) = _$DistrictList;
+    static Serializer<DistrictList> get serializer => _$districtListSerializer;
 
-  static Map<String, DistrictList> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, DistrictList>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = DistrictList.fromJson(value));
-    }
-    return map;
-  }
-
-  // maps a json object with a list of DistrictList-objects as value to a dart map
-  static Map<String, List<DistrictList>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<DistrictList>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = DistrictList.listFromJson(value);
-       });
-     }
-     return map;
-  }
 }
 

@@ -1,29 +1,27 @@
-part of tba_api_client.api;
+import 'dart:async';
+import 'package:tba_api_client/auth/auth.dart';
+import 'package:dio/dio.dart';
 
-class ApiKeyAuth implements Authentication {
+class ApiKeyAuthInterceptor extends AuthInterceptor {
+    Map<String, String> apiKeys = {};
 
-  final String location;
-  final String paramName;
-  String _apiKey;
-  String apiKeyPrefix;
-
-  set apiKey(String key) => _apiKey = key;
-
-  ApiKeyAuth(this.location, this.paramName);
-
-  @override
-  void applyToParams(List<QueryParam> queryParams, Map<String, String> headerParams) {
-    String value;
-    if (apiKeyPrefix != null) {
-      value = '$apiKeyPrefix $_apiKey';
-    } else {
-      value = _apiKey;
+    @override
+    Future onRequest(RequestOptions options) {
+        final authInfo = getAuthInfo(options, "apiKey");
+        for (var info in authInfo) {
+            final authName = info["name"];
+            final authKeyName = info["keyName"];
+            final authWhere = info["where"];
+            final apiKey = apiKeys[authName];
+            if (apiKey != null) {
+                if (authWhere == 'query') {
+                    options.queryParameters[authKeyName] = apiKey;
+                } else {
+                    options.headers[authKeyName] = apiKey;
+                }
+                break;
+            }
+        }
+        return super.onRequest(options);
     }
-
-    if (location == 'query' && value != null) {
-      queryParams.add(QueryParam(paramName, value));
-    } else if (location == 'header' && value != null) {
-      headerParams[paramName] = value;
-    }
-  }
 }

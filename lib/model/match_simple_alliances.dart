@@ -1,57 +1,25 @@
-part of tba_api_client.api;
+            import 'package:tba_api_client/model/match_alliance.dart';
+        import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
-class MatchSimpleAlliances {
-  
-  MatchAlliance red = null;
-  
-  MatchAlliance blue = null;
-  MatchSimpleAlliances();
+part 'match_simple_alliances.g.dart';
 
-  @override
-  String toString() {
-    return 'MatchSimpleAlliances[red=$red, blue=$blue, ]';
-  }
+abstract class MatchSimpleAlliances implements Built<MatchSimpleAlliances, MatchSimpleAlliancesBuilder> {
 
-  MatchSimpleAlliances.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    red = (json['red'] == null) ?
-      null :
-      MatchAlliance.fromJson(json['red']);
-    blue = (json['blue'] == null) ?
-      null :
-      MatchAlliance.fromJson(json['blue']);
-  }
+    
+        @nullable
+    @BuiltValueField(wireName: r'red')
+    MatchAlliance get red;
+    
+        @nullable
+    @BuiltValueField(wireName: r'blue')
+    MatchAlliance get blue;
 
-  Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (red != null)
-      json['red'] = red;
-    if (blue != null)
-      json['blue'] = blue;
-    return json;
-  }
+    // Boilerplate code needed to wire-up generated code
+    MatchSimpleAlliances._();
 
-  static List<MatchSimpleAlliances> listFromJson(List<dynamic> json) {
-    return json == null ? List<MatchSimpleAlliances>() : json.map((value) => MatchSimpleAlliances.fromJson(value)).toList();
-  }
+    factory MatchSimpleAlliances([updates(MatchSimpleAlliancesBuilder b)]) = _$MatchSimpleAlliances;
+    static Serializer<MatchSimpleAlliances> get serializer => _$matchSimpleAlliancesSerializer;
 
-  static Map<String, MatchSimpleAlliances> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, MatchSimpleAlliances>();
-    if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = MatchSimpleAlliances.fromJson(value));
-    }
-    return map;
-  }
-
-  // maps a json object with a list of MatchSimpleAlliances-objects as value to a dart map
-  static Map<String, List<MatchSimpleAlliances>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<MatchSimpleAlliances>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = MatchSimpleAlliances.listFromJson(value);
-       });
-     }
-     return map;
-  }
 }
 
