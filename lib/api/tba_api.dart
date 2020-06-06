@@ -1,64 +1,35 @@
+import 'package:jaguar_retrofit/annotations/annotations.dart';
+import 'package:jaguar_retrofit/jaguar_retrofit.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
+import 'package:jaguar_mimetype/jaguar_mimetype.dart';
 import 'dart:async';
-import 'dart:io';
-import 'dart:convert';
-import 'package:dio/dio.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/serializer.dart';
 
 import 'package:tba_api_client/model/api_status.dart';
 
-class TBAApi {
-    final Dio _dio;
-    Serializers _serializers;
+part 'tba_api.jretro.dart';
 
-    TBAApi(this._dio, this._serializers);
+@GenApiClient()
+class TBAApi extends ApiClient with _$TBAApiClient {
+    final Route base;
+    final Map<String, CodecRepo> converters;
+    final Duration timeout;
 
-        /// 
-        ///
-        /// Returns API status, and TBA status information.
-        Future<Response<APIStatus>>getStatus({ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
+    TBAApi({this.base, this.converters, this.timeout = const Duration(minutes: 2)});
 
-        String _path = "/status";
+    /// 
+    ///
+    /// Returns API status, and TBA status information.
+    @GetReq(path: "/status", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<APIStatus> getStatus(
+        
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getStatus(
+        
+        ifModifiedSince
 
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
+        ).timeout(timeout);
+    }
 
 
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(APIStatus);
-        var data = _serializers.deserializeWith<APIStatus>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<APIStatus>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        }
+}

@@ -1,29 +1,39 @@
-            import 'package:built_collection/built_collection.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'zebra_team.g.dart';
 
-abstract class ZebraTeam implements Built<ZebraTeam, ZebraTeamBuilder> {
+part 'zebra_team.jser.dart';
 
-    /* The TBA team key for the Zebra MotionWorks data. */
-        @nullable
-    @BuiltValueField(wireName: r'team_key')
-    String get teamKey;
-    /* A list containing doubles and nulls representing a teams X position in feet at the corresponding timestamp. A null value represents no tracking data for a given timestamp. */
-        @nullable
-    @BuiltValueField(wireName: r'xs')
-    BuiltList<double> get xs;
-    /* A list containing doubles and nulls representing a teams Y position in feet at the corresponding timestamp. A null value represents no tracking data for a given timestamp. */
-        @nullable
-    @BuiltValueField(wireName: r'ys')
-    BuiltList<double> get ys;
+class ZebraTeam {
+   /* The TBA team key for the Zebra MotionWorks data. */
+  @Alias('team_key', isNullable: false,  )
+  final String teamKey;
+   /* A list containing doubles and nulls representing a teams X position in feet at the corresponding timestamp. A null value represents no tracking data for a given timestamp. */
+  @Alias('xs', isNullable: false,  )
+  final List<double> xs;
+   /* A list containing doubles and nulls representing a teams Y position in feet at the corresponding timestamp. A null value represents no tracking data for a given timestamp. */
+  @Alias('ys', isNullable: false,  )
+  final List<double> ys;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    ZebraTeam._();
+  ZebraTeam(
+      
 
-    factory ZebraTeam([updates(ZebraTeamBuilder b)]) = _$ZebraTeam;
-    static Serializer<ZebraTeam> get serializer => _$zebraTeamSerializer;
+{
+    
+     this.teamKey = null,  
+     this.xs = const [],  
+     this.ys = const [] 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'ZebraTeam[teamKey=$teamKey, xs=$xs, ys=$ys, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class ZebraTeamSerializer extends Serializer<ZebraTeam> with _$ZebraTeamSerializer {
 
 }
 

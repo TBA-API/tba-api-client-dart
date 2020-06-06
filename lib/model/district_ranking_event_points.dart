@@ -1,44 +1,55 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'district_ranking_event_points.g.dart';
 
-abstract class DistrictRankingEventPoints implements Built<DistrictRankingEventPoints, DistrictRankingEventPointsBuilder> {
+part 'district_ranking_event_points.jser.dart';
 
-    /* `true` if this event is a District Championship event. */
-        @nullable
-    @BuiltValueField(wireName: r'district_cmp')
-    bool get districtCmp;
-    /* Total points awarded at this event. */
-        @nullable
-    @BuiltValueField(wireName: r'total')
-    int get total;
-    /* Points awarded for alliance selection. */
-        @nullable
-    @BuiltValueField(wireName: r'alliance_points')
-    int get alliancePoints;
-    /* Points awarded for elimination match performance. */
-        @nullable
-    @BuiltValueField(wireName: r'elim_points')
-    int get elimPoints;
-    /* Points awarded for event awards. */
-        @nullable
-    @BuiltValueField(wireName: r'award_points')
-    int get awardPoints;
-    /* TBA Event key for this event. */
-        @nullable
-    @BuiltValueField(wireName: r'event_key')
-    String get eventKey;
-    /* Points awarded for qualification match performance. */
-        @nullable
-    @BuiltValueField(wireName: r'qual_points')
-    int get qualPoints;
+class DistrictRankingEventPoints {
+   /* `true` if this event is a District Championship event. */
+  @Alias('district_cmp', isNullable: false,  )
+  final bool districtCmp;
+   /* Total points awarded at this event. */
+  @Alias('total', isNullable: false,  )
+  final int total;
+   /* Points awarded for alliance selection. */
+  @Alias('alliance_points', isNullable: false,  )
+  final int alliancePoints;
+   /* Points awarded for elimination match performance. */
+  @Alias('elim_points', isNullable: false,  )
+  final int elimPoints;
+   /* Points awarded for event awards. */
+  @Alias('award_points', isNullable: false,  )
+  final int awardPoints;
+   /* TBA Event key for this event. */
+  @Alias('event_key', isNullable: false,  )
+  final String eventKey;
+   /* Points awarded for qualification match performance. */
+  @Alias('qual_points', isNullable: false,  )
+  final int qualPoints;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    DistrictRankingEventPoints._();
+  DistrictRankingEventPoints(
+      
 
-    factory DistrictRankingEventPoints([updates(DistrictRankingEventPointsBuilder b)]) = _$DistrictRankingEventPoints;
-    static Serializer<DistrictRankingEventPoints> get serializer => _$districtRankingEventPointsSerializer;
+{
+    
+     this.districtCmp = null,  
+     this.total = null,  
+     this.alliancePoints = null,  
+     this.elimPoints = null,  
+     this.awardPoints = null,  
+     this.eventKey = null,  
+     this.qualPoints = null 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'DistrictRankingEventPoints[districtCmp=$districtCmp, total=$total, alliancePoints=$alliancePoints, elimPoints=$elimPoints, awardPoints=$awardPoints, eventKey=$eventKey, qualPoints=$qualPoints, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class DistrictRankingEventPointsSerializer extends Serializer<DistrictRankingEventPoints> with _$DistrictRankingEventPointsSerializer {
 
 }
 

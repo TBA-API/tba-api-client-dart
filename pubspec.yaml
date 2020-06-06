@@ -2,12 +2,11 @@ name: tba_api_client
 version: 1.0.0
 description: (Unofficial) client library for the TheBlueAlliance.com API
 environment:
-    sdk: ">=2.3.0 <3.0.0"
+    sdk: ">=2.0.0 <3.0.0"
 dependencies:
-    dio: ^3.0.9
-    built_value: ^7.1.0
-    built_collection: ^4.3.2
+    jaguar_retrofit: ^2.8.8
+    jaguar_serializer: ^2.2.12
 dev_dependencies:
-    built_value_generator: ^7.1.0
-    build_runner: ^1.7.1
-
+    jaguar_retrofit_gen: ^2.8.10
+    jaguar_serializer_cli: ^2.2.8
+    build_runner: ^1.6.5

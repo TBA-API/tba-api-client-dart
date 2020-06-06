@@ -1,38 +1,49 @@
-            import 'package:built_collection/built_collection.dart';
-            import 'package:tba_api_client/model/district_ranking_event_points.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'district_ranking.g.dart';
 
-abstract class DistrictRanking implements Built<DistrictRanking, DistrictRankingBuilder> {
+import 'package:tba_api_client/model/district_ranking_event_points.dart';
 
-    /* TBA team key for the team. */
-        @nullable
-    @BuiltValueField(wireName: r'team_key')
-    String get teamKey;
-    /* Numerical rank of the team, 1 being top rank. */
-        @nullable
-    @BuiltValueField(wireName: r'rank')
-    int get rank;
-    /* Any points added to a team as a result of the rookie bonus. */
-        @nullable
-    @BuiltValueField(wireName: r'rookie_bonus')
-    int get rookieBonus;
-    /* Total district points for the team. */
-        @nullable
-    @BuiltValueField(wireName: r'point_total')
-    int get pointTotal;
-    /* List of events that contributed to the point total for the team. */
-        @nullable
-    @BuiltValueField(wireName: r'event_points')
-    BuiltList<DistrictRankingEventPoints> get eventPoints;
+part 'district_ranking.jser.dart';
 
-    // Boilerplate code needed to wire-up generated code
-    DistrictRanking._();
+class DistrictRanking {
+   /* TBA team key for the team. */
+  @Alias('team_key', isNullable: false,  )
+  final String teamKey;
+   /* Numerical rank of the team, 1 being top rank. */
+  @Alias('rank', isNullable: false,  )
+  final int rank;
+   /* Any points added to a team as a result of the rookie bonus. */
+  @Alias('rookie_bonus', isNullable: false,  )
+  final int rookieBonus;
+   /* Total district points for the team. */
+  @Alias('point_total', isNullable: false,  )
+  final int pointTotal;
+   /* List of events that contributed to the point total for the team. */
+  @Alias('event_points', isNullable: false,  )
+  final List<DistrictRankingEventPoints> eventPoints;
+  
 
-    factory DistrictRanking([updates(DistrictRankingBuilder b)]) = _$DistrictRanking;
-    static Serializer<DistrictRanking> get serializer => _$districtRankingSerializer;
+  DistrictRanking(
+      
+
+{
+    
+     this.teamKey = null,  
+     this.rank = null,   this.rookieBonus = null,  
+    
+     this.pointTotal = null,   this.eventPoints = const [] 
+    
+    }
+  );
+
+  @override
+  String toString() {
+    return 'DistrictRanking[teamKey=$teamKey, rank=$rank, rookieBonus=$rookieBonus, pointTotal=$pointTotal, eventPoints=$eventPoints, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class DistrictRankingSerializer extends Serializer<DistrictRanking> with _$DistrictRankingSerializer {
 
 }
 

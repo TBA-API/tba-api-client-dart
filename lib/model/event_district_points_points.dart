@@ -1,36 +1,47 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'event_district_points_points.g.dart';
 
-abstract class EventDistrictPointsPoints implements Built<EventDistrictPointsPoints, EventDistrictPointsPointsBuilder> {
+part 'event_district_points_points.jser.dart';
 
-    /* Total points awarded at this event. */
-        @nullable
-    @BuiltValueField(wireName: r'total')
-    int get total;
-    /* Points awarded for alliance selection */
-        @nullable
-    @BuiltValueField(wireName: r'alliance_points')
-    int get alliancePoints;
-    /* Points awarded for elimination match performance. */
-        @nullable
-    @BuiltValueField(wireName: r'elim_points')
-    int get elimPoints;
-    /* Points awarded for event awards. */
-        @nullable
-    @BuiltValueField(wireName: r'award_points')
-    int get awardPoints;
-    /* Points awarded for qualification match performance. */
-        @nullable
-    @BuiltValueField(wireName: r'qual_points')
-    int get qualPoints;
+class EventDistrictPointsPoints {
+   /* Total points awarded at this event. */
+  @Alias('total', isNullable: false,  )
+  final int total;
+   /* Points awarded for alliance selection */
+  @Alias('alliance_points', isNullable: false,  )
+  final int alliancePoints;
+   /* Points awarded for elimination match performance. */
+  @Alias('elim_points', isNullable: false,  )
+  final int elimPoints;
+   /* Points awarded for event awards. */
+  @Alias('award_points', isNullable: false,  )
+  final int awardPoints;
+   /* Points awarded for qualification match performance. */
+  @Alias('qual_points', isNullable: false,  )
+  final int qualPoints;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    EventDistrictPointsPoints._();
+  EventDistrictPointsPoints(
+      
 
-    factory EventDistrictPointsPoints([updates(EventDistrictPointsPointsBuilder b)]) = _$EventDistrictPointsPoints;
-    static Serializer<EventDistrictPointsPoints> get serializer => _$eventDistrictPointsPointsSerializer;
+{
+    
+     this.total = null,  
+     this.alliancePoints = null,  
+     this.elimPoints = null,  
+     this.awardPoints = null,  
+     this.qualPoints = null 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'EventDistrictPointsPoints[total=$total, alliancePoints=$alliancePoints, elimPoints=$elimPoints, awardPoints=$awardPoints, qualPoints=$qualPoints, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class EventDistrictPointsPointsSerializer extends Serializer<EventDistrictPointsPoints> with _$EventDistrictPointsPointsSerializer {
 
 }
 

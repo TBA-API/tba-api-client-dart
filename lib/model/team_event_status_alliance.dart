@@ -1,33 +1,45 @@
-            import 'package:tba_api_client/model/team_event_status_alliance_backup.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'team_event_status_alliance.g.dart';
 
-abstract class TeamEventStatusAlliance implements Built<TeamEventStatusAlliance, TeamEventStatusAllianceBuilder> {
+import 'package:tba_api_client/model/team_event_status_alliance_backup.dart';
 
-    /* Alliance name, may be null. */
-        @nullable
-    @BuiltValueField(wireName: r'name')
-    String get name;
-    /* Alliance number. */
-        @nullable
-    @BuiltValueField(wireName: r'number')
-    int get number;
+part 'team_event_status_alliance.jser.dart';
+
+class TeamEventStatusAlliance {
+   /* Alliance name, may be null. */
+  @Alias('name', isNullable: false,  )
+  final String name;
+   /* Alliance number. */
+  @Alias('number', isNullable: false,  )
+  final int number;
+  
+  @Alias('backup', isNullable: false,  )
+  final TeamEventStatusAllianceBackup backup;
+   /* Order the team was picked in the alliance from 0-2, with 0 being alliance captain. */
+  @Alias('pick', isNullable: false,  )
+  final int pick;
+  
+
+  TeamEventStatusAlliance(
+      
+
+{
+     this.name = null,  
     
-        @nullable
-    @BuiltValueField(wireName: r'backup')
-    TeamEventStatusAllianceBackup get backup;
-    /* Order the team was picked in the alliance from 0-2, with 0 being alliance captain. */
-        @nullable
-    @BuiltValueField(wireName: r'pick')
-    int get pick;
+     this.number = null,   this.backup = null,  
+    
+     this.pick = null 
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    TeamEventStatusAlliance._();
+  @override
+  String toString() {
+    return 'TeamEventStatusAlliance[name=$name, number=$number, backup=$backup, pick=$pick, ]';
+  }
+}
 
-    factory TeamEventStatusAlliance([updates(TeamEventStatusAllianceBuilder b)]) = _$TeamEventStatusAlliance;
-    static Serializer<TeamEventStatusAlliance> get serializer => _$teamEventStatusAllianceSerializer;
+@GenSerializer(nullableFields: true)
+class TeamEventStatusAllianceSerializer extends Serializer<TeamEventStatusAlliance> with _$TeamEventStatusAllianceSerializer {
 
 }
 

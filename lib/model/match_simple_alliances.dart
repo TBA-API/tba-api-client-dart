@@ -1,25 +1,37 @@
-            import 'package:tba_api_client/model/match_alliance.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'match_simple_alliances.g.dart';
 
-abstract class MatchSimpleAlliances implements Built<MatchSimpleAlliances, MatchSimpleAlliancesBuilder> {
+import 'package:tba_api_client/model/match_alliance.dart';
 
+part 'match_simple_alliances.jser.dart';
+
+class MatchSimpleAlliances {
+  
+  @Alias('red', isNullable: false,  )
+  final MatchAlliance red;
+  
+  @Alias('blue', isNullable: false,  )
+  final MatchAlliance blue;
+  
+
+  MatchSimpleAlliances(
+      
+
+{
+     this.red = null,  
+     this.blue = null 
     
-        @nullable
-    @BuiltValueField(wireName: r'red')
-    MatchAlliance get red;
-    
-        @nullable
-    @BuiltValueField(wireName: r'blue')
-    MatchAlliance get blue;
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    MatchSimpleAlliances._();
+  @override
+  String toString() {
+    return 'MatchSimpleAlliances[red=$red, blue=$blue, ]';
+  }
+}
 
-    factory MatchSimpleAlliances([updates(MatchSimpleAlliancesBuilder b)]) = _$MatchSimpleAlliances;
-    static Serializer<MatchSimpleAlliances> get serializer => _$matchSimpleAlliancesSerializer;
+@GenSerializer(nullableFields: true)
+class MatchSimpleAlliancesSerializer extends Serializer<MatchSimpleAlliances> with _$MatchSimpleAlliancesSerializer {
 
 }
 

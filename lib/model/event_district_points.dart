@@ -1,27 +1,39 @@
-            import 'package:built_collection/built_collection.dart';
-            import 'package:tba_api_client/model/event_district_points_tiebreakers.dart';
-            import 'package:tba_api_client/model/event_district_points_points.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'event_district_points.g.dart';
 
-abstract class EventDistrictPoints implements Built<EventDistrictPoints, EventDistrictPointsBuilder> {
+import 'package:tba_api_client/model/event_district_points_points.dart';
 
-    /* Points gained for each team at the event. Stored as a key-value pair with the team key as the key, and an object describing the points as its value. */
-        @nullable
-    @BuiltValueField(wireName: r'points')
-    BuiltMap<String, EventDistrictPointsPoints> get points;
-    /* Tiebreaker values for each team at the event. Stored as a key-value pair with the team key as the key, and an object describing the tiebreaker elements as its value. */
-        @nullable
-    @BuiltValueField(wireName: r'tiebreakers')
-    BuiltMap<String, EventDistrictPointsTiebreakers> get tiebreakers;
+import 'package:tba_api_client/model/event_district_points_tiebreakers.dart';
 
-    // Boilerplate code needed to wire-up generated code
-    EventDistrictPoints._();
+part 'event_district_points.jser.dart';
 
-    factory EventDistrictPoints([updates(EventDistrictPointsBuilder b)]) = _$EventDistrictPoints;
-    static Serializer<EventDistrictPoints> get serializer => _$eventDistrictPointsSerializer;
+class EventDistrictPoints {
+   /* Points gained for each team at the event. Stored as a key-value pair with the team key as the key, and an object describing the points as its value. */
+  @Alias('points', isNullable: false,  )
+  final Map<String, EventDistrictPointsPoints> points;
+   /* Tiebreaker values for each team at the event. Stored as a key-value pair with the team key as the key, and an object describing the tiebreaker elements as its value. */
+  @Alias('tiebreakers', isNullable: false,  )
+  final Map<String, EventDistrictPointsTiebreakers> tiebreakers;
+  
+
+  EventDistrictPoints(
+      
+
+{
+    
+     this.points = const {},   this.tiebreakers = const {} 
+    
+    }
+  );
+
+  @override
+  String toString() {
+    return 'EventDistrictPoints[points=$points, tiebreakers=$tiebreakers, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class EventDistrictPointsSerializer extends Serializer<EventDistrictPoints> with _$EventDistrictPointsSerializer {
 
 }
 

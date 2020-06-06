@@ -1,25 +1,37 @@
-            import 'package:tba_api_client/model/match_score_breakdown2019_alliance.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'match_score_breakdown2019.g.dart';
 
-abstract class MatchScoreBreakdown2019 implements Built<MatchScoreBreakdown2019, MatchScoreBreakdown2019Builder> {
+import 'package:tba_api_client/model/match_score_breakdown2019_alliance.dart';
 
+part 'match_score_breakdown2019.jser.dart';
+
+class MatchScoreBreakdown2019 {
+  
+  @Alias('blue', isNullable: false,  )
+  final MatchScoreBreakdown2019Alliance blue;
+  
+  @Alias('red', isNullable: false,  )
+  final MatchScoreBreakdown2019Alliance red;
+  
+
+  MatchScoreBreakdown2019(
+      
+
+{
+     this.blue = null,  
+     this.red = null 
     
-        @nullable
-    @BuiltValueField(wireName: r'blue')
-    MatchScoreBreakdown2019Alliance get blue;
-    
-        @nullable
-    @BuiltValueField(wireName: r'red')
-    MatchScoreBreakdown2019Alliance get red;
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    MatchScoreBreakdown2019._();
+  @override
+  String toString() {
+    return 'MatchScoreBreakdown2019[blue=$blue, red=$red, ]';
+  }
+}
 
-    factory MatchScoreBreakdown2019([updates(MatchScoreBreakdown2019Builder b)]) = _$MatchScoreBreakdown2019;
-    static Serializer<MatchScoreBreakdown2019> get serializer => _$matchScoreBreakdown2019Serializer;
+@GenSerializer(nullableFields: true)
+class MatchScoreBreakdown2019Serializer extends Serializer<MatchScoreBreakdown2019> with _$MatchScoreBreakdown2019Serializer {
 
 }
 

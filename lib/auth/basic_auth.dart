@@ -1,31 +1,34 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:tba_api_client/auth/auth.dart';
-import 'package:dio/dio.dart';
+import 'package:jaguar_retrofit/jaguar_retrofit.dart';
 
 class BasicAuthInfo {
     final String username;
     final String password;
 
     const BasicAuthInfo(this.username, this.password);
+
 }
 
 class BasicAuthInterceptor extends AuthInterceptor {
     Map<String, BasicAuthInfo> authInfo = {};
 
     @override
-    Future onRequest(RequestOptions options) {
-        final metadataAuthInfo = getAuthInfo(options, 'basic');
+    FutureOr<void> before(RouteBase route) {
+        final metadataAuthInfo = getAuthInfo(route, "basic");
         for (var info in metadataAuthInfo) {
-            final authName = info['name'];
+            final authName = info["name"];
             final basicAuthInfo = authInfo[authName];
             if(basicAuthInfo != null) {
-                String basicAuth = 'Basic ' + base64Encode(utf8.encode('${basicAuthInfo.username}:${basicAuthInfo.password}'));
-                options.headers['Authorization'] = basicAuth;
+                route.basicAuth(basicAuthInfo.username, basicAuthInfo.password);
                 break;
             }
         }
+        return super.before(route);
+    }
 
-        return super.onRequest(options);
+    @override
+    FutureOr after(StringResponse response) {
+        return Future.value(response);
     }
 }

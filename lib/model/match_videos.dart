@@ -1,24 +1,35 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'match_videos.g.dart';
 
-abstract class MatchVideos implements Built<MatchVideos, MatchVideosBuilder> {
+part 'match_videos.jser.dart';
 
-    /* Can be one of 'youtube' or 'tba' */
-        @nullable
-    @BuiltValueField(wireName: r'type')
-    String get type;
-    /* Unique key representing this video */
-        @nullable
-    @BuiltValueField(wireName: r'key')
-    String get key;
+class MatchVideos {
+   /* Can be one of 'youtube' or 'tba' */
+  @Alias('type', isNullable: false,  )
+  final String type;
+   /* Unique key representing this video */
+  @Alias('key', isNullable: false,  )
+  final String key;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    MatchVideos._();
+  MatchVideos(
+      
 
-    factory MatchVideos([updates(MatchVideosBuilder b)]) = _$MatchVideos;
-    static Serializer<MatchVideos> get serializer => _$matchVideosSerializer;
+{
+     this.type = null,  
+     this.key = null 
+    
+    }
+  );
+
+  @override
+  String toString() {
+    return 'MatchVideos[type=$type, key=$key, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class MatchVideosSerializer extends Serializer<MatchVideos> with _$MatchVideosSerializer {
 
 }
 

@@ -1,61 +1,73 @@
-            import 'package:tba_api_client/model/district_list.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'event_simple.g.dart';
 
-abstract class EventSimple implements Built<EventSimple, EventSimpleBuilder> {
+import 'package:tba_api_client/model/district_list.dart';
 
-    /* TBA event key with the format yyyy[EVENT_CODE], where yyyy is the year, and EVENT_CODE is the event code of the event. */
-        @nullable
-    @BuiltValueField(wireName: r'key')
-    String get key;
-    /* Official name of event on record either provided by FIRST or organizers of offseason event. */
-        @nullable
-    @BuiltValueField(wireName: r'name')
-    String get name;
-    /* Event short code, as provided by FIRST. */
-        @nullable
-    @BuiltValueField(wireName: r'event_code')
-    String get eventCode;
-    /* Event Type, as defined here: https://github.com/the-blue-alliance/the-blue-alliance/blob/master/consts/event_type.py#L2 */
-        @nullable
-    @BuiltValueField(wireName: r'event_type')
-    int get eventType;
+part 'event_simple.jser.dart';
+
+class EventSimple {
+   /* TBA event key with the format yyyy[EVENT_CODE], where yyyy is the year, and EVENT_CODE is the event code of the event. */
+  @Alias('key', isNullable: false,  )
+  final String key;
+   /* Official name of event on record either provided by FIRST or organizers of offseason event. */
+  @Alias('name', isNullable: false,  )
+  final String name;
+   /* Event short code, as provided by FIRST. */
+  @Alias('event_code', isNullable: false,  )
+  final String eventCode;
+   /* Event Type, as defined here: https://github.com/the-blue-alliance/the-blue-alliance/blob/master/consts/event_type.py#L2 */
+  @Alias('event_type', isNullable: false,  )
+  final int eventType;
+  
+  @Alias('district', isNullable: false,  )
+  final DistrictList district;
+   /* City, town, village, etc. the event is located in. */
+  @Alias('city', isNullable: false,  )
+  final String city;
+   /* State or Province the event is located in. */
+  @Alias('state_prov', isNullable: false,  )
+  final String stateProv;
+   /* Country the event is located in. */
+  @Alias('country', isNullable: false,  )
+  final String country;
+   /* Event start date in `yyyy-mm-dd` format. */
+  @Alias('start_date', isNullable: false,  )
+  final DateTime startDate;
+   /* Event end date in `yyyy-mm-dd` format. */
+  @Alias('end_date', isNullable: false,  )
+  final DateTime endDate;
+   /* Year the event data is for. */
+  @Alias('year', isNullable: false,  )
+  final int year;
+  
+
+  EventSimple(
+      
+
+{
     
-        @nullable
-    @BuiltValueField(wireName: r'district')
-    DistrictList get district;
-    /* City, town, village, etc. the event is located in. */
-        @nullable
-    @BuiltValueField(wireName: r'city')
-    String get city;
-    /* State or Province the event is located in. */
-        @nullable
-    @BuiltValueField(wireName: r'state_prov')
-    String get stateProv;
-    /* Country the event is located in. */
-        @nullable
-    @BuiltValueField(wireName: r'country')
-    String get country;
-    /* Event start date in `yyyy-mm-dd` format. */
-        @nullable
-    @BuiltValueField(wireName: r'start_date')
-    DateTime get startDate;
-    /* Event end date in `yyyy-mm-dd` format. */
-        @nullable
-    @BuiltValueField(wireName: r'end_date')
-    DateTime get endDate;
-    /* Year the event data is for. */
-        @nullable
-    @BuiltValueField(wireName: r'year')
-    int get year;
+     this.key = null,  
+     this.name = null,  
+     this.eventCode = null,  
+     this.eventType = null,   this.district = null,  
+     this.city = null,  
+     this.stateProv = null,  
+     this.country = null,  
+    
+     this.startDate = null,  
+     this.endDate = null,  
+     this.year = null 
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    EventSimple._();
+  @override
+  String toString() {
+    return 'EventSimple[key=$key, name=$name, eventCode=$eventCode, eventType=$eventType, district=$district, city=$city, stateProv=$stateProv, country=$country, startDate=$startDate, endDate=$endDate, year=$year, ]';
+  }
+}
 
-    factory EventSimple([updates(EventSimpleBuilder b)]) = _$EventSimple;
-    static Serializer<EventSimple> get serializer => _$eventSimpleSerializer;
+@GenSerializer(nullableFields: true)
+class EventSimpleSerializer extends Serializer<EventSimple> with _$EventSimpleSerializer {
 
 }
 

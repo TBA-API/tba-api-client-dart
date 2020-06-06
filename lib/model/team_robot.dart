@@ -1,32 +1,43 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'team_robot.g.dart';
 
-abstract class TeamRobot implements Built<TeamRobot, TeamRobotBuilder> {
+part 'team_robot.jser.dart';
 
-    /* Year this robot competed in. */
-        @nullable
-    @BuiltValueField(wireName: r'year')
-    int get year;
-    /* Name of the robot as provided by the team. */
-        @nullable
-    @BuiltValueField(wireName: r'robot_name')
-    String get robotName;
-    /* Internal TBA identifier for this robot. */
-        @nullable
-    @BuiltValueField(wireName: r'key')
-    String get key;
-    /* TBA team key for this robot. */
-        @nullable
-    @BuiltValueField(wireName: r'team_key')
-    String get teamKey;
+class TeamRobot {
+   /* Year this robot competed in. */
+  @Alias('year', isNullable: false,  )
+  final int year;
+   /* Name of the robot as provided by the team. */
+  @Alias('robot_name', isNullable: false,  )
+  final String robotName;
+   /* Internal TBA identifier for this robot. */
+  @Alias('key', isNullable: false,  )
+  final String key;
+   /* TBA team key for this robot. */
+  @Alias('team_key', isNullable: false,  )
+  final String teamKey;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    TeamRobot._();
+  TeamRobot(
+      
 
-    factory TeamRobot([updates(TeamRobotBuilder b)]) = _$TeamRobot;
-    static Serializer<TeamRobot> get serializer => _$teamRobotSerializer;
+{
+    
+     this.year = null,  
+     this.robotName = null,  
+     this.key = null,  
+     this.teamKey = null 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'TeamRobot[year=$year, robotName=$robotName, key=$key, teamKey=$teamKey, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class TeamRobotSerializer extends Serializer<TeamRobot> with _$TeamRobotSerializer {
 
 }
 

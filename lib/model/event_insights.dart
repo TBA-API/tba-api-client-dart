@@ -1,25 +1,35 @@
-            import 'package:built_value/json_object.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'event_insights.g.dart';
 
-abstract class EventInsights implements Built<EventInsights, EventInsightsBuilder> {
+part 'event_insights.jser.dart';
 
-    /* Inights for the qualification round of an event */
-        @nullable
-    @BuiltValueField(wireName: r'qual')
-    JsonObject get qual;
-    /* Insights for the playoff round of an event */
-        @nullable
-    @BuiltValueField(wireName: r'playoff')
-    JsonObject get playoff;
+class EventInsights {
+   /* Inights for the qualification round of an event */
+  @Alias('qual', isNullable: false,  )
+  final Object qual;
+   /* Insights for the playoff round of an event */
+  @Alias('playoff', isNullable: false,  )
+  final Object playoff;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    EventInsights._();
+  EventInsights(
+      
 
-    factory EventInsights([updates(EventInsightsBuilder b)]) = _$EventInsights;
-    static Serializer<EventInsights> get serializer => _$eventInsightsSerializer;
+{
+     this.qual = null,  
+     this.playoff = null 
+    
+    }
+  );
+
+  @override
+  String toString() {
+    return 'EventInsights[qual=$qual, playoff=$playoff, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class EventInsightsSerializer extends Serializer<EventInsights> with _$EventInsightsSerializer {
 
 }
 

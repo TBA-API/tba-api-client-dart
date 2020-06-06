@@ -1,24 +1,35 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'event_ranking_sort_order_info.g.dart';
 
-abstract class EventRankingSortOrderInfo implements Built<EventRankingSortOrderInfo, EventRankingSortOrderInfoBuilder> {
+part 'event_ranking_sort_order_info.jser.dart';
 
-    /* Integer expressing the number of digits of precision in the number provided in `sort_orders`. */
-        @nullable
-    @BuiltValueField(wireName: r'precision')
-    int get precision;
-    /* Name of the field used in the `sort_order` array. */
-        @nullable
-    @BuiltValueField(wireName: r'name')
-    String get name;
+class EventRankingSortOrderInfo {
+   /* Integer expressing the number of digits of precision in the number provided in `sort_orders`. */
+  @Alias('precision', isNullable: false,  )
+  final int precision;
+   /* Name of the field used in the `sort_order` array. */
+  @Alias('name', isNullable: false,  )
+  final String name;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    EventRankingSortOrderInfo._();
+  EventRankingSortOrderInfo(
+      
 
-    factory EventRankingSortOrderInfo([updates(EventRankingSortOrderInfoBuilder b)]) = _$EventRankingSortOrderInfo;
-    static Serializer<EventRankingSortOrderInfo> get serializer => _$eventRankingSortOrderInfoSerializer;
+{
+    
+     this.precision = null,  
+     this.name = null 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'EventRankingSortOrderInfo[precision=$precision, name=$name, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class EventRankingSortOrderInfoSerializer extends Serializer<EventRankingSortOrderInfo> with _$EventRankingSortOrderInfoSerializer {
 
 }
 

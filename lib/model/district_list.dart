@@ -1,32 +1,43 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'district_list.g.dart';
 
-abstract class DistrictList implements Built<DistrictList, DistrictListBuilder> {
+part 'district_list.jser.dart';
 
-    /* The short identifier for the district. */
-        @nullable
-    @BuiltValueField(wireName: r'abbreviation')
-    String get abbreviation;
-    /* The long name for the district. */
-        @nullable
-    @BuiltValueField(wireName: r'display_name')
-    String get displayName;
-    /* Key for this district, e.g. `2016ne`. */
-        @nullable
-    @BuiltValueField(wireName: r'key')
-    String get key;
-    /* Year this district participated. */
-        @nullable
-    @BuiltValueField(wireName: r'year')
-    int get year;
+class DistrictList {
+   /* The short identifier for the district. */
+  @Alias('abbreviation', isNullable: false,  )
+  final String abbreviation;
+   /* The long name for the district. */
+  @Alias('display_name', isNullable: false,  )
+  final String displayName;
+   /* Key for this district, e.g. `2016ne`. */
+  @Alias('key', isNullable: false,  )
+  final String key;
+   /* Year this district participated. */
+  @Alias('year', isNullable: false,  )
+  final int year;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    DistrictList._();
+  DistrictList(
+      
 
-    factory DistrictList([updates(DistrictListBuilder b)]) = _$DistrictList;
-    static Serializer<DistrictList> get serializer => _$districtListSerializer;
+{
+    
+     this.abbreviation = null,  
+     this.displayName = null,  
+     this.key = null,  
+     this.year = null 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'DistrictList[abbreviation=$abbreviation, displayName=$displayName, key=$key, year=$year, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class DistrictListSerializer extends Serializer<DistrictList> with _$DistrictListSerializer {
 
 }
 

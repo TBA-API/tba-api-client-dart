@@ -9,46 +9,46 @@ All URIs are relative to *https://www.thebluealliance.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getDistrictRankings**](TeamApi.md#getDistrictRankings) | **get** /district/{district_key}/rankings | 
-[**getDistrictTeams**](TeamApi.md#getDistrictTeams) | **get** /district/{district_key}/teams | 
-[**getDistrictTeamsKeys**](TeamApi.md#getDistrictTeamsKeys) | **get** /district/{district_key}/teams/keys | 
-[**getDistrictTeamsSimple**](TeamApi.md#getDistrictTeamsSimple) | **get** /district/{district_key}/teams/simple | 
-[**getEventTeams**](TeamApi.md#getEventTeams) | **get** /event/{event_key}/teams | 
-[**getEventTeamsKeys**](TeamApi.md#getEventTeamsKeys) | **get** /event/{event_key}/teams/keys | 
-[**getEventTeamsSimple**](TeamApi.md#getEventTeamsSimple) | **get** /event/{event_key}/teams/simple | 
-[**getEventTeamsStatuses**](TeamApi.md#getEventTeamsStatuses) | **get** /event/{event_key}/teams/statuses | 
-[**getTeam**](TeamApi.md#getTeam) | **get** /team/{team_key} | 
-[**getTeamAwards**](TeamApi.md#getTeamAwards) | **get** /team/{team_key}/awards | 
-[**getTeamAwardsByYear**](TeamApi.md#getTeamAwardsByYear) | **get** /team/{team_key}/awards/{year} | 
-[**getTeamDistricts**](TeamApi.md#getTeamDistricts) | **get** /team/{team_key}/districts | 
-[**getTeamEventAwards**](TeamApi.md#getTeamEventAwards) | **get** /team/{team_key}/event/{event_key}/awards | 
-[**getTeamEventMatches**](TeamApi.md#getTeamEventMatches) | **get** /team/{team_key}/event/{event_key}/matches | 
-[**getTeamEventMatchesKeys**](TeamApi.md#getTeamEventMatchesKeys) | **get** /team/{team_key}/event/{event_key}/matches/keys | 
-[**getTeamEventMatchesSimple**](TeamApi.md#getTeamEventMatchesSimple) | **get** /team/{team_key}/event/{event_key}/matches/simple | 
-[**getTeamEventStatus**](TeamApi.md#getTeamEventStatus) | **get** /team/{team_key}/event/{event_key}/status | 
-[**getTeamEvents**](TeamApi.md#getTeamEvents) | **get** /team/{team_key}/events | 
-[**getTeamEventsByYear**](TeamApi.md#getTeamEventsByYear) | **get** /team/{team_key}/events/{year} | 
-[**getTeamEventsByYearKeys**](TeamApi.md#getTeamEventsByYearKeys) | **get** /team/{team_key}/events/{year}/keys | 
-[**getTeamEventsByYearSimple**](TeamApi.md#getTeamEventsByYearSimple) | **get** /team/{team_key}/events/{year}/simple | 
-[**getTeamEventsKeys**](TeamApi.md#getTeamEventsKeys) | **get** /team/{team_key}/events/keys | 
-[**getTeamEventsSimple**](TeamApi.md#getTeamEventsSimple) | **get** /team/{team_key}/events/simple | 
-[**getTeamEventsStatusesByYear**](TeamApi.md#getTeamEventsStatusesByYear) | **get** /team/{team_key}/events/{year}/statuses | 
-[**getTeamMatchesByYear**](TeamApi.md#getTeamMatchesByYear) | **get** /team/{team_key}/matches/{year} | 
-[**getTeamMatchesByYearKeys**](TeamApi.md#getTeamMatchesByYearKeys) | **get** /team/{team_key}/matches/{year}/keys | 
-[**getTeamMatchesByYearSimple**](TeamApi.md#getTeamMatchesByYearSimple) | **get** /team/{team_key}/matches/{year}/simple | 
-[**getTeamMediaByTag**](TeamApi.md#getTeamMediaByTag) | **get** /team/{team_key}/media/tag/{media_tag} | 
-[**getTeamMediaByTagYear**](TeamApi.md#getTeamMediaByTagYear) | **get** /team/{team_key}/media/tag/{media_tag}/{year} | 
-[**getTeamMediaByYear**](TeamApi.md#getTeamMediaByYear) | **get** /team/{team_key}/media/{year} | 
-[**getTeamRobots**](TeamApi.md#getTeamRobots) | **get** /team/{team_key}/robots | 
-[**getTeamSimple**](TeamApi.md#getTeamSimple) | **get** /team/{team_key}/simple | 
-[**getTeamSocialMedia**](TeamApi.md#getTeamSocialMedia) | **get** /team/{team_key}/social_media | 
-[**getTeamYearsParticipated**](TeamApi.md#getTeamYearsParticipated) | **get** /team/{team_key}/years_participated | 
-[**getTeams**](TeamApi.md#getTeams) | **get** /teams/{page_num} | 
-[**getTeamsByYear**](TeamApi.md#getTeamsByYear) | **get** /teams/{year}/{page_num} | 
-[**getTeamsByYearKeys**](TeamApi.md#getTeamsByYearKeys) | **get** /teams/{year}/{page_num}/keys | 
-[**getTeamsByYearSimple**](TeamApi.md#getTeamsByYearSimple) | **get** /teams/{year}/{page_num}/simple | 
-[**getTeamsKeys**](TeamApi.md#getTeamsKeys) | **get** /teams/{page_num}/keys | 
-[**getTeamsSimple**](TeamApi.md#getTeamsSimple) | **get** /teams/{page_num}/simple | 
+[**getDistrictRankings**](TeamApi.md#getDistrictRankings) | **Get** /district/:district_key/rankings | 
+[**getDistrictTeams**](TeamApi.md#getDistrictTeams) | **Get** /district/:district_key/teams | 
+[**getDistrictTeamsKeys**](TeamApi.md#getDistrictTeamsKeys) | **Get** /district/:district_key/teams/keys | 
+[**getDistrictTeamsSimple**](TeamApi.md#getDistrictTeamsSimple) | **Get** /district/:district_key/teams/simple | 
+[**getEventTeams**](TeamApi.md#getEventTeams) | **Get** /event/:event_key/teams | 
+[**getEventTeamsKeys**](TeamApi.md#getEventTeamsKeys) | **Get** /event/:event_key/teams/keys | 
+[**getEventTeamsSimple**](TeamApi.md#getEventTeamsSimple) | **Get** /event/:event_key/teams/simple | 
+[**getEventTeamsStatuses**](TeamApi.md#getEventTeamsStatuses) | **Get** /event/:event_key/teams/statuses | 
+[**getTeam**](TeamApi.md#getTeam) | **Get** /team/:team_key | 
+[**getTeamAwards**](TeamApi.md#getTeamAwards) | **Get** /team/:team_key/awards | 
+[**getTeamAwardsByYear**](TeamApi.md#getTeamAwardsByYear) | **Get** /team/:team_key/awards/:year | 
+[**getTeamDistricts**](TeamApi.md#getTeamDistricts) | **Get** /team/:team_key/districts | 
+[**getTeamEventAwards**](TeamApi.md#getTeamEventAwards) | **Get** /team/:team_key/event/:event_key/awards | 
+[**getTeamEventMatches**](TeamApi.md#getTeamEventMatches) | **Get** /team/:team_key/event/:event_key/matches | 
+[**getTeamEventMatchesKeys**](TeamApi.md#getTeamEventMatchesKeys) | **Get** /team/:team_key/event/:event_key/matches/keys | 
+[**getTeamEventMatchesSimple**](TeamApi.md#getTeamEventMatchesSimple) | **Get** /team/:team_key/event/:event_key/matches/simple | 
+[**getTeamEventStatus**](TeamApi.md#getTeamEventStatus) | **Get** /team/:team_key/event/:event_key/status | 
+[**getTeamEvents**](TeamApi.md#getTeamEvents) | **Get** /team/:team_key/events | 
+[**getTeamEventsByYear**](TeamApi.md#getTeamEventsByYear) | **Get** /team/:team_key/events/:year | 
+[**getTeamEventsByYearKeys**](TeamApi.md#getTeamEventsByYearKeys) | **Get** /team/:team_key/events/:year/keys | 
+[**getTeamEventsByYearSimple**](TeamApi.md#getTeamEventsByYearSimple) | **Get** /team/:team_key/events/:year/simple | 
+[**getTeamEventsKeys**](TeamApi.md#getTeamEventsKeys) | **Get** /team/:team_key/events/keys | 
+[**getTeamEventsSimple**](TeamApi.md#getTeamEventsSimple) | **Get** /team/:team_key/events/simple | 
+[**getTeamEventsStatusesByYear**](TeamApi.md#getTeamEventsStatusesByYear) | **Get** /team/:team_key/events/:year/statuses | 
+[**getTeamMatchesByYear**](TeamApi.md#getTeamMatchesByYear) | **Get** /team/:team_key/matches/:year | 
+[**getTeamMatchesByYearKeys**](TeamApi.md#getTeamMatchesByYearKeys) | **Get** /team/:team_key/matches/:year/keys | 
+[**getTeamMatchesByYearSimple**](TeamApi.md#getTeamMatchesByYearSimple) | **Get** /team/:team_key/matches/:year/simple | 
+[**getTeamMediaByTag**](TeamApi.md#getTeamMediaByTag) | **Get** /team/:team_key/media/tag/:media_tag | 
+[**getTeamMediaByTagYear**](TeamApi.md#getTeamMediaByTagYear) | **Get** /team/:team_key/media/tag/:media_tag/:year | 
+[**getTeamMediaByYear**](TeamApi.md#getTeamMediaByYear) | **Get** /team/:team_key/media/:year | 
+[**getTeamRobots**](TeamApi.md#getTeamRobots) | **Get** /team/:team_key/robots | 
+[**getTeamSimple**](TeamApi.md#getTeamSimple) | **Get** /team/:team_key/simple | 
+[**getTeamSocialMedia**](TeamApi.md#getTeamSocialMedia) | **Get** /team/:team_key/social_media | 
+[**getTeamYearsParticipated**](TeamApi.md#getTeamYearsParticipated) | **Get** /team/:team_key/years_participated | 
+[**getTeams**](TeamApi.md#getTeams) | **Get** /teams/:page_num | 
+[**getTeamsByYear**](TeamApi.md#getTeamsByYear) | **Get** /teams/:year/:page_num | 
+[**getTeamsByYearKeys**](TeamApi.md#getTeamsByYearKeys) | **Get** /teams/:year/:page_num/keys | 
+[**getTeamsByYearSimple**](TeamApi.md#getTeamsByYearSimple) | **Get** /teams/:year/:page_num/simple | 
+[**getTeamsKeys**](TeamApi.md#getTeamsKeys) | **Get** /teams/:page_num/keys | 
+[**getTeamsSimple**](TeamApi.md#getTeamsSimple) | **Get** /teams/:page_num/simple | 
 
 
 # **getDistrictRankings**
@@ -62,9 +62,9 @@ Gets a list of team district rankings for the given district.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var districtKey = districtKey_example; // String | TBA District Key, eg `2016fim`
@@ -111,9 +111,9 @@ Gets a list of `Team` objects that competed in events in the given district.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var districtKey = districtKey_example; // String | TBA District Key, eg `2016fim`
@@ -160,9 +160,9 @@ Gets a list of `Team` objects that competed in events in the given district.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var districtKey = districtKey_example; // String | TBA District Key, eg `2016fim`
@@ -209,9 +209,9 @@ Gets a short-form list of `Team` objects that competed in events in the given di
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var districtKey = districtKey_example; // String | TBA District Key, eg `2016fim`
@@ -258,9 +258,9 @@ Gets a list of `Team` objects that competed in the given event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var eventKey = eventKey_example; // String | TBA Event Key, eg `2016nytr`
@@ -307,9 +307,9 @@ Gets a list of `Team` keys that competed in the given event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var eventKey = eventKey_example; // String | TBA Event Key, eg `2016nytr`
@@ -356,9 +356,9 @@ Gets a short-form list of `Team` objects that competed in the given event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var eventKey = eventKey_example; // String | TBA Event Key, eg `2016nytr`
@@ -405,9 +405,9 @@ Gets a key-value list of the event statuses for teams competing at the given eve
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var eventKey = eventKey_example; // String | TBA Event Key, eg `2016nytr`
@@ -454,9 +454,9 @@ Gets a `Team` object for the team referenced by the given key.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -503,9 +503,9 @@ Gets a list of awards the given team has won.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -552,9 +552,9 @@ Gets a list of awards the given team has won in a given year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -603,9 +603,9 @@ Gets an array of districts representing each year the team was in a district. Wi
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -652,9 +652,9 @@ Gets a list of awards the given team won at the given event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -703,9 +703,9 @@ Gets a list of matches for the given team and event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -754,9 +754,9 @@ Gets a list of match keys for matches for the given team and event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -805,9 +805,9 @@ Gets a short-form list of matches for the given team and event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -856,9 +856,9 @@ Gets the competition rank and status of the team at the given event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -907,9 +907,9 @@ Gets a list of all events this team has competed at.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -956,9 +956,9 @@ Gets a list of events this team has competed at in the given year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1007,9 +1007,9 @@ Gets a list of the event keys for events this team has competed at in the given 
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1058,9 +1058,9 @@ Gets a short-form list of events this team has competed at in the given year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1109,9 +1109,9 @@ Gets a list of the event keys for all events this team has competed at.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1158,9 +1158,9 @@ Gets a short-form list of all events this team has competed at.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1207,9 +1207,9 @@ Gets a key-value list of the event statuses for events this team has competed at
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1258,9 +1258,9 @@ Gets a list of matches for the given team and year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1309,9 +1309,9 @@ Gets a list of match keys for matches for the given team and year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1360,9 +1360,9 @@ Gets a short-form list of matches for the given team and year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1411,9 +1411,9 @@ Gets a list of Media (videos / pictures) for the given team and tag.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1462,9 +1462,9 @@ Gets a list of Media (videos / pictures) for the given team, tag and year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1515,9 +1515,9 @@ Gets a list of Media (videos / pictures) for the given team and year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1566,9 +1566,9 @@ Gets a list of year and robot name pairs for each year that a robot name was pro
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1615,9 +1615,9 @@ Gets a `Team_Simple` object for the team referenced by the given key.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1664,9 +1664,9 @@ Gets a list of Media (social media) for the given team.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1713,9 +1713,9 @@ Gets a list of years in which the team participated in at least one competition.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -1762,9 +1762,9 @@ Gets a list of `Team` objects, paginated in groups of 500.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var pageNum = 56; // int | Page number of results to return, zero-indexed
@@ -1811,9 +1811,9 @@ Gets a list of `Team` objects that competed in the given year, paginated in grou
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var year = 56; // int | Competition Year (or Season). Must be 4 digits.
@@ -1862,9 +1862,9 @@ Gets a list Team Keys that competed in the given year, paginated in groups of 50
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var year = 56; // int | Competition Year (or Season). Must be 4 digits.
@@ -1913,9 +1913,9 @@ Gets a list of short form `Team_Simple` objects that competed in the given year,
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var year = 56; // int | Competition Year (or Season). Must be 4 digits.
@@ -1964,9 +1964,9 @@ Gets a list of Team keys, paginated in groups of 500. (Note, each page will not 
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var pageNum = 56; // int | Page number of results to return, zero-indexed
@@ -2013,9 +2013,9 @@ Gets a list of short form `Team_Simple` objects, paginated in groups of 500.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new TeamApi();
 var pageNum = 56; // int | Page number of results to return, zero-indexed

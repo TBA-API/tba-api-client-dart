@@ -1,24 +1,35 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'team_event_status_alliance_backup.g.dart';
 
-abstract class TeamEventStatusAllianceBackup implements Built<TeamEventStatusAllianceBackup, TeamEventStatusAllianceBackupBuilder> {
+part 'team_event_status_alliance_backup.jser.dart';
 
-    /* TBA key for the team replaced by the backup. */
-        @nullable
-    @BuiltValueField(wireName: r'out')
-    String get out_;
-    /* TBA key for the backup team called in. */
-        @nullable
-    @BuiltValueField(wireName: r'in')
-    String get in_;
+class TeamEventStatusAllianceBackup {
+   /* TBA key for the team replaced by the backup. */
+  @Alias('out', isNullable: false,  )
+  final String out_;
+   /* TBA key for the backup team called in. */
+  @Alias('in', isNullable: false,  )
+  final String in_;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    TeamEventStatusAllianceBackup._();
+  TeamEventStatusAllianceBackup(
+      
 
-    factory TeamEventStatusAllianceBackup([updates(TeamEventStatusAllianceBackupBuilder b)]) = _$TeamEventStatusAllianceBackup;
-    static Serializer<TeamEventStatusAllianceBackup> get serializer => _$teamEventStatusAllianceBackupSerializer;
+{
+     this.out_ = null,  
+     this.in_ = null 
+    
+    }
+  );
+
+  @override
+  String toString() {
+    return 'TeamEventStatusAllianceBackup[out_=$out_, in_=$in_, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class TeamEventStatusAllianceBackupSerializer extends Serializer<TeamEventStatusAllianceBackup> with _$TeamEventStatusAllianceBackupSerializer {
 
 }
 

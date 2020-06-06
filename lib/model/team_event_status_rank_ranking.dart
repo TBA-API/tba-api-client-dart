@@ -1,46 +1,57 @@
-            import 'package:tba_api_client/model/wlt_record.dart';
-            import 'package:built_collection/built_collection.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'team_event_status_rank_ranking.g.dart';
 
-abstract class TeamEventStatusRankRanking implements Built<TeamEventStatusRankRanking, TeamEventStatusRankRankingBuilder> {
+import 'package:tba_api_client/model/wlt_record.dart';
 
-    /* Number of matches played. */
-        @nullable
-    @BuiltValueField(wireName: r'matches_played')
-    int get matchesPlayed;
-    /* For some years, average qualification score. Can be null. */
-        @nullable
-    @BuiltValueField(wireName: r'qual_average')
-    double get qualAverage;
-    /* Ordered list of values used to determine the rank. See the `sort_order_info` property for the name of each value. */
-        @nullable
-    @BuiltValueField(wireName: r'sort_orders')
-    BuiltList<num> get sortOrders;
+part 'team_event_status_rank_ranking.jser.dart';
+
+class TeamEventStatusRankRanking {
+   /* Number of matches played. */
+  @Alias('matches_played', isNullable: false,  )
+  final int matchesPlayed;
+   /* For some years, average qualification score. Can be null. */
+  @Alias('qual_average', isNullable: false,  )
+  final double qualAverage;
+   /* Ordered list of values used to determine the rank. See the `sort_order_info` property for the name of each value. */
+  @Alias('sort_orders', isNullable: false,  )
+  final List<num> sortOrders;
+  
+  @Alias('record', isNullable: false,  )
+  final WLTRecord record;
+   /* Relative rank of this team. */
+  @Alias('rank', isNullable: false,  )
+  final int rank;
+   /* Number of matches the team was disqualified for. */
+  @Alias('dq', isNullable: false,  )
+  final int dq;
+   /* TBA team key for this rank. */
+  @Alias('team_key', isNullable: false,  )
+  final String teamKey;
+  
+
+  TeamEventStatusRankRanking(
+      
+
+{
+     this.matchesPlayed = null,  
+     this.qualAverage = null,  
+     this.sortOrders = const [],  
+     this.record = null,  
+     this.rank = null,  
+     this.dq = null,  
+     this.teamKey = null 
     
-        @nullable
-    @BuiltValueField(wireName: r'record')
-    WLTRecord get record;
-    /* Relative rank of this team. */
-        @nullable
-    @BuiltValueField(wireName: r'rank')
-    int get rank;
-    /* Number of matches the team was disqualified for. */
-        @nullable
-    @BuiltValueField(wireName: r'dq')
-    int get dq;
-    /* TBA team key for this rank. */
-        @nullable
-    @BuiltValueField(wireName: r'team_key')
-    String get teamKey;
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    TeamEventStatusRankRanking._();
+  @override
+  String toString() {
+    return 'TeamEventStatusRankRanking[matchesPlayed=$matchesPlayed, qualAverage=$qualAverage, sortOrders=$sortOrders, record=$record, rank=$rank, dq=$dq, teamKey=$teamKey, ]';
+  }
+}
 
-    factory TeamEventStatusRankRanking([updates(TeamEventStatusRankRankingBuilder b)]) = _$TeamEventStatusRankRanking;
-    static Serializer<TeamEventStatusRankRanking> get serializer => _$teamEventStatusRankRankingSerializer;
+@GenSerializer(nullableFields: true)
+class TeamEventStatusRankRankingSerializer extends Serializer<TeamEventStatusRankRanking> with _$TeamEventStatusRankRankingSerializer {
 
 }
 

@@ -1,28 +1,39 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'wlt_record.g.dart';
 
-abstract class WLTRecord implements Built<WLTRecord, WLTRecordBuilder> {
+part 'wlt_record.jser.dart';
 
-    /* Number of losses. */
-        @nullable
-    @BuiltValueField(wireName: r'losses')
-    int get losses;
-    /* Number of wins. */
-        @nullable
-    @BuiltValueField(wireName: r'wins')
-    int get wins;
-    /* Number of ties. */
-        @nullable
-    @BuiltValueField(wireName: r'ties')
-    int get ties;
+class WLTRecord {
+   /* Number of losses. */
+  @Alias('losses', isNullable: false,  )
+  final int losses;
+   /* Number of wins. */
+  @Alias('wins', isNullable: false,  )
+  final int wins;
+   /* Number of ties. */
+  @Alias('ties', isNullable: false,  )
+  final int ties;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    WLTRecord._();
+  WLTRecord(
+      
 
-    factory WLTRecord([updates(WLTRecordBuilder b)]) = _$WLTRecord;
-    static Serializer<WLTRecord> get serializer => _$wLTRecordSerializer;
+{
+    
+     this.losses = null,  
+     this.wins = null,  
+     this.ties = null 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'WLTRecord[losses=$losses, wins=$wins, ties=$ties, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class WLTRecordSerializer extends Serializer<WLTRecord> with _$WLTRecordSerializer {
 
 }
 

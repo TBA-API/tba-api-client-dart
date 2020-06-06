@@ -1,39 +1,53 @@
-            import 'package:tba_api_client/model/wlt_record.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'team_event_status_playoff.g.dart';
 
-abstract class TeamEventStatusPlayoff implements Built<TeamEventStatusPlayoff, TeamEventStatusPlayoffBuilder> {
+import 'package:tba_api_client/model/wlt_record.dart';
 
-    /* The highest playoff level the team reached. */
-        @nullable
-    @BuiltValueField(wireName: r'level')
-    String get level;
-        //enum levelEnum {  qm,  ef,  qf,  sf,  f,  };
+part 'team_event_status_playoff.jser.dart';
+
+class TeamEventStatusPlayoff {
+   /* The highest playoff level the team reached. */
+  @Alias('level', isNullable: false,
+          
+  )
+  final String level;
+  //enum levelEnum {  qm,  ef,  qf,  sf,  f,  };
+  @Alias('current_level_record', isNullable: false,  )
+  final WLTRecord currentLevelRecord;
+  
+  @Alias('record', isNullable: false,  )
+  final WLTRecord record;
+   /* Current competition status for the playoffs. */
+  @Alias('status', isNullable: false,
+          
+  )
+  final String status;
+  //enum statusEnum {  won,  eliminated,  playing,  }; /* The average match score during playoffs. Year specific. May be null if not relevant for a given year. */
+  @Alias('playoff_average', isNullable: false,  )
+  final int playoffAverage;
+  
+
+  TeamEventStatusPlayoff(
+      
+
+{
+     this.level = null,  
+     this.currentLevelRecord = null,  
+     this.record = null,  
+     this.status = null,  
+     this.playoffAverage = null 
     
-        @nullable
-    @BuiltValueField(wireName: r'current_level_record')
-    WLTRecord get currentLevelRecord;
-    
-        @nullable
-    @BuiltValueField(wireName: r'record')
-    WLTRecord get record;
-    /* Current competition status for the playoffs. */
-        @nullable
-    @BuiltValueField(wireName: r'status')
-    String get status;
-        //enum statusEnum {  won,  eliminated,  playing,  };
-    /* The average match score during playoffs. Year specific. May be null if not relevant for a given year. */
-        @nullable
-    @BuiltValueField(wireName: r'playoff_average')
-    int get playoffAverage;
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    TeamEventStatusPlayoff._();
+  @override
+  String toString() {
+    return 'TeamEventStatusPlayoff[level=$level, currentLevelRecord=$currentLevelRecord, record=$record, status=$status, playoffAverage=$playoffAverage, ]';
+  }
+}
 
-    factory TeamEventStatusPlayoff([updates(TeamEventStatusPlayoffBuilder b)]) = _$TeamEventStatusPlayoff;
-    static Serializer<TeamEventStatusPlayoff> get serializer => _$teamEventStatusPlayoffSerializer;
+@GenSerializer(nullableFields: true)
+class TeamEventStatusPlayoffSerializer extends Serializer<TeamEventStatusPlayoff> with _$TeamEventStatusPlayoffSerializer {
 
 }
 

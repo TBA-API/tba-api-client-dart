@@ -1,9 +1,8 @@
+import 'package:jaguar_retrofit/annotations/annotations.dart';
+import 'package:jaguar_retrofit/jaguar_retrofit.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
+import 'package:jaguar_mimetype/jaguar_mimetype.dart';
 import 'dart:async';
-import 'dart:io';
-import 'dart:convert';
-import 'package:dio/dio.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/serializer.dart';
 
 import 'package:tba_api_client/model/event_district_points.dart';
 import 'package:tba_api_client/model/team_simple.dart';
@@ -19,1715 +18,628 @@ import 'package:tba_api_client/model/event_op_rs.dart';
 import 'package:tba_api_client/model/award.dart';
 import 'package:tba_api_client/model/event.dart';
 
-class EventApi {
-    final Dio _dio;
-    Serializers _serializers;
-
-    EventApi(this._dio, this._serializers);
-
-        /// 
-        ///
-        /// Gets a list of events in the given district.
-        Future<Response<List<Event>>>getDistrictEvents(String districtKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/district/{district_key}/events".replaceAll("{" r'district_key' "}", districtKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Event)]);
-                BuiltList<Event> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Event>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of event keys for events in the given district.
-        Future<Response<List<String>>>getDistrictEventsKeys(String districtKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/district/{district_key}/events/keys".replaceAll("{" r'district_key' "}", districtKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(String)]);
-                BuiltList<String> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<String>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a short-form list of events in the given district.
-        Future<Response<List<EventSimple>>>getDistrictEventsSimple(String districtKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/district/{district_key}/events/simple".replaceAll("{" r'district_key' "}", districtKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(EventSimple)]);
-                BuiltList<EventSimple> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<EventSimple>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets an Event.
-        Future<Response<Event>>getEvent(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(Event);
-        var data = _serializers.deserializeWith<Event>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<Event>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of Elimination Alliances for the given Event.
-        Future<Response<List<EliminationAlliance>>>getEventAlliances(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/alliances".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(EliminationAlliance)]);
-                BuiltList<EliminationAlliance> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<EliminationAlliance>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of awards from the given event.
-        Future<Response<List<Award>>>getEventAwards(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/awards".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Award)]);
-                BuiltList<Award> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Award>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of team rankings for the Event.
-        Future<Response<EventDistrictPoints>>getEventDistrictPoints(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/district_points".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(EventDistrictPoints);
-        var data = _serializers.deserializeWith<EventDistrictPoints>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<EventDistrictPoints>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a set of Event-specific insights for the given Event.
-        Future<Response<EventInsights>>getEventInsights(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/insights".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(EventInsights);
-        var data = _serializers.deserializeWith<EventInsights>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<EventInsights>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets an array of Match Keys for the given event key that have timeseries data. Returns an empty array if no matches have timeseries data. *WARNING:* This is *not* official data, and is subject to a significant possibility of error, or missing data. Do not rely on this data for any purpose. In fact, pretend we made it up. *WARNING:* This endpoint and corresponding data models are under *active development* and may change at any time, including in breaking ways.
-        Future<Response<List<String>>>getEventMatchTimeseries(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/matches/timeseries".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(String)]);
-                BuiltList<String> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<String>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of matches for the given event.
-        Future<Response<List<Match>>>getEventMatches(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/matches".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Match)]);
-                BuiltList<Match> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Match>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of match keys for the given event.
-        Future<Response<List<String>>>getEventMatchesKeys(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/matches/keys".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(String)]);
-                BuiltList<String> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<String>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a short-form list of matches for the given event.
-        Future<Response<List<MatchSimple>>>getEventMatchesSimple(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/matches/simple".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(MatchSimple)]);
-                BuiltList<MatchSimple> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<MatchSimple>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a set of Event OPRs (including OPR, DPR, and CCWM) for the given Event.
-        Future<Response<EventOPRs>>getEventOPRs(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/oprs".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(EventOPRs);
-        var data = _serializers.deserializeWith<EventOPRs>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<EventOPRs>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets information on TBA-generated predictions for the given Event. Contains year-specific information. *WARNING* This endpoint is currently under development and may change at any time.
-        Future<Response<Object>>getEventPredictions(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/predictions".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(Object);
-        var data = _serializers.deserializeWith<Object>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<Object>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of team rankings for the Event.
-        Future<Response<EventRanking>>getEventRankings(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/rankings".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(EventRanking);
-        var data = _serializers.deserializeWith<EventRanking>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<EventRanking>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a short-form Event.
-        Future<Response<EventSimple>>getEventSimple(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/simple".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(EventSimple);
-        var data = _serializers.deserializeWith<EventSimple>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<EventSimple>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of &#x60;Team&#x60; objects that competed in the given event.
-        Future<Response<List<Team>>>getEventTeams(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/teams".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Team)]);
-                BuiltList<Team> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Team>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of &#x60;Team&#x60; keys that competed in the given event.
-        Future<Response<List<String>>>getEventTeamsKeys(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/teams/keys".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(String)]);
-                BuiltList<String> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<String>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a short-form list of &#x60;Team&#x60; objects that competed in the given event.
-        Future<Response<List<TeamSimple>>>getEventTeamsSimple(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/teams/simple".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(TeamSimple)]);
-                BuiltList<TeamSimple> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<TeamSimple>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a key-value list of the event statuses for teams competing at the given event.
-        Future<Response<Map<String, TeamEventStatus>>>getEventTeamsStatuses(String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/event/{event_key}/teams/statuses".replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(Map<String, TeamEventStatus>);
-        var data = _serializers.deserializeWith<Map<String, TeamEventStatus>>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<Map<String, TeamEventStatus>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of events in the given year.
-        Future<Response<List<Event>>>getEventsByYear(int year,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/events/{year}".replaceAll("{" r'year' "}", year.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Event)]);
-                BuiltList<Event> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Event>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of event keys in the given year.
-        Future<Response<List<String>>>getEventsByYearKeys(int year,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/events/{year}/keys".replaceAll("{" r'year' "}", year.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(String)]);
-                BuiltList<String> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<String>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a short-form list of events in the given year.
-        Future<Response<List<EventSimple>>>getEventsByYearSimple(int year,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/events/{year}/simple".replaceAll("{" r'year' "}", year.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(EventSimple)]);
-                BuiltList<EventSimple> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<EventSimple>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of awards the given team won at the given event.
-        Future<Response<List<Award>>>getTeamEventAwards(String teamKey,String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/event/{event_key}/awards".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Award)]);
-                BuiltList<Award> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Award>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of matches for the given team and event.
-        Future<Response<List<Match>>>getTeamEventMatches(String teamKey,String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/event/{event_key}/matches".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Match)]);
-                BuiltList<Match> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Match>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of match keys for matches for the given team and event.
-        Future<Response<List<String>>>getTeamEventMatchesKeys(String teamKey,String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/event/{event_key}/matches/keys".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(String)]);
-                BuiltList<String> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<String>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a short-form list of matches for the given team and event.
-        Future<Response<List<Match>>>getTeamEventMatchesSimple(String teamKey,String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/event/{event_key}/matches/simple".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Match)]);
-                BuiltList<Match> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Match>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets the competition rank and status of the team at the given event.
-        Future<Response<TeamEventStatus>>getTeamEventStatus(String teamKey,String eventKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/event/{event_key}/status".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'event_key' "}", eventKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(TeamEventStatus);
-        var data = _serializers.deserializeWith<TeamEventStatus>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<TeamEventStatus>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of all events this team has competed at.
-        Future<Response<List<Event>>>getTeamEvents(String teamKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/events".replaceAll("{" r'team_key' "}", teamKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Event)]);
-                BuiltList<Event> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Event>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of events this team has competed at in the given year.
-        Future<Response<List<Event>>>getTeamEventsByYear(String teamKey,int year,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/events/{year}".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'year' "}", year.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(Event)]);
-                BuiltList<Event> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<Event>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of the event keys for events this team has competed at in the given year.
-        Future<Response<List<String>>>getTeamEventsByYearKeys(String teamKey,int year,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/events/{year}/keys".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'year' "}", year.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(String)]);
-                BuiltList<String> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<String>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a short-form list of events this team has competed at in the given year.
-        Future<Response<List<EventSimple>>>getTeamEventsByYearSimple(String teamKey,int year,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/events/{year}/simple".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'year' "}", year.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(EventSimple)]);
-                BuiltList<EventSimple> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<EventSimple>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a list of the event keys for all events this team has competed at.
-        Future<Response<List<String>>>getTeamEventsKeys(String teamKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/events/keys".replaceAll("{" r'team_key' "}", teamKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(String)]);
-                BuiltList<String> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<String>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a short-form list of all events this team has competed at.
-        Future<Response<List<EventSimple>>>getTeamEventsSimple(String teamKey,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/events/simple".replaceAll("{" r'team_key' "}", teamKey.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-                final FullType type = const FullType(BuiltList, const [const FullType(EventSimple)]);
-                BuiltList<EventSimple> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
-                var data = dataList.toList();
-
-            return Response<List<EventSimple>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        /// 
-        ///
-        /// Gets a key-value list of the event statuses for events this team has competed at in the given year.
-        Future<Response<Map<String, TeamEventStatus>>>getTeamEventsStatusesByYear(String teamKey,int year,{ String ifModifiedSince,CancelToken cancelToken, Map<String, String> headers,}) async {
-
-        String _path = "/team/{team_key}/events/{year}/statuses".replaceAll("{" r'team_key' "}", teamKey.toString()).replaceAll("{" r'year' "}", year.toString());
-
-        Map<String, dynamic> queryParams = {};
-        Map<String, String> headerParams = Map.from(headers ?? {});
-        dynamic bodyData;
-
-                headerParams[r'If-Modified-Since'] = ifModifiedSince;
-        queryParams.removeWhere((key, value) => value == null);
-        headerParams.removeWhere((key, value) => value == null);
-
-        List<String> contentTypes = [];
-
-
-
-            return _dio.request(
-            _path,
-            queryParameters: queryParams,
-            data: bodyData,
-            options: Options(
-            method: 'get'.toUpperCase(),
-            headers: headerParams,
-            extra: {
-                'secure': [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }],
-            },
-            contentType: contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
-            ),
-            cancelToken: cancelToken,
-            ).then((response) {
-
-        var serializer = _serializers.serializerForType(Map<String, TeamEventStatus>);
-        var data = _serializers.deserializeWith<Map<String, TeamEventStatus>>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
-
-            return Response<Map<String, TeamEventStatus>>(
-                data: data,
-                headers: response.headers,
-                request: response.request,
-                redirects: response.redirects,
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage,
-                extra: response.extra,
-            );
-            });
-            }
-        }
+part 'event_api.jretro.dart';
+
+@GenApiClient()
+class EventApi extends ApiClient with _$EventApiClient {
+    final Route base;
+    final Map<String, CodecRepo> converters;
+    final Duration timeout;
+
+    EventApi({this.base, this.converters, this.timeout = const Duration(minutes: 2)});
+
+    /// 
+    ///
+    /// Gets a list of events in the given district.
+    @GetReq(path: "/district/:district_key/events", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Event>> getDistrictEvents(
+            @PathParam("district_key") String districtKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getDistrictEvents(
+        districtKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of event keys for events in the given district.
+    @GetReq(path: "/district/:district_key/events/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<String>> getDistrictEventsKeys(
+            @PathParam("district_key") String districtKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getDistrictEventsKeys(
+        districtKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a short-form list of events in the given district.
+    @GetReq(path: "/district/:district_key/events/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<EventSimple>> getDistrictEventsSimple(
+            @PathParam("district_key") String districtKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getDistrictEventsSimple(
+        districtKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets an Event.
+    @GetReq(path: "/event/:event_key", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<Event> getEvent(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEvent(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of Elimination Alliances for the given Event.
+    @GetReq(path: "/event/:event_key/alliances", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<EliminationAlliance>> getEventAlliances(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventAlliances(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of awards from the given event.
+    @GetReq(path: "/event/:event_key/awards", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Award>> getEventAwards(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventAwards(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of team rankings for the Event.
+    @GetReq(path: "/event/:event_key/district_points", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<EventDistrictPoints> getEventDistrictPoints(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventDistrictPoints(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a set of Event-specific insights for the given Event.
+    @GetReq(path: "/event/:event_key/insights", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<EventInsights> getEventInsights(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventInsights(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets an array of Match Keys for the given event key that have timeseries data. Returns an empty array if no matches have timeseries data. *WARNING:* This is *not* official data, and is subject to a significant possibility of error, or missing data. Do not rely on this data for any purpose. In fact, pretend we made it up. *WARNING:* This endpoint and corresponding data models are under *active development* and may change at any time, including in breaking ways.
+    @GetReq(path: "/event/:event_key/matches/timeseries", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<String>> getEventMatchTimeseries(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventMatchTimeseries(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of matches for the given event.
+    @GetReq(path: "/event/:event_key/matches", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Match>> getEventMatches(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventMatches(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of match keys for the given event.
+    @GetReq(path: "/event/:event_key/matches/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<String>> getEventMatchesKeys(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventMatchesKeys(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a short-form list of matches for the given event.
+    @GetReq(path: "/event/:event_key/matches/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<MatchSimple>> getEventMatchesSimple(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventMatchesSimple(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a set of Event OPRs (including OPR, DPR, and CCWM) for the given Event.
+    @GetReq(path: "/event/:event_key/oprs", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<EventOPRs> getEventOPRs(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventOPRs(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets information on TBA-generated predictions for the given Event. Contains year-specific information. *WARNING* This endpoint is currently under development and may change at any time.
+    @GetReq(path: "/event/:event_key/predictions", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<Object> getEventPredictions(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventPredictions(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of team rankings for the Event.
+    @GetReq(path: "/event/:event_key/rankings", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<EventRanking> getEventRankings(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventRankings(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a short-form Event.
+    @GetReq(path: "/event/:event_key/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<EventSimple> getEventSimple(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventSimple(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of &#x60;Team&#x60; objects that competed in the given event.
+    @GetReq(path: "/event/:event_key/teams", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Team>> getEventTeams(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventTeams(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of &#x60;Team&#x60; keys that competed in the given event.
+    @GetReq(path: "/event/:event_key/teams/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<String>> getEventTeamsKeys(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventTeamsKeys(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a short-form list of &#x60;Team&#x60; objects that competed in the given event.
+    @GetReq(path: "/event/:event_key/teams/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<TeamSimple>> getEventTeamsSimple(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventTeamsSimple(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a key-value list of the event statuses for teams competing at the given event.
+    @GetReq(path: "/event/:event_key/teams/statuses", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<Map<String, TeamEventStatus>> getEventTeamsStatuses(
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventTeamsStatuses(
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of events in the given year.
+    @GetReq(path: "/events/:year", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Event>> getEventsByYear(
+            @PathParam("year") int year
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventsByYear(
+        year
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of event keys in the given year.
+    @GetReq(path: "/events/:year/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<String>> getEventsByYearKeys(
+            @PathParam("year") int year
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventsByYearKeys(
+        year
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a short-form list of events in the given year.
+    @GetReq(path: "/events/:year/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<EventSimple>> getEventsByYearSimple(
+            @PathParam("year") int year
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getEventsByYearSimple(
+        year
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of awards the given team won at the given event.
+    @GetReq(path: "/team/:team_key/event/:event_key/awards", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Award>> getTeamEventAwards(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventAwards(
+        teamKey, 
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of matches for the given team and event.
+    @GetReq(path: "/team/:team_key/event/:event_key/matches", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Match>> getTeamEventMatches(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventMatches(
+        teamKey, 
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of match keys for matches for the given team and event.
+    @GetReq(path: "/team/:team_key/event/:event_key/matches/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<String>> getTeamEventMatchesKeys(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventMatchesKeys(
+        teamKey, 
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a short-form list of matches for the given team and event.
+    @GetReq(path: "/team/:team_key/event/:event_key/matches/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Match>> getTeamEventMatchesSimple(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventMatchesSimple(
+        teamKey, 
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets the competition rank and status of the team at the given event.
+    @GetReq(path: "/team/:team_key/event/:event_key/status", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<TeamEventStatus> getTeamEventStatus(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("event_key") String eventKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventStatus(
+        teamKey, 
+        eventKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of all events this team has competed at.
+    @GetReq(path: "/team/:team_key/events", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Event>> getTeamEvents(
+            @PathParam("team_key") String teamKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEvents(
+        teamKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of events this team has competed at in the given year.
+    @GetReq(path: "/team/:team_key/events/:year", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<Event>> getTeamEventsByYear(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("year") int year
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventsByYear(
+        teamKey, 
+        year
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of the event keys for events this team has competed at in the given year.
+    @GetReq(path: "/team/:team_key/events/:year/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<String>> getTeamEventsByYearKeys(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("year") int year
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventsByYearKeys(
+        teamKey, 
+        year
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a short-form list of events this team has competed at in the given year.
+    @GetReq(path: "/team/:team_key/events/:year/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<EventSimple>> getTeamEventsByYearSimple(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("year") int year
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventsByYearSimple(
+        teamKey, 
+        year
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a list of the event keys for all events this team has competed at.
+    @GetReq(path: "/team/:team_key/events/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<String>> getTeamEventsKeys(
+            @PathParam("team_key") String teamKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventsKeys(
+        teamKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a short-form list of all events this team has competed at.
+    @GetReq(path: "/team/:team_key/events/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<List<EventSimple>> getTeamEventsSimple(
+            @PathParam("team_key") String teamKey
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventsSimple(
+        teamKey
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+    /// 
+    ///
+    /// Gets a key-value list of the event statuses for events this team has competed at in the given year.
+    @GetReq(path: "/team/:team_key/events/:year/statuses", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
+    Future<Map<String, TeamEventStatus>> getTeamEventsStatusesByYear(
+            @PathParam("team_key") String teamKey, 
+            @PathParam("year") int year
+        ,
+            @Header("If-Modified-Since") String ifModifiedSince
+        ) {
+        return super.getTeamEventsStatusesByYear(
+        teamKey, 
+        year
+        ,
+        ifModifiedSince
+
+        ).timeout(timeout);
+    }
+
+
+}

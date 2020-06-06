@@ -1,220 +1,231 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'match_score_breakdown2019_alliance.g.dart';
 
-abstract class MatchScoreBreakdown2019Alliance implements Built<MatchScoreBreakdown2019Alliance, MatchScoreBreakdown2019AllianceBuilder> {
+part 'match_score_breakdown2019_alliance.jser.dart';
 
-    
-        @nullable
-    @BuiltValueField(wireName: r'adjustPoints')
-    int get adjustPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'autoPoints')
-    int get autoPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'bay1')
-    String get bay1;
-    
-        @nullable
-    @BuiltValueField(wireName: r'bay2')
-    String get bay2;
-    
-        @nullable
-    @BuiltValueField(wireName: r'bay3')
-    String get bay3;
-    
-        @nullable
-    @BuiltValueField(wireName: r'bay4')
-    String get bay4;
-    
-        @nullable
-    @BuiltValueField(wireName: r'bay5')
-    String get bay5;
-    
-        @nullable
-    @BuiltValueField(wireName: r'bay6')
-    String get bay6;
-    
-        @nullable
-    @BuiltValueField(wireName: r'bay7')
-    String get bay7;
-    
-        @nullable
-    @BuiltValueField(wireName: r'bay8')
-    String get bay8;
-    
-        @nullable
-    @BuiltValueField(wireName: r'cargoPoints')
-    int get cargoPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'completeRocketRankingPoint')
-    bool get completeRocketRankingPoint;
-    
-        @nullable
-    @BuiltValueField(wireName: r'completedRocketFar')
-    bool get completedRocketFar;
-    
-        @nullable
-    @BuiltValueField(wireName: r'completedRocketNear')
-    bool get completedRocketNear;
-    
-        @nullable
-    @BuiltValueField(wireName: r'endgameRobot1')
-    String get endgameRobot1;
-    
-        @nullable
-    @BuiltValueField(wireName: r'endgameRobot2')
-    String get endgameRobot2;
-    
-        @nullable
-    @BuiltValueField(wireName: r'endgameRobot3')
-    String get endgameRobot3;
-    
-        @nullable
-    @BuiltValueField(wireName: r'foulCount')
-    int get foulCount;
-    
-        @nullable
-    @BuiltValueField(wireName: r'foulPoints')
-    int get foulPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'habClimbPoints')
-    int get habClimbPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'habDockingRankingPoint')
-    bool get habDockingRankingPoint;
-    
-        @nullable
-    @BuiltValueField(wireName: r'habLineRobot1')
-    String get habLineRobot1;
-    
-        @nullable
-    @BuiltValueField(wireName: r'habLineRobot2')
-    String get habLineRobot2;
-    
-        @nullable
-    @BuiltValueField(wireName: r'habLineRobot3')
-    String get habLineRobot3;
-    
-        @nullable
-    @BuiltValueField(wireName: r'hatchPanelPoints')
-    int get hatchPanelPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'lowLeftRocketFar')
-    String get lowLeftRocketFar;
-    
-        @nullable
-    @BuiltValueField(wireName: r'lowLeftRocketNear')
-    String get lowLeftRocketNear;
-    
-        @nullable
-    @BuiltValueField(wireName: r'lowRightRocketFar')
-    String get lowRightRocketFar;
-    
-        @nullable
-    @BuiltValueField(wireName: r'lowRightRocketNear')
-    String get lowRightRocketNear;
-    
-        @nullable
-    @BuiltValueField(wireName: r'midLeftRocketFar')
-    String get midLeftRocketFar;
-    
-        @nullable
-    @BuiltValueField(wireName: r'midLeftRocketNear')
-    String get midLeftRocketNear;
-    
-        @nullable
-    @BuiltValueField(wireName: r'midRightRocketFar')
-    String get midRightRocketFar;
-    
-        @nullable
-    @BuiltValueField(wireName: r'midRightRocketNear')
-    String get midRightRocketNear;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchBay1')
-    String get preMatchBay1;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchBay2')
-    String get preMatchBay2;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchBay3')
-    String get preMatchBay3;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchBay6')
-    String get preMatchBay6;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchBay7')
-    String get preMatchBay7;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchBay8')
-    String get preMatchBay8;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchLevelRobot1')
-    String get preMatchLevelRobot1;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchLevelRobot2')
-    String get preMatchLevelRobot2;
-    
-        @nullable
-    @BuiltValueField(wireName: r'preMatchLevelRobot3')
-    String get preMatchLevelRobot3;
-    
-        @nullable
-    @BuiltValueField(wireName: r'rp')
-    int get rp;
-    
-        @nullable
-    @BuiltValueField(wireName: r'sandStormBonusPoints')
-    int get sandStormBonusPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'techFoulCount')
-    int get techFoulCount;
-    
-        @nullable
-    @BuiltValueField(wireName: r'teleopPoints')
-    int get teleopPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'topLeftRocketFar')
-    String get topLeftRocketFar;
-    
-        @nullable
-    @BuiltValueField(wireName: r'topLeftRocketNear')
-    String get topLeftRocketNear;
-    
-        @nullable
-    @BuiltValueField(wireName: r'topRightRocketFar')
-    String get topRightRocketFar;
-    
-        @nullable
-    @BuiltValueField(wireName: r'topRightRocketNear')
-    String get topRightRocketNear;
-    
-        @nullable
-    @BuiltValueField(wireName: r'totalPoints')
-    int get totalPoints;
+class MatchScoreBreakdown2019Alliance {
+  
+  @Alias('adjustPoints', isNullable: false,  )
+  final int adjustPoints;
+  
+  @Alias('autoPoints', isNullable: false,  )
+  final int autoPoints;
+  
+  @Alias('bay1', isNullable: false,  )
+  final String bay1;
+  
+  @Alias('bay2', isNullable: false,  )
+  final String bay2;
+  
+  @Alias('bay3', isNullable: false,  )
+  final String bay3;
+  
+  @Alias('bay4', isNullable: false,  )
+  final String bay4;
+  
+  @Alias('bay5', isNullable: false,  )
+  final String bay5;
+  
+  @Alias('bay6', isNullable: false,  )
+  final String bay6;
+  
+  @Alias('bay7', isNullable: false,  )
+  final String bay7;
+  
+  @Alias('bay8', isNullable: false,  )
+  final String bay8;
+  
+  @Alias('cargoPoints', isNullable: false,  )
+  final int cargoPoints;
+  
+  @Alias('completeRocketRankingPoint', isNullable: false,  )
+  final bool completeRocketRankingPoint;
+  
+  @Alias('completedRocketFar', isNullable: false,  )
+  final bool completedRocketFar;
+  
+  @Alias('completedRocketNear', isNullable: false,  )
+  final bool completedRocketNear;
+  
+  @Alias('endgameRobot1', isNullable: false,  )
+  final String endgameRobot1;
+  
+  @Alias('endgameRobot2', isNullable: false,  )
+  final String endgameRobot2;
+  
+  @Alias('endgameRobot3', isNullable: false,  )
+  final String endgameRobot3;
+  
+  @Alias('foulCount', isNullable: false,  )
+  final int foulCount;
+  
+  @Alias('foulPoints', isNullable: false,  )
+  final int foulPoints;
+  
+  @Alias('habClimbPoints', isNullable: false,  )
+  final int habClimbPoints;
+  
+  @Alias('habDockingRankingPoint', isNullable: false,  )
+  final bool habDockingRankingPoint;
+  
+  @Alias('habLineRobot1', isNullable: false,  )
+  final String habLineRobot1;
+  
+  @Alias('habLineRobot2', isNullable: false,  )
+  final String habLineRobot2;
+  
+  @Alias('habLineRobot3', isNullable: false,  )
+  final String habLineRobot3;
+  
+  @Alias('hatchPanelPoints', isNullable: false,  )
+  final int hatchPanelPoints;
+  
+  @Alias('lowLeftRocketFar', isNullable: false,  )
+  final String lowLeftRocketFar;
+  
+  @Alias('lowLeftRocketNear', isNullable: false,  )
+  final String lowLeftRocketNear;
+  
+  @Alias('lowRightRocketFar', isNullable: false,  )
+  final String lowRightRocketFar;
+  
+  @Alias('lowRightRocketNear', isNullable: false,  )
+  final String lowRightRocketNear;
+  
+  @Alias('midLeftRocketFar', isNullable: false,  )
+  final String midLeftRocketFar;
+  
+  @Alias('midLeftRocketNear', isNullable: false,  )
+  final String midLeftRocketNear;
+  
+  @Alias('midRightRocketFar', isNullable: false,  )
+  final String midRightRocketFar;
+  
+  @Alias('midRightRocketNear', isNullable: false,  )
+  final String midRightRocketNear;
+  
+  @Alias('preMatchBay1', isNullable: false,  )
+  final String preMatchBay1;
+  
+  @Alias('preMatchBay2', isNullable: false,  )
+  final String preMatchBay2;
+  
+  @Alias('preMatchBay3', isNullable: false,  )
+  final String preMatchBay3;
+  
+  @Alias('preMatchBay6', isNullable: false,  )
+  final String preMatchBay6;
+  
+  @Alias('preMatchBay7', isNullable: false,  )
+  final String preMatchBay7;
+  
+  @Alias('preMatchBay8', isNullable: false,  )
+  final String preMatchBay8;
+  
+  @Alias('preMatchLevelRobot1', isNullable: false,  )
+  final String preMatchLevelRobot1;
+  
+  @Alias('preMatchLevelRobot2', isNullable: false,  )
+  final String preMatchLevelRobot2;
+  
+  @Alias('preMatchLevelRobot3', isNullable: false,  )
+  final String preMatchLevelRobot3;
+  
+  @Alias('rp', isNullable: false,  )
+  final int rp;
+  
+  @Alias('sandStormBonusPoints', isNullable: false,  )
+  final int sandStormBonusPoints;
+  
+  @Alias('techFoulCount', isNullable: false,  )
+  final int techFoulCount;
+  
+  @Alias('teleopPoints', isNullable: false,  )
+  final int teleopPoints;
+  
+  @Alias('topLeftRocketFar', isNullable: false,  )
+  final String topLeftRocketFar;
+  
+  @Alias('topLeftRocketNear', isNullable: false,  )
+  final String topLeftRocketNear;
+  
+  @Alias('topRightRocketFar', isNullable: false,  )
+  final String topRightRocketFar;
+  
+  @Alias('topRightRocketNear', isNullable: false,  )
+  final String topRightRocketNear;
+  
+  @Alias('totalPoints', isNullable: false,  )
+  final int totalPoints;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    MatchScoreBreakdown2019Alliance._();
+  MatchScoreBreakdown2019Alliance(
+      
 
-    factory MatchScoreBreakdown2019Alliance([updates(MatchScoreBreakdown2019AllianceBuilder b)]) = _$MatchScoreBreakdown2019Alliance;
-    static Serializer<MatchScoreBreakdown2019Alliance> get serializer => _$matchScoreBreakdown2019AllianceSerializer;
+{
+     this.adjustPoints = null,  
+     this.autoPoints = null,  
+     this.bay1 = null,  
+     this.bay2 = null,  
+     this.bay3 = null,  
+     this.bay4 = null,  
+     this.bay5 = null,  
+     this.bay6 = null,  
+     this.bay7 = null,  
+     this.bay8 = null,  
+     this.cargoPoints = null,  
+     this.completeRocketRankingPoint = null,  
+     this.completedRocketFar = null,  
+     this.completedRocketNear = null,  
+     this.endgameRobot1 = null,  
+     this.endgameRobot2 = null,  
+     this.endgameRobot3 = null,  
+     this.foulCount = null,  
+     this.foulPoints = null,  
+     this.habClimbPoints = null,  
+     this.habDockingRankingPoint = null,  
+     this.habLineRobot1 = null,  
+     this.habLineRobot2 = null,  
+     this.habLineRobot3 = null,  
+     this.hatchPanelPoints = null,  
+     this.lowLeftRocketFar = null,  
+     this.lowLeftRocketNear = null,  
+     this.lowRightRocketFar = null,  
+     this.lowRightRocketNear = null,  
+     this.midLeftRocketFar = null,  
+     this.midLeftRocketNear = null,  
+     this.midRightRocketFar = null,  
+     this.midRightRocketNear = null,  
+     this.preMatchBay1 = null,  
+     this.preMatchBay2 = null,  
+     this.preMatchBay3 = null,  
+     this.preMatchBay6 = null,  
+     this.preMatchBay7 = null,  
+     this.preMatchBay8 = null,  
+     this.preMatchLevelRobot1 = null,  
+     this.preMatchLevelRobot2 = null,  
+     this.preMatchLevelRobot3 = null,  
+     this.rp = null,  
+     this.sandStormBonusPoints = null,  
+     this.techFoulCount = null,  
+     this.teleopPoints = null,  
+     this.topLeftRocketFar = null,  
+     this.topLeftRocketNear = null,  
+     this.topRightRocketFar = null,  
+     this.topRightRocketNear = null,  
+     this.totalPoints = null 
+    
+    }
+  );
+
+  @override
+  String toString() {
+    return 'MatchScoreBreakdown2019Alliance[adjustPoints=$adjustPoints, autoPoints=$autoPoints, bay1=$bay1, bay2=$bay2, bay3=$bay3, bay4=$bay4, bay5=$bay5, bay6=$bay6, bay7=$bay7, bay8=$bay8, cargoPoints=$cargoPoints, completeRocketRankingPoint=$completeRocketRankingPoint, completedRocketFar=$completedRocketFar, completedRocketNear=$completedRocketNear, endgameRobot1=$endgameRobot1, endgameRobot2=$endgameRobot2, endgameRobot3=$endgameRobot3, foulCount=$foulCount, foulPoints=$foulPoints, habClimbPoints=$habClimbPoints, habDockingRankingPoint=$habDockingRankingPoint, habLineRobot1=$habLineRobot1, habLineRobot2=$habLineRobot2, habLineRobot3=$habLineRobot3, hatchPanelPoints=$hatchPanelPoints, lowLeftRocketFar=$lowLeftRocketFar, lowLeftRocketNear=$lowLeftRocketNear, lowRightRocketFar=$lowRightRocketFar, lowRightRocketNear=$lowRightRocketNear, midLeftRocketFar=$midLeftRocketFar, midLeftRocketNear=$midLeftRocketNear, midRightRocketFar=$midRightRocketFar, midRightRocketNear=$midRightRocketNear, preMatchBay1=$preMatchBay1, preMatchBay2=$preMatchBay2, preMatchBay3=$preMatchBay3, preMatchBay6=$preMatchBay6, preMatchBay7=$preMatchBay7, preMatchBay8=$preMatchBay8, preMatchLevelRobot1=$preMatchLevelRobot1, preMatchLevelRobot2=$preMatchLevelRobot2, preMatchLevelRobot3=$preMatchLevelRobot3, rp=$rp, sandStormBonusPoints=$sandStormBonusPoints, techFoulCount=$techFoulCount, teleopPoints=$teleopPoints, topLeftRocketFar=$topLeftRocketFar, topLeftRocketNear=$topLeftRocketNear, topRightRocketFar=$topRightRocketFar, topRightRocketNear=$topRightRocketNear, totalPoints=$totalPoints, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class MatchScoreBreakdown2019AllianceSerializer extends Serializer<MatchScoreBreakdown2019Alliance> with _$MatchScoreBreakdown2019AllianceSerializer {
 
 }
 

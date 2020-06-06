@@ -1,34 +1,47 @@
-            import 'package:tba_api_client/model/match_score_breakdown2015_alliance.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'match_score_breakdown2015.g.dart';
 
-abstract class MatchScoreBreakdown2015 implements Built<MatchScoreBreakdown2015, MatchScoreBreakdown2015Builder> {
+import 'package:tba_api_client/model/match_score_breakdown2015_alliance.dart';
 
+part 'match_score_breakdown2015.jser.dart';
+
+class MatchScoreBreakdown2015 {
+  
+  @Alias('blue', isNullable: false,  )
+  final MatchScoreBreakdown2015Alliance blue;
+  
+  @Alias('red', isNullable: false,  )
+  final MatchScoreBreakdown2015Alliance red;
+  
+  @Alias('coopertition', isNullable: false,
+          
+  )
+  final String coopertition;
+  //enum coopertitionEnum {  None,  Unknown,  Stack,  };
+  @Alias('coopertition_points', isNullable: false,  )
+  final int coopertitionPoints;
+  
+
+  MatchScoreBreakdown2015(
+      
+
+{
+     this.blue = null,  
+     this.red = null,  
+     this.coopertition = null,  
+     this.coopertitionPoints = null 
     
-        @nullable
-    @BuiltValueField(wireName: r'blue')
-    MatchScoreBreakdown2015Alliance get blue;
-    
-        @nullable
-    @BuiltValueField(wireName: r'red')
-    MatchScoreBreakdown2015Alliance get red;
-    
-        @nullable
-    @BuiltValueField(wireName: r'coopertition')
-    String get coopertition;
-        //enum coopertitionEnum {  None,  Unknown,  Stack,  };
-    
-        @nullable
-    @BuiltValueField(wireName: r'coopertition_points')
-    int get coopertitionPoints;
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    MatchScoreBreakdown2015._();
+  @override
+  String toString() {
+    return 'MatchScoreBreakdown2015[blue=$blue, red=$red, coopertition=$coopertition, coopertitionPoints=$coopertitionPoints, ]';
+  }
+}
 
-    factory MatchScoreBreakdown2015([updates(MatchScoreBreakdown2015Builder b)]) = _$MatchScoreBreakdown2015;
-    static Serializer<MatchScoreBreakdown2015> get serializer => _$matchScoreBreakdown2015Serializer;
+@GenSerializer(nullableFields: true)
+class MatchScoreBreakdown2015Serializer extends Serializer<MatchScoreBreakdown2015> with _$MatchScoreBreakdown2015Serializer {
 
 }
 

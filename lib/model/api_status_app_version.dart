@@ -1,24 +1,35 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'api_status_app_version.g.dart';
 
-abstract class APIStatusAppVersion implements Built<APIStatusAppVersion, APIStatusAppVersionBuilder> {
+part 'api_status_app_version.jser.dart';
 
-    /* Internal use - Minimum application version required to correctly connect and process data. */
-        @nullable
-    @BuiltValueField(wireName: r'min_app_version')
-    int get minAppVersion;
-    /* Internal use - Latest application version available. */
-        @nullable
-    @BuiltValueField(wireName: r'latest_app_version')
-    int get latestAppVersion;
+class APIStatusAppVersion {
+   /* Internal use - Minimum application version required to correctly connect and process data. */
+  @Alias('min_app_version', isNullable: false,  )
+  final int minAppVersion;
+   /* Internal use - Latest application version available. */
+  @Alias('latest_app_version', isNullable: false,  )
+  final int latestAppVersion;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    APIStatusAppVersion._();
+  APIStatusAppVersion(
+      
 
-    factory APIStatusAppVersion([updates(APIStatusAppVersionBuilder b)]) = _$APIStatusAppVersion;
-    static Serializer<APIStatusAppVersion> get serializer => _$aPIStatusAppVersionSerializer;
+{
+    
+     this.minAppVersion = null,  
+     this.latestAppVersion = null 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'APIStatusAppVersion[minAppVersion=$minAppVersion, latestAppVersion=$latestAppVersion, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class APIStatusAppVersionSerializer extends Serializer<APIStatusAppVersion> with _$APIStatusAppVersionSerializer {
 
 }
 

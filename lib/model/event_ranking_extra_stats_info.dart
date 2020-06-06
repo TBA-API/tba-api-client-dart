@@ -1,24 +1,35 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'event_ranking_extra_stats_info.g.dart';
 
-abstract class EventRankingExtraStatsInfo implements Built<EventRankingExtraStatsInfo, EventRankingExtraStatsInfoBuilder> {
+part 'event_ranking_extra_stats_info.jser.dart';
 
-    /* Integer expressing the number of digits of precision in the number provided in `sort_orders`. */
-        @nullable
-    @BuiltValueField(wireName: r'precision')
-    num get precision;
-    /* Name of the field used in the `extra_stats` array. */
-        @nullable
-    @BuiltValueField(wireName: r'name')
-    String get name;
+class EventRankingExtraStatsInfo {
+   /* Integer expressing the number of digits of precision in the number provided in `sort_orders`. */
+  @Alias('precision', isNullable: false,  )
+  final num precision;
+   /* Name of the field used in the `extra_stats` array. */
+  @Alias('name', isNullable: false,  )
+  final String name;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    EventRankingExtraStatsInfo._();
+  EventRankingExtraStatsInfo(
+      
 
-    factory EventRankingExtraStatsInfo([updates(EventRankingExtraStatsInfoBuilder b)]) = _$EventRankingExtraStatsInfo;
-    static Serializer<EventRankingExtraStatsInfo> get serializer => _$eventRankingExtraStatsInfoSerializer;
+{
+    
+     this.precision = null,  
+     this.name = null 
+    }
+  );
+
+  @override
+  String toString() {
+    return 'EventRankingExtraStatsInfo[precision=$precision, name=$name, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class EventRankingExtraStatsInfoSerializer extends Serializer<EventRankingExtraStatsInfo> with _$EventRankingExtraStatsInfoSerializer {
 
 }
 

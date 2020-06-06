@@ -9,20 +9,20 @@ All URIs are relative to *https://www.thebluealliance.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getEventMatchTimeseries**](MatchApi.md#getEventMatchTimeseries) | **get** /event/{event_key}/matches/timeseries | 
-[**getEventMatches**](MatchApi.md#getEventMatches) | **get** /event/{event_key}/matches | 
-[**getEventMatchesKeys**](MatchApi.md#getEventMatchesKeys) | **get** /event/{event_key}/matches/keys | 
-[**getEventMatchesSimple**](MatchApi.md#getEventMatchesSimple) | **get** /event/{event_key}/matches/simple | 
-[**getMatch**](MatchApi.md#getMatch) | **get** /match/{match_key} | 
-[**getMatchSimple**](MatchApi.md#getMatchSimple) | **get** /match/{match_key}/simple | 
-[**getMatchTimeseries**](MatchApi.md#getMatchTimeseries) | **get** /match/{match_key}/timeseries | 
-[**getMatchZebra**](MatchApi.md#getMatchZebra) | **get** /match/{match_key}/zebra_motionworks | 
-[**getTeamEventMatches**](MatchApi.md#getTeamEventMatches) | **get** /team/{team_key}/event/{event_key}/matches | 
-[**getTeamEventMatchesKeys**](MatchApi.md#getTeamEventMatchesKeys) | **get** /team/{team_key}/event/{event_key}/matches/keys | 
-[**getTeamEventMatchesSimple**](MatchApi.md#getTeamEventMatchesSimple) | **get** /team/{team_key}/event/{event_key}/matches/simple | 
-[**getTeamMatchesByYear**](MatchApi.md#getTeamMatchesByYear) | **get** /team/{team_key}/matches/{year} | 
-[**getTeamMatchesByYearKeys**](MatchApi.md#getTeamMatchesByYearKeys) | **get** /team/{team_key}/matches/{year}/keys | 
-[**getTeamMatchesByYearSimple**](MatchApi.md#getTeamMatchesByYearSimple) | **get** /team/{team_key}/matches/{year}/simple | 
+[**getEventMatchTimeseries**](MatchApi.md#getEventMatchTimeseries) | **Get** /event/:event_key/matches/timeseries | 
+[**getEventMatches**](MatchApi.md#getEventMatches) | **Get** /event/:event_key/matches | 
+[**getEventMatchesKeys**](MatchApi.md#getEventMatchesKeys) | **Get** /event/:event_key/matches/keys | 
+[**getEventMatchesSimple**](MatchApi.md#getEventMatchesSimple) | **Get** /event/:event_key/matches/simple | 
+[**getMatch**](MatchApi.md#getMatch) | **Get** /match/:match_key | 
+[**getMatchSimple**](MatchApi.md#getMatchSimple) | **Get** /match/:match_key/simple | 
+[**getMatchTimeseries**](MatchApi.md#getMatchTimeseries) | **Get** /match/:match_key/timeseries | 
+[**getMatchZebra**](MatchApi.md#getMatchZebra) | **Get** /match/:match_key/zebra_motionworks | 
+[**getTeamEventMatches**](MatchApi.md#getTeamEventMatches) | **Get** /team/:team_key/event/:event_key/matches | 
+[**getTeamEventMatchesKeys**](MatchApi.md#getTeamEventMatchesKeys) | **Get** /team/:team_key/event/:event_key/matches/keys | 
+[**getTeamEventMatchesSimple**](MatchApi.md#getTeamEventMatchesSimple) | **Get** /team/:team_key/event/:event_key/matches/simple | 
+[**getTeamMatchesByYear**](MatchApi.md#getTeamMatchesByYear) | **Get** /team/:team_key/matches/:year | 
+[**getTeamMatchesByYearKeys**](MatchApi.md#getTeamMatchesByYearKeys) | **Get** /team/:team_key/matches/:year/keys | 
+[**getTeamMatchesByYearSimple**](MatchApi.md#getTeamMatchesByYearSimple) | **Get** /team/:team_key/matches/:year/simple | 
 
 
 # **getEventMatchTimeseries**
@@ -36,9 +36,9 @@ Gets an array of Match Keys for the given event key that have timeseries data. R
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var eventKey = eventKey_example; // String | TBA Event Key, eg `2016nytr`
@@ -85,9 +85,9 @@ Gets a list of matches for the given event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var eventKey = eventKey_example; // String | TBA Event Key, eg `2016nytr`
@@ -134,9 +134,9 @@ Gets a list of match keys for the given event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var eventKey = eventKey_example; // String | TBA Event Key, eg `2016nytr`
@@ -183,9 +183,9 @@ Gets a short-form list of matches for the given event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var eventKey = eventKey_example; // String | TBA Event Key, eg `2016nytr`
@@ -232,9 +232,9 @@ Gets a `Match` object for the given match key.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var matchKey = matchKey_example; // String | TBA Match Key, eg `2016nytr_qm1`
@@ -281,9 +281,9 @@ Gets a short-form `Match` object for the given match key.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var matchKey = matchKey_example; // String | TBA Match Key, eg `2016nytr_qm1`
@@ -330,9 +330,9 @@ Gets an array of game-specific Match Timeseries objects for the given match key 
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var matchKey = matchKey_example; // String | TBA Match Key, eg `2016nytr_qm1`
@@ -379,9 +379,9 @@ Gets Zebra MotionWorks data for a Match for the given match key.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var matchKey = matchKey_example; // String | TBA Match Key, eg `2016nytr_qm1`
@@ -428,9 +428,9 @@ Gets a list of matches for the given team and event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -479,9 +479,9 @@ Gets a list of match keys for matches for the given team and event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -530,9 +530,9 @@ Gets a short-form list of matches for the given team and event.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -581,9 +581,9 @@ Gets a list of matches for the given team and year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -632,9 +632,9 @@ Gets a list of match keys for matches for the given team and year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`
@@ -683,9 +683,9 @@ Gets a short-form list of matches for the given team and year.
 ```dart
 import 'package:tba_api_client/api.dart';
 // TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+//tba_api_client.api.Configuration.apiKey{'X-TBA-Auth-Key'} = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+//tba_api_client.api.Configuration.apiKeyPrefix{'X-TBA-Auth-Key'} = "Bearer";
 
 var api_instance = new MatchApi();
 var teamKey = teamKey_example; // String | TBA Team Key, eg `frc254`

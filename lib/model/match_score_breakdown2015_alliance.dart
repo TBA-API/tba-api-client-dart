@@ -1,112 +1,123 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'match_score_breakdown2015_alliance.g.dart';
 
-abstract class MatchScoreBreakdown2015Alliance implements Built<MatchScoreBreakdown2015Alliance, MatchScoreBreakdown2015AllianceBuilder> {
+part 'match_score_breakdown2015_alliance.jser.dart';
 
-    
-        @nullable
-    @BuiltValueField(wireName: r'auto_points')
-    int get autoPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'teleop_points')
-    int get teleopPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'container_points')
-    int get containerPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'tote_points')
-    int get totePoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'litter_points')
-    int get litterPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'foul_points')
-    int get foulPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'adjust_points')
-    int get adjustPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'total_points')
-    int get totalPoints;
-    
-        @nullable
-    @BuiltValueField(wireName: r'foul_count')
-    int get foulCount;
-    
-        @nullable
-    @BuiltValueField(wireName: r'tote_count_far')
-    int get toteCountFar;
-    
-        @nullable
-    @BuiltValueField(wireName: r'tote_count_near')
-    int get toteCountNear;
-    
-        @nullable
-    @BuiltValueField(wireName: r'tote_set')
-    bool get toteSet;
-    
-        @nullable
-    @BuiltValueField(wireName: r'tote_stack')
-    bool get toteStack;
-    
-        @nullable
-    @BuiltValueField(wireName: r'container_count_level1')
-    int get containerCountLevel1;
-    
-        @nullable
-    @BuiltValueField(wireName: r'container_count_level2')
-    int get containerCountLevel2;
-    
-        @nullable
-    @BuiltValueField(wireName: r'container_count_level3')
-    int get containerCountLevel3;
-    
-        @nullable
-    @BuiltValueField(wireName: r'container_count_level4')
-    int get containerCountLevel4;
-    
-        @nullable
-    @BuiltValueField(wireName: r'container_count_level5')
-    int get containerCountLevel5;
-    
-        @nullable
-    @BuiltValueField(wireName: r'container_count_level6')
-    int get containerCountLevel6;
-    
-        @nullable
-    @BuiltValueField(wireName: r'container_set')
-    bool get containerSet;
-    
-        @nullable
-    @BuiltValueField(wireName: r'litter_count_container')
-    int get litterCountContainer;
-    
-        @nullable
-    @BuiltValueField(wireName: r'litter_count_landfill')
-    int get litterCountLandfill;
-    
-        @nullable
-    @BuiltValueField(wireName: r'litter_count_unprocessed')
-    int get litterCountUnprocessed;
-    
-        @nullable
-    @BuiltValueField(wireName: r'robot_set')
-    bool get robotSet;
+class MatchScoreBreakdown2015Alliance {
+  
+  @Alias('auto_points', isNullable: false,  )
+  final int autoPoints;
+  
+  @Alias('teleop_points', isNullable: false,  )
+  final int teleopPoints;
+  
+  @Alias('container_points', isNullable: false,  )
+  final int containerPoints;
+  
+  @Alias('tote_points', isNullable: false,  )
+  final int totePoints;
+  
+  @Alias('litter_points', isNullable: false,  )
+  final int litterPoints;
+  
+  @Alias('foul_points', isNullable: false,  )
+  final int foulPoints;
+  
+  @Alias('adjust_points', isNullable: false,  )
+  final int adjustPoints;
+  
+  @Alias('total_points', isNullable: false,  )
+  final int totalPoints;
+  
+  @Alias('foul_count', isNullable: false,  )
+  final int foulCount;
+  
+  @Alias('tote_count_far', isNullable: false,  )
+  final int toteCountFar;
+  
+  @Alias('tote_count_near', isNullable: false,  )
+  final int toteCountNear;
+  
+  @Alias('tote_set', isNullable: false,  )
+  final bool toteSet;
+  
+  @Alias('tote_stack', isNullable: false,  )
+  final bool toteStack;
+  
+  @Alias('container_count_level1', isNullable: false,  )
+  final int containerCountLevel1;
+  
+  @Alias('container_count_level2', isNullable: false,  )
+  final int containerCountLevel2;
+  
+  @Alias('container_count_level3', isNullable: false,  )
+  final int containerCountLevel3;
+  
+  @Alias('container_count_level4', isNullable: false,  )
+  final int containerCountLevel4;
+  
+  @Alias('container_count_level5', isNullable: false,  )
+  final int containerCountLevel5;
+  
+  @Alias('container_count_level6', isNullable: false,  )
+  final int containerCountLevel6;
+  
+  @Alias('container_set', isNullable: false,  )
+  final bool containerSet;
+  
+  @Alias('litter_count_container', isNullable: false,  )
+  final int litterCountContainer;
+  
+  @Alias('litter_count_landfill', isNullable: false,  )
+  final int litterCountLandfill;
+  
+  @Alias('litter_count_unprocessed', isNullable: false,  )
+  final int litterCountUnprocessed;
+  
+  @Alias('robot_set', isNullable: false,  )
+  final bool robotSet;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    MatchScoreBreakdown2015Alliance._();
+  MatchScoreBreakdown2015Alliance(
+      
 
-    factory MatchScoreBreakdown2015Alliance([updates(MatchScoreBreakdown2015AllianceBuilder b)]) = _$MatchScoreBreakdown2015Alliance;
-    static Serializer<MatchScoreBreakdown2015Alliance> get serializer => _$matchScoreBreakdown2015AllianceSerializer;
+{
+     this.autoPoints = null,  
+     this.teleopPoints = null,  
+     this.containerPoints = null,  
+     this.totePoints = null,  
+     this.litterPoints = null,  
+     this.foulPoints = null,  
+     this.adjustPoints = null,  
+     this.totalPoints = null,  
+     this.foulCount = null,  
+     this.toteCountFar = null,  
+     this.toteCountNear = null,  
+     this.toteSet = null,  
+     this.toteStack = null,  
+     this.containerCountLevel1 = null,  
+     this.containerCountLevel2 = null,  
+     this.containerCountLevel3 = null,  
+     this.containerCountLevel4 = null,  
+     this.containerCountLevel5 = null,  
+     this.containerCountLevel6 = null,  
+     this.containerSet = null,  
+     this.litterCountContainer = null,  
+     this.litterCountLandfill = null,  
+     this.litterCountUnprocessed = null,  
+     this.robotSet = null 
+    
+    }
+  );
+
+  @override
+  String toString() {
+    return 'MatchScoreBreakdown2015Alliance[autoPoints=$autoPoints, teleopPoints=$teleopPoints, containerPoints=$containerPoints, totePoints=$totePoints, litterPoints=$litterPoints, foulPoints=$foulPoints, adjustPoints=$adjustPoints, totalPoints=$totalPoints, foulCount=$foulCount, toteCountFar=$toteCountFar, toteCountNear=$toteCountNear, toteSet=$toteSet, toteStack=$toteStack, containerCountLevel1=$containerCountLevel1, containerCountLevel2=$containerCountLevel2, containerCountLevel3=$containerCountLevel3, containerCountLevel4=$containerCountLevel4, containerCountLevel5=$containerCountLevel5, containerCountLevel6=$containerCountLevel6, containerSet=$containerSet, litterCountContainer=$litterCountContainer, litterCountLandfill=$litterCountLandfill, litterCountUnprocessed=$litterCountUnprocessed, robotSet=$robotSet, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class MatchScoreBreakdown2015AllianceSerializer extends Serializer<MatchScoreBreakdown2015Alliance> with _$MatchScoreBreakdown2015AllianceSerializer {
 
 }
 

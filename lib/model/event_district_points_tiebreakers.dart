@@ -1,25 +1,35 @@
-            import 'package:built_collection/built_collection.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'event_district_points_tiebreakers.g.dart';
 
-abstract class EventDistrictPointsTiebreakers implements Built<EventDistrictPointsTiebreakers, EventDistrictPointsTiebreakersBuilder> {
+part 'event_district_points_tiebreakers.jser.dart';
 
+class EventDistrictPointsTiebreakers {
+  
+  @Alias('highest_qual_scores', isNullable: false,  )
+  final List<int> highestQualScores;
+  
+  @Alias('qual_wins', isNullable: false,  )
+  final int qualWins;
+  
+
+  EventDistrictPointsTiebreakers(
+      
+
+{
+     this.highestQualScores = const [],  
+     this.qualWins = null 
     
-        @nullable
-    @BuiltValueField(wireName: r'highest_qual_scores')
-    BuiltList<int> get highestQualScores;
-    
-        @nullable
-    @BuiltValueField(wireName: r'qual_wins')
-    int get qualWins;
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    EventDistrictPointsTiebreakers._();
+  @override
+  String toString() {
+    return 'EventDistrictPointsTiebreakers[highestQualScores=$highestQualScores, qualWins=$qualWins, ]';
+  }
+}
 
-    factory EventDistrictPointsTiebreakers([updates(EventDistrictPointsTiebreakersBuilder b)]) = _$EventDistrictPointsTiebreakers;
-    static Serializer<EventDistrictPointsTiebreakers> get serializer => _$eventDistrictPointsTiebreakersSerializer;
+@GenSerializer(nullableFields: true)
+class EventDistrictPointsTiebreakersSerializer extends Serializer<EventDistrictPointsTiebreakers> with _$EventDistrictPointsTiebreakersSerializer {
 
 }
 

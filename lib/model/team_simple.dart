@@ -1,44 +1,55 @@
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'team_simple.g.dart';
 
-abstract class TeamSimple implements Built<TeamSimple, TeamSimpleBuilder> {
+part 'team_simple.jser.dart';
 
-    /* TBA team key with the format `frcXXXX` with `XXXX` representing the team number. */
-        @nullable
-    @BuiltValueField(wireName: r'key')
-    String get key;
-    /* Official team number issued by FIRST. */
-        @nullable
-    @BuiltValueField(wireName: r'team_number')
-    int get teamNumber;
-    /* Team nickname provided by FIRST. */
-        @nullable
-    @BuiltValueField(wireName: r'nickname')
-    String get nickname;
-    /* Official long name registered with FIRST. */
-        @nullable
-    @BuiltValueField(wireName: r'name')
-    String get name;
-    /* City of team derived from parsing the address registered with FIRST. */
-        @nullable
-    @BuiltValueField(wireName: r'city')
-    String get city;
-    /* State of team derived from parsing the address registered with FIRST. */
-        @nullable
-    @BuiltValueField(wireName: r'state_prov')
-    String get stateProv;
-    /* Country of team derived from parsing the address registered with FIRST. */
-        @nullable
-    @BuiltValueField(wireName: r'country')
-    String get country;
+class TeamSimple {
+   /* TBA team key with the format `frcXXXX` with `XXXX` representing the team number. */
+  @Alias('key', isNullable: false,  )
+  final String key;
+   /* Official team number issued by FIRST. */
+  @Alias('team_number', isNullable: false,  )
+  final int teamNumber;
+   /* Team nickname provided by FIRST. */
+  @Alias('nickname', isNullable: false,  )
+  final String nickname;
+   /* Official long name registered with FIRST. */
+  @Alias('name', isNullable: false,  )
+  final String name;
+   /* City of team derived from parsing the address registered with FIRST. */
+  @Alias('city', isNullable: false,  )
+  final String city;
+   /* State of team derived from parsing the address registered with FIRST. */
+  @Alias('state_prov', isNullable: false,  )
+  final String stateProv;
+   /* Country of team derived from parsing the address registered with FIRST. */
+  @Alias('country', isNullable: false,  )
+  final String country;
+  
 
-    // Boilerplate code needed to wire-up generated code
-    TeamSimple._();
+  TeamSimple(
+      
 
-    factory TeamSimple([updates(TeamSimpleBuilder b)]) = _$TeamSimple;
-    static Serializer<TeamSimple> get serializer => _$teamSimpleSerializer;
+{
+    
+     this.key = null,  
+     this.teamNumber = null,   this.nickname = null,  
+    
+     this.name = null,   this.city = null,  
+     this.stateProv = null,  
+     this.country = null 
+    
+    }
+  );
+
+  @override
+  String toString() {
+    return 'TeamSimple[key=$key, teamNumber=$teamNumber, nickname=$nickname, name=$name, city=$city, stateProv=$stateProv, country=$country, ]';
+  }
+}
+
+@GenSerializer(nullableFields: true)
+class TeamSimpleSerializer extends Serializer<TeamSimple> with _$TeamSimpleSerializer {
 
 }
 

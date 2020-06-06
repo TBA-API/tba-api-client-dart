@@ -1,33 +1,43 @@
-            import 'package:built_collection/built_collection.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'match_alliance.g.dart';
 
-abstract class MatchAlliance implements Built<MatchAlliance, MatchAllianceBuilder> {
+part 'match_alliance.jser.dart';
 
-    /* Score for this alliance. Will be null or -1 for an unplayed match. */
-        @nullable
-    @BuiltValueField(wireName: r'score')
-    int get score;
+class MatchAlliance {
+   /* Score for this alliance. Will be null or -1 for an unplayed match. */
+  @Alias('score', isNullable: false,  )
+  final int score;
+  
+  @Alias('team_keys', isNullable: false,  )
+  final List<String> teamKeys;
+   /* TBA team keys (eg `frc254`) of any teams playing as a surrogate. */
+  @Alias('surrogate_team_keys', isNullable: false,  )
+  final List<String> surrogateTeamKeys;
+   /* TBA team keys (eg `frc254`) of any disqualified teams. */
+  @Alias('dq_team_keys', isNullable: false,  )
+  final List<String> dqTeamKeys;
+  
+
+  MatchAlliance(
+      
+
+{
     
-        @nullable
-    @BuiltValueField(wireName: r'team_keys')
-    BuiltList<String> get teamKeys;
-    /* TBA team keys (eg `frc254`) of any teams playing as a surrogate. */
-        @nullable
-    @BuiltValueField(wireName: r'surrogate_team_keys')
-    BuiltList<String> get surrogateTeamKeys;
-    /* TBA team keys (eg `frc254`) of any disqualified teams. */
-        @nullable
-    @BuiltValueField(wireName: r'dq_team_keys')
-    BuiltList<String> get dqTeamKeys;
+     this.score = null,  
+     this.teamKeys = const [],   this.surrogateTeamKeys = const [],  
+     this.dqTeamKeys = const [] 
+    
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    MatchAlliance._();
+  @override
+  String toString() {
+    return 'MatchAlliance[score=$score, teamKeys=$teamKeys, surrogateTeamKeys=$surrogateTeamKeys, dqTeamKeys=$dqTeamKeys, ]';
+  }
+}
 
-    factory MatchAlliance([updates(MatchAllianceBuilder b)]) = _$MatchAlliance;
-    static Serializer<MatchAlliance> get serializer => _$matchAllianceSerializer;
+@GenSerializer(nullableFields: true)
+class MatchAllianceSerializer extends Serializer<MatchAlliance> with _$MatchAllianceSerializer {
 
 }
 

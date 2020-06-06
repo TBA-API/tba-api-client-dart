@@ -1,35 +1,47 @@
-            import 'package:tba_api_client/model/team_event_status_rank_sort_order_info.dart';
-            import 'package:built_collection/built_collection.dart';
-            import 'package:tba_api_client/model/team_event_status_rank_ranking.dart';
-        import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:jaguar_serializer/jaguar_serializer.dart';
 
-part 'team_event_status_rank.g.dart';
 
-abstract class TeamEventStatusRank implements Built<TeamEventStatusRank, TeamEventStatusRankBuilder> {
+import 'package:tba_api_client/model/team_event_status_rank_sort_order_info.dart';
 
-    /* Number of teams ranked. */
-        @nullable
-    @BuiltValueField(wireName: r'num_teams')
-    int get numTeams;
+import 'package:tba_api_client/model/team_event_status_rank_ranking.dart';
+
+part 'team_event_status_rank.jser.dart';
+
+class TeamEventStatusRank {
+   /* Number of teams ranked. */
+  @Alias('num_teams', isNullable: false,  )
+  final int numTeams;
+  
+  @Alias('ranking', isNullable: false,  )
+  final TeamEventStatusRankRanking ranking;
+   /* Ordered list of names corresponding to the elements of the `sort_orders` array. */
+  @Alias('sort_order_info', isNullable: false,  )
+  final List<TeamEventStatusRankSortOrderInfo> sortOrderInfo;
+  
+  @Alias('status', isNullable: false,  )
+  final String status;
+  
+
+  TeamEventStatusRank(
+      
+
+{
+     this.numTeams = null,  
+     this.ranking = null,  
+     this.sortOrderInfo = const [],  
+     this.status = null 
     
-        @nullable
-    @BuiltValueField(wireName: r'ranking')
-    TeamEventStatusRankRanking get ranking;
-    /* Ordered list of names corresponding to the elements of the `sort_orders` array. */
-        @nullable
-    @BuiltValueField(wireName: r'sort_order_info')
-    BuiltList<TeamEventStatusRankSortOrderInfo> get sortOrderInfo;
-    
-        @nullable
-    @BuiltValueField(wireName: r'status')
-    String get status;
+    }
+  );
 
-    // Boilerplate code needed to wire-up generated code
-    TeamEventStatusRank._();
+  @override
+  String toString() {
+    return 'TeamEventStatusRank[numTeams=$numTeams, ranking=$ranking, sortOrderInfo=$sortOrderInfo, status=$status, ]';
+  }
+}
 
-    factory TeamEventStatusRank([updates(TeamEventStatusRankBuilder b)]) = _$TeamEventStatusRank;
-    static Serializer<TeamEventStatusRank> get serializer => _$teamEventStatusRankSerializer;
+@GenSerializer(nullableFields: true)
+class TeamEventStatusRankSerializer extends Serializer<TeamEventStatusRank> with _$TeamEventStatusRankSerializer {
 
 }
 
