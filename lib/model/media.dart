@@ -1,8 +1,6 @@
 part of tba_api_client.api;
 
 class Media {
-  /* TBA identifier for this media. */
-  String key = null;
   /* String type of the media element. */
   String type = null;
   //enum typeEnum {  youtube,  cdphotothread,  imgur,  facebook-profile,  youtube-channel,  twitter-profile,  github-profile,  instagram-profile,  periscope-profile,  grabcad,  instagram-image,  external-link,  avatar,  };{
@@ -20,12 +18,11 @@ class Media {
 
   @override
   String toString() {
-    return 'Media[key=$key, type=$type, foreignKey=$foreignKey, details=$details, preferred=$preferred, directUrl=$directUrl, viewUrl=$viewUrl, ]';
+    return 'Media[type=$type, foreignKey=$foreignKey, details=$details, preferred=$preferred, directUrl=$directUrl, viewUrl=$viewUrl, ]';
   }
 
   Media.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    key = json['key'];
     type = json['type'];
     foreignKey = json['foreign_key'];
     details = json['details'];
@@ -36,8 +33,6 @@ class Media {
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (key != null)
-      json['key'] = key;
     if (type != null)
       json['type'] = type;
     if (foreignKey != null)

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **teamNumber** | **int** | Official team number issued by FIRST. | [default to null]
 **nickname** | **String** | Team nickname provided by FIRST. | [optional] [default to null]
 **name** | **String** | Official long name registered with FIRST. | [default to null]
+**schoolName** | **String** | Name of team school or affilited group registered with FIRST. | [optional] [default to null]
 **city** | **String** | City of team derived from parsing the address registered with FIRST. | [optional] [default to null]
 **stateProv** | **String** | State of team derived from parsing the address registered with FIRST. | [optional] [default to null]
 **country** | **String** | Country of team derived from parsing the address registered with FIRST. | [optional] [default to null]
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 **lng** | **double** | Will be NULL, for future development. | [optional] [default to null]
 **locationName** | **String** | Will be NULL, for future development. | [optional] [default to null]
 **website** | **String** | Official website associated with the team. | [optional] [default to null]
-**rookieYear** | **int** | First year the team officially competed. | [default to null]
+**rookieYear** | **int** | First year the team officially competed. | [optional] [default to null]
 **motto** | **String** | Team&#39;s motto as provided by FIRST. This field is deprecated and will return null - will be removed at end-of-season in 2019. | [optional] [default to null]
 **homeChampionship** | [**Object**](.md) | Location of the team&#39;s home championship each year as a key-value pair. The year (as a string) is the key, and the city is the value. | [optional] [default to null]
 

@@ -110,6 +110,10 @@ class ApiClient {
           return MatchScoreBreakdown2019.fromJson(value);
         case 'MatchScoreBreakdown2019Alliance':
           return MatchScoreBreakdown2019Alliance.fromJson(value);
+        case 'MatchScoreBreakdown2020':
+          return MatchScoreBreakdown2020.fromJson(value);
+        case 'MatchScoreBreakdown2020Alliance':
+          return MatchScoreBreakdown2020Alliance.fromJson(value);
         case 'MatchSimple':
           return MatchSimple.fromJson(value);
         case 'MatchSimpleAlliances':
@@ -144,18 +148,24 @@ class ApiClient {
           return WLTRecord.fromJson(value);
         case 'Webcast':
           return Webcast.fromJson(value);
+        case 'Zebra':
+          return Zebra.fromJson(value);
+        case 'ZebraAlliances':
+          return ZebraAlliances.fromJson(value);
+        case 'ZebraTeam':
+          return ZebraTeam.fromJson(value);
         default:
           {
             Match match;
             if (value is List &&
-                (match = _regList.firstMatch(targetType) as Match) != null) {
-              var newTargetType = match;
-              return value.map((v) => _deserialize(v, newTargetType.toString())).toList();
+                (match = _regList.firstMatch(targetType)) != null) {
+              var newTargetType = match[1];
+              return value.map((v) => _deserialize(v, newTargetType)).toList();
             } else if (value is Map &&
-                (match = _regMap.firstMatch(targetType) as Match) != null) {
-              var newTargetType = match;
+                (match = _regMap.firstMatch(targetType)) != null) {
+              var newTargetType = match[1];
               return Map.fromIterables(value.keys,
-                  value.values.map((v) => _deserialize(v, newTargetType.toString())));
+                  value.values.map((v) => _deserialize(v, newTargetType)));
             }
           }
       }

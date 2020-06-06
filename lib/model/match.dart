@@ -14,6 +14,7 @@ class Match {
   MatchSimpleAlliances alliances = null;
   /* The color (red/blue) of the winning alliance. Will contain an empty string in the event of no winner, or a tie. */
   String winningAlliance = null;
+  //enum winningAllianceEnum {  red,  blue,  ,  };{
   /* Event key of the event the match was played at. */
   String eventKey = null;
   /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) of the scheduled match time, as taken from the published schedule. */

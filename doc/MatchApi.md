@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**getMatch**](MatchApi.md#getMatch) | **GET** /match/{match_key} | 
 [**getMatchSimple**](MatchApi.md#getMatchSimple) | **GET** /match/{match_key}/simple | 
 [**getMatchTimeseries**](MatchApi.md#getMatchTimeseries) | **GET** /match/{match_key}/timeseries | 
+[**getMatchZebra**](MatchApi.md#getMatchZebra) | **GET** /match/{match_key}/zebra_motionworks | 
 [**getTeamEventMatches**](MatchApi.md#getTeamEventMatches) | **GET** /team/{team_key}/event/{event_key}/matches | 
 [**getTeamEventMatchesKeys**](MatchApi.md#getTeamEventMatchesKeys) | **GET** /team/{team_key}/event/{event_key}/matches/keys | 
 [**getTeamEventMatchesSimple**](MatchApi.md#getTeamEventMatchesSimple) | **GET** /team/{team_key}/event/{event_key}/matches/simple | 
@@ -355,6 +356,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List<Object>**](Object.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getMatchZebra**
+> Zebra getMatchZebra(matchKey, ifModifiedSince)
+
+
+
+Gets Zebra MotionWorks data for a Match for the given match key.
+
+### Example 
+```dart
+import 'package:tba_api_client/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+var api_instance = MatchApi();
+var matchKey = matchKey_example; // String | TBA Match Key, eg `2016nytr_qm1`
+var ifModifiedSince = ifModifiedSince_example; // String | Value of the `Last-Modified` header in the most recently cached response by the client.
+
+try { 
+    var result = api_instance.getMatchZebra(matchKey, ifModifiedSince);
+    print(result);
+} catch (e) {
+    print("Exception when calling MatchApi->getMatchZebra: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **matchKey** | **String**| TBA Match Key, eg &#x60;2016nytr_qm1&#x60; | [default to null]
+ **ifModifiedSince** | **String**| Value of the &#x60;Last-Modified&#x60; header in the most recently cached response by the client. | [optional] [default to null]
+
+### Return type
+
+[**Zebra**](Zebra.md)
 
 ### Authorization
 

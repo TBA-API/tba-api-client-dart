@@ -9,6 +9,8 @@ class Team {
   String nickname = null;
   /* Official long name registered with FIRST. */
   String name = null;
+  /* Name of team school or affilited group registered with FIRST. */
+  String schoolName = null;
   /* City of team derived from parsing the address registered with FIRST. */
   String city = null;
   /* State of team derived from parsing the address registered with FIRST. */
@@ -41,7 +43,7 @@ class Team {
 
   @override
   String toString() {
-    return 'Team[key=$key, teamNumber=$teamNumber, nickname=$nickname, name=$name, city=$city, stateProv=$stateProv, country=$country, address=$address, postalCode=$postalCode, gmapsPlaceId=$gmapsPlaceId, gmapsUrl=$gmapsUrl, lat=$lat, lng=$lng, locationName=$locationName, website=$website, rookieYear=$rookieYear, motto=$motto, homeChampionship=$homeChampionship, ]';
+    return 'Team[key=$key, teamNumber=$teamNumber, nickname=$nickname, name=$name, schoolName=$schoolName, city=$city, stateProv=$stateProv, country=$country, address=$address, postalCode=$postalCode, gmapsPlaceId=$gmapsPlaceId, gmapsUrl=$gmapsUrl, lat=$lat, lng=$lng, locationName=$locationName, website=$website, rookieYear=$rookieYear, motto=$motto, homeChampionship=$homeChampionship, ]';
   }
 
   Team.fromJson(Map<String, dynamic> json) {
@@ -50,6 +52,7 @@ class Team {
     teamNumber = json['team_number'];
     nickname = json['nickname'];
     name = json['name'];
+    schoolName = json['school_name'];
     city = json['city'];
     stateProv = json['state_prov'];
     country = json['country'];
@@ -80,6 +83,8 @@ class Team {
       json['nickname'] = nickname;
     if (name != null)
       json['name'] = name;
+    if (schoolName != null)
+      json['school_name'] = schoolName;
     if (city != null)
       json['city'] = city;
     if (stateProv != null)
