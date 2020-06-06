@@ -1,5 +1,5 @@
 name: tba_api_client
-version: 3.5
+version: 
 description: (Unofficial) client library for the TheBlueAlliance.com API
 authors:
   - Eric Fletcher <tba-api@thefletcher.net>
