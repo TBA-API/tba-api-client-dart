@@ -1,123 +1,163 @@
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-
-
-part 'match_score_breakdown2015_alliance.jser.dart';
+part of tba_api_client.api;
 
 class MatchScoreBreakdown2015Alliance {
   
-  @Alias('auto_points', isNullable: false,  )
-  final int autoPoints;
+  int autoPoints = null;
   
-  @Alias('teleop_points', isNullable: false,  )
-  final int teleopPoints;
+  int teleopPoints = null;
   
-  @Alias('container_points', isNullable: false,  )
-  final int containerPoints;
+  int containerPoints = null;
   
-  @Alias('tote_points', isNullable: false,  )
-  final int totePoints;
+  int totePoints = null;
   
-  @Alias('litter_points', isNullable: false,  )
-  final int litterPoints;
+  int litterPoints = null;
   
-  @Alias('foul_points', isNullable: false,  )
-  final int foulPoints;
+  int foulPoints = null;
   
-  @Alias('adjust_points', isNullable: false,  )
-  final int adjustPoints;
+  int adjustPoints = null;
   
-  @Alias('total_points', isNullable: false,  )
-  final int totalPoints;
+  int totalPoints = null;
   
-  @Alias('foul_count', isNullable: false,  )
-  final int foulCount;
+  int foulCount = null;
   
-  @Alias('tote_count_far', isNullable: false,  )
-  final int toteCountFar;
+  int toteCountFar = null;
   
-  @Alias('tote_count_near', isNullable: false,  )
-  final int toteCountNear;
+  int toteCountNear = null;
   
-  @Alias('tote_set', isNullable: false,  )
-  final bool toteSet;
+  bool toteSet = null;
   
-  @Alias('tote_stack', isNullable: false,  )
-  final bool toteStack;
+  bool toteStack = null;
   
-  @Alias('container_count_level1', isNullable: false,  )
-  final int containerCountLevel1;
+  int containerCountLevel1 = null;
   
-  @Alias('container_count_level2', isNullable: false,  )
-  final int containerCountLevel2;
+  int containerCountLevel2 = null;
   
-  @Alias('container_count_level3', isNullable: false,  )
-  final int containerCountLevel3;
+  int containerCountLevel3 = null;
   
-  @Alias('container_count_level4', isNullable: false,  )
-  final int containerCountLevel4;
+  int containerCountLevel4 = null;
   
-  @Alias('container_count_level5', isNullable: false,  )
-  final int containerCountLevel5;
+  int containerCountLevel5 = null;
   
-  @Alias('container_count_level6', isNullable: false,  )
-  final int containerCountLevel6;
+  int containerCountLevel6 = null;
   
-  @Alias('container_set', isNullable: false,  )
-  final bool containerSet;
+  bool containerSet = null;
   
-  @Alias('litter_count_container', isNullable: false,  )
-  final int litterCountContainer;
+  int litterCountContainer = null;
   
-  @Alias('litter_count_landfill', isNullable: false,  )
-  final int litterCountLandfill;
+  int litterCountLandfill = null;
   
-  @Alias('litter_count_unprocessed', isNullable: false,  )
-  final int litterCountUnprocessed;
+  int litterCountUnprocessed = null;
   
-  @Alias('robot_set', isNullable: false,  )
-  final bool robotSet;
-  
-
-  MatchScoreBreakdown2015Alliance(
-      
-
-{
-     this.autoPoints = null,  
-     this.teleopPoints = null,  
-     this.containerPoints = null,  
-     this.totePoints = null,  
-     this.litterPoints = null,  
-     this.foulPoints = null,  
-     this.adjustPoints = null,  
-     this.totalPoints = null,  
-     this.foulCount = null,  
-     this.toteCountFar = null,  
-     this.toteCountNear = null,  
-     this.toteSet = null,  
-     this.toteStack = null,  
-     this.containerCountLevel1 = null,  
-     this.containerCountLevel2 = null,  
-     this.containerCountLevel3 = null,  
-     this.containerCountLevel4 = null,  
-     this.containerCountLevel5 = null,  
-     this.containerCountLevel6 = null,  
-     this.containerSet = null,  
-     this.litterCountContainer = null,  
-     this.litterCountLandfill = null,  
-     this.litterCountUnprocessed = null,  
-     this.robotSet = null 
-    
-    }
-  );
+  bool robotSet = null;
+  MatchScoreBreakdown2015Alliance();
 
   @override
   String toString() {
     return 'MatchScoreBreakdown2015Alliance[autoPoints=$autoPoints, teleopPoints=$teleopPoints, containerPoints=$containerPoints, totePoints=$totePoints, litterPoints=$litterPoints, foulPoints=$foulPoints, adjustPoints=$adjustPoints, totalPoints=$totalPoints, foulCount=$foulCount, toteCountFar=$toteCountFar, toteCountNear=$toteCountNear, toteSet=$toteSet, toteStack=$toteStack, containerCountLevel1=$containerCountLevel1, containerCountLevel2=$containerCountLevel2, containerCountLevel3=$containerCountLevel3, containerCountLevel4=$containerCountLevel4, containerCountLevel5=$containerCountLevel5, containerCountLevel6=$containerCountLevel6, containerSet=$containerSet, litterCountContainer=$litterCountContainer, litterCountLandfill=$litterCountLandfill, litterCountUnprocessed=$litterCountUnprocessed, robotSet=$robotSet, ]';
   }
-}
 
-@GenSerializer(nullableFields: true)
-class MatchScoreBreakdown2015AllianceSerializer extends Serializer<MatchScoreBreakdown2015Alliance> with _$MatchScoreBreakdown2015AllianceSerializer {
+  MatchScoreBreakdown2015Alliance.fromJson(Map<String, dynamic> json) {
+    if (json == null) return;
+    autoPoints = json['auto_points'];
+    teleopPoints = json['teleop_points'];
+    containerPoints = json['container_points'];
+    totePoints = json['tote_points'];
+    litterPoints = json['litter_points'];
+    foulPoints = json['foul_points'];
+    adjustPoints = json['adjust_points'];
+    totalPoints = json['total_points'];
+    foulCount = json['foul_count'];
+    toteCountFar = json['tote_count_far'];
+    toteCountNear = json['tote_count_near'];
+    toteSet = json['tote_set'];
+    toteStack = json['tote_stack'];
+    containerCountLevel1 = json['container_count_level1'];
+    containerCountLevel2 = json['container_count_level2'];
+    containerCountLevel3 = json['container_count_level3'];
+    containerCountLevel4 = json['container_count_level4'];
+    containerCountLevel5 = json['container_count_level5'];
+    containerCountLevel6 = json['container_count_level6'];
+    containerSet = json['container_set'];
+    litterCountContainer = json['litter_count_container'];
+    litterCountLandfill = json['litter_count_landfill'];
+    litterCountUnprocessed = json['litter_count_unprocessed'];
+    robotSet = json['robot_set'];
+  }
 
+  Map<String, dynamic> toJson() {
+    Map <String, dynamic> json = {};
+    if (autoPoints != null)
+      json['auto_points'] = autoPoints;
+    if (teleopPoints != null)
+      json['teleop_points'] = teleopPoints;
+    if (containerPoints != null)
+      json['container_points'] = containerPoints;
+    if (totePoints != null)
+      json['tote_points'] = totePoints;
+    if (litterPoints != null)
+      json['litter_points'] = litterPoints;
+    if (foulPoints != null)
+      json['foul_points'] = foulPoints;
+    if (adjustPoints != null)
+      json['adjust_points'] = adjustPoints;
+    if (totalPoints != null)
+      json['total_points'] = totalPoints;
+    if (foulCount != null)
+      json['foul_count'] = foulCount;
+    if (toteCountFar != null)
+      json['tote_count_far'] = toteCountFar;
+    if (toteCountNear != null)
+      json['tote_count_near'] = toteCountNear;
+    if (toteSet != null)
+      json['tote_set'] = toteSet;
+    if (toteStack != null)
+      json['tote_stack'] = toteStack;
+    if (containerCountLevel1 != null)
+      json['container_count_level1'] = containerCountLevel1;
+    if (containerCountLevel2 != null)
+      json['container_count_level2'] = containerCountLevel2;
+    if (containerCountLevel3 != null)
+      json['container_count_level3'] = containerCountLevel3;
+    if (containerCountLevel4 != null)
+      json['container_count_level4'] = containerCountLevel4;
+    if (containerCountLevel5 != null)
+      json['container_count_level5'] = containerCountLevel5;
+    if (containerCountLevel6 != null)
+      json['container_count_level6'] = containerCountLevel6;
+    if (containerSet != null)
+      json['container_set'] = containerSet;
+    if (litterCountContainer != null)
+      json['litter_count_container'] = litterCountContainer;
+    if (litterCountLandfill != null)
+      json['litter_count_landfill'] = litterCountLandfill;
+    if (litterCountUnprocessed != null)
+      json['litter_count_unprocessed'] = litterCountUnprocessed;
+    if (robotSet != null)
+      json['robot_set'] = robotSet;
+    return json;
+  }
+
+  static List<MatchScoreBreakdown2015Alliance> listFromJson(List<dynamic> json) {
+    return json == null ? List<MatchScoreBreakdown2015Alliance>() : json.map((value) => MatchScoreBreakdown2015Alliance.fromJson(value)).toList();
+  }
+
+  static Map<String, MatchScoreBreakdown2015Alliance> mapFromJson(Map<String, dynamic> json) {
+    var map = Map<String, MatchScoreBreakdown2015Alliance>();
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic value) => map[key] = MatchScoreBreakdown2015Alliance.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of MatchScoreBreakdown2015Alliance-objects as value to a dart map
+  static Map<String, List<MatchScoreBreakdown2015Alliance>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<MatchScoreBreakdown2015Alliance>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = MatchScoreBreakdown2015Alliance.listFromJson(value);
+       });
+     }
+     return map;
+  }
 }
 

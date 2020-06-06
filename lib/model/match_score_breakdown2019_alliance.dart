@@ -1,231 +1,298 @@
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-
-
-part 'match_score_breakdown2019_alliance.jser.dart';
+part of tba_api_client.api;
 
 class MatchScoreBreakdown2019Alliance {
   
-  @Alias('adjustPoints', isNullable: false,  )
-  final int adjustPoints;
+  int adjustPoints = null;
   
-  @Alias('autoPoints', isNullable: false,  )
-  final int autoPoints;
+  int autoPoints = null;
   
-  @Alias('bay1', isNullable: false,  )
-  final String bay1;
+  String bay1 = null;
   
-  @Alias('bay2', isNullable: false,  )
-  final String bay2;
+  String bay2 = null;
   
-  @Alias('bay3', isNullable: false,  )
-  final String bay3;
+  String bay3 = null;
   
-  @Alias('bay4', isNullable: false,  )
-  final String bay4;
+  String bay4 = null;
   
-  @Alias('bay5', isNullable: false,  )
-  final String bay5;
+  String bay5 = null;
   
-  @Alias('bay6', isNullable: false,  )
-  final String bay6;
+  String bay6 = null;
   
-  @Alias('bay7', isNullable: false,  )
-  final String bay7;
+  String bay7 = null;
   
-  @Alias('bay8', isNullable: false,  )
-  final String bay8;
+  String bay8 = null;
   
-  @Alias('cargoPoints', isNullable: false,  )
-  final int cargoPoints;
+  int cargoPoints = null;
   
-  @Alias('completeRocketRankingPoint', isNullable: false,  )
-  final bool completeRocketRankingPoint;
+  bool completeRocketRankingPoint = null;
   
-  @Alias('completedRocketFar', isNullable: false,  )
-  final bool completedRocketFar;
+  bool completedRocketFar = null;
   
-  @Alias('completedRocketNear', isNullable: false,  )
-  final bool completedRocketNear;
+  bool completedRocketNear = null;
   
-  @Alias('endgameRobot1', isNullable: false,  )
-  final String endgameRobot1;
+  String endgameRobot1 = null;
   
-  @Alias('endgameRobot2', isNullable: false,  )
-  final String endgameRobot2;
+  String endgameRobot2 = null;
   
-  @Alias('endgameRobot3', isNullable: false,  )
-  final String endgameRobot3;
+  String endgameRobot3 = null;
   
-  @Alias('foulCount', isNullable: false,  )
-  final int foulCount;
+  int foulCount = null;
   
-  @Alias('foulPoints', isNullable: false,  )
-  final int foulPoints;
+  int foulPoints = null;
   
-  @Alias('habClimbPoints', isNullable: false,  )
-  final int habClimbPoints;
+  int habClimbPoints = null;
   
-  @Alias('habDockingRankingPoint', isNullable: false,  )
-  final bool habDockingRankingPoint;
+  bool habDockingRankingPoint = null;
   
-  @Alias('habLineRobot1', isNullable: false,  )
-  final String habLineRobot1;
+  String habLineRobot1 = null;
   
-  @Alias('habLineRobot2', isNullable: false,  )
-  final String habLineRobot2;
+  String habLineRobot2 = null;
   
-  @Alias('habLineRobot3', isNullable: false,  )
-  final String habLineRobot3;
+  String habLineRobot3 = null;
   
-  @Alias('hatchPanelPoints', isNullable: false,  )
-  final int hatchPanelPoints;
+  int hatchPanelPoints = null;
   
-  @Alias('lowLeftRocketFar', isNullable: false,  )
-  final String lowLeftRocketFar;
+  String lowLeftRocketFar = null;
   
-  @Alias('lowLeftRocketNear', isNullable: false,  )
-  final String lowLeftRocketNear;
+  String lowLeftRocketNear = null;
   
-  @Alias('lowRightRocketFar', isNullable: false,  )
-  final String lowRightRocketFar;
+  String lowRightRocketFar = null;
   
-  @Alias('lowRightRocketNear', isNullable: false,  )
-  final String lowRightRocketNear;
+  String lowRightRocketNear = null;
   
-  @Alias('midLeftRocketFar', isNullable: false,  )
-  final String midLeftRocketFar;
+  String midLeftRocketFar = null;
   
-  @Alias('midLeftRocketNear', isNullable: false,  )
-  final String midLeftRocketNear;
+  String midLeftRocketNear = null;
   
-  @Alias('midRightRocketFar', isNullable: false,  )
-  final String midRightRocketFar;
+  String midRightRocketFar = null;
   
-  @Alias('midRightRocketNear', isNullable: false,  )
-  final String midRightRocketNear;
+  String midRightRocketNear = null;
   
-  @Alias('preMatchBay1', isNullable: false,  )
-  final String preMatchBay1;
+  String preMatchBay1 = null;
   
-  @Alias('preMatchBay2', isNullable: false,  )
-  final String preMatchBay2;
+  String preMatchBay2 = null;
   
-  @Alias('preMatchBay3', isNullable: false,  )
-  final String preMatchBay3;
+  String preMatchBay3 = null;
   
-  @Alias('preMatchBay6', isNullable: false,  )
-  final String preMatchBay6;
+  String preMatchBay6 = null;
   
-  @Alias('preMatchBay7', isNullable: false,  )
-  final String preMatchBay7;
+  String preMatchBay7 = null;
   
-  @Alias('preMatchBay8', isNullable: false,  )
-  final String preMatchBay8;
+  String preMatchBay8 = null;
   
-  @Alias('preMatchLevelRobot1', isNullable: false,  )
-  final String preMatchLevelRobot1;
+  String preMatchLevelRobot1 = null;
   
-  @Alias('preMatchLevelRobot2', isNullable: false,  )
-  final String preMatchLevelRobot2;
+  String preMatchLevelRobot2 = null;
   
-  @Alias('preMatchLevelRobot3', isNullable: false,  )
-  final String preMatchLevelRobot3;
+  String preMatchLevelRobot3 = null;
   
-  @Alias('rp', isNullable: false,  )
-  final int rp;
+  int rp = null;
   
-  @Alias('sandStormBonusPoints', isNullable: false,  )
-  final int sandStormBonusPoints;
+  int sandStormBonusPoints = null;
   
-  @Alias('techFoulCount', isNullable: false,  )
-  final int techFoulCount;
+  int techFoulCount = null;
   
-  @Alias('teleopPoints', isNullable: false,  )
-  final int teleopPoints;
+  int teleopPoints = null;
   
-  @Alias('topLeftRocketFar', isNullable: false,  )
-  final String topLeftRocketFar;
+  String topLeftRocketFar = null;
   
-  @Alias('topLeftRocketNear', isNullable: false,  )
-  final String topLeftRocketNear;
+  String topLeftRocketNear = null;
   
-  @Alias('topRightRocketFar', isNullable: false,  )
-  final String topRightRocketFar;
+  String topRightRocketFar = null;
   
-  @Alias('topRightRocketNear', isNullable: false,  )
-  final String topRightRocketNear;
+  String topRightRocketNear = null;
   
-  @Alias('totalPoints', isNullable: false,  )
-  final int totalPoints;
-  
-
-  MatchScoreBreakdown2019Alliance(
-      
-
-{
-     this.adjustPoints = null,  
-     this.autoPoints = null,  
-     this.bay1 = null,  
-     this.bay2 = null,  
-     this.bay3 = null,  
-     this.bay4 = null,  
-     this.bay5 = null,  
-     this.bay6 = null,  
-     this.bay7 = null,  
-     this.bay8 = null,  
-     this.cargoPoints = null,  
-     this.completeRocketRankingPoint = null,  
-     this.completedRocketFar = null,  
-     this.completedRocketNear = null,  
-     this.endgameRobot1 = null,  
-     this.endgameRobot2 = null,  
-     this.endgameRobot3 = null,  
-     this.foulCount = null,  
-     this.foulPoints = null,  
-     this.habClimbPoints = null,  
-     this.habDockingRankingPoint = null,  
-     this.habLineRobot1 = null,  
-     this.habLineRobot2 = null,  
-     this.habLineRobot3 = null,  
-     this.hatchPanelPoints = null,  
-     this.lowLeftRocketFar = null,  
-     this.lowLeftRocketNear = null,  
-     this.lowRightRocketFar = null,  
-     this.lowRightRocketNear = null,  
-     this.midLeftRocketFar = null,  
-     this.midLeftRocketNear = null,  
-     this.midRightRocketFar = null,  
-     this.midRightRocketNear = null,  
-     this.preMatchBay1 = null,  
-     this.preMatchBay2 = null,  
-     this.preMatchBay3 = null,  
-     this.preMatchBay6 = null,  
-     this.preMatchBay7 = null,  
-     this.preMatchBay8 = null,  
-     this.preMatchLevelRobot1 = null,  
-     this.preMatchLevelRobot2 = null,  
-     this.preMatchLevelRobot3 = null,  
-     this.rp = null,  
-     this.sandStormBonusPoints = null,  
-     this.techFoulCount = null,  
-     this.teleopPoints = null,  
-     this.topLeftRocketFar = null,  
-     this.topLeftRocketNear = null,  
-     this.topRightRocketFar = null,  
-     this.topRightRocketNear = null,  
-     this.totalPoints = null 
-    
-    }
-  );
+  int totalPoints = null;
+  MatchScoreBreakdown2019Alliance();
 
   @override
   String toString() {
     return 'MatchScoreBreakdown2019Alliance[adjustPoints=$adjustPoints, autoPoints=$autoPoints, bay1=$bay1, bay2=$bay2, bay3=$bay3, bay4=$bay4, bay5=$bay5, bay6=$bay6, bay7=$bay7, bay8=$bay8, cargoPoints=$cargoPoints, completeRocketRankingPoint=$completeRocketRankingPoint, completedRocketFar=$completedRocketFar, completedRocketNear=$completedRocketNear, endgameRobot1=$endgameRobot1, endgameRobot2=$endgameRobot2, endgameRobot3=$endgameRobot3, foulCount=$foulCount, foulPoints=$foulPoints, habClimbPoints=$habClimbPoints, habDockingRankingPoint=$habDockingRankingPoint, habLineRobot1=$habLineRobot1, habLineRobot2=$habLineRobot2, habLineRobot3=$habLineRobot3, hatchPanelPoints=$hatchPanelPoints, lowLeftRocketFar=$lowLeftRocketFar, lowLeftRocketNear=$lowLeftRocketNear, lowRightRocketFar=$lowRightRocketFar, lowRightRocketNear=$lowRightRocketNear, midLeftRocketFar=$midLeftRocketFar, midLeftRocketNear=$midLeftRocketNear, midRightRocketFar=$midRightRocketFar, midRightRocketNear=$midRightRocketNear, preMatchBay1=$preMatchBay1, preMatchBay2=$preMatchBay2, preMatchBay3=$preMatchBay3, preMatchBay6=$preMatchBay6, preMatchBay7=$preMatchBay7, preMatchBay8=$preMatchBay8, preMatchLevelRobot1=$preMatchLevelRobot1, preMatchLevelRobot2=$preMatchLevelRobot2, preMatchLevelRobot3=$preMatchLevelRobot3, rp=$rp, sandStormBonusPoints=$sandStormBonusPoints, techFoulCount=$techFoulCount, teleopPoints=$teleopPoints, topLeftRocketFar=$topLeftRocketFar, topLeftRocketNear=$topLeftRocketNear, topRightRocketFar=$topRightRocketFar, topRightRocketNear=$topRightRocketNear, totalPoints=$totalPoints, ]';
   }
-}
 
-@GenSerializer(nullableFields: true)
-class MatchScoreBreakdown2019AllianceSerializer extends Serializer<MatchScoreBreakdown2019Alliance> with _$MatchScoreBreakdown2019AllianceSerializer {
+  MatchScoreBreakdown2019Alliance.fromJson(Map<String, dynamic> json) {
+    if (json == null) return;
+    adjustPoints = json['adjustPoints'];
+    autoPoints = json['autoPoints'];
+    bay1 = json['bay1'];
+    bay2 = json['bay2'];
+    bay3 = json['bay3'];
+    bay4 = json['bay4'];
+    bay5 = json['bay5'];
+    bay6 = json['bay6'];
+    bay7 = json['bay7'];
+    bay8 = json['bay8'];
+    cargoPoints = json['cargoPoints'];
+    completeRocketRankingPoint = json['completeRocketRankingPoint'];
+    completedRocketFar = json['completedRocketFar'];
+    completedRocketNear = json['completedRocketNear'];
+    endgameRobot1 = json['endgameRobot1'];
+    endgameRobot2 = json['endgameRobot2'];
+    endgameRobot3 = json['endgameRobot3'];
+    foulCount = json['foulCount'];
+    foulPoints = json['foulPoints'];
+    habClimbPoints = json['habClimbPoints'];
+    habDockingRankingPoint = json['habDockingRankingPoint'];
+    habLineRobot1 = json['habLineRobot1'];
+    habLineRobot2 = json['habLineRobot2'];
+    habLineRobot3 = json['habLineRobot3'];
+    hatchPanelPoints = json['hatchPanelPoints'];
+    lowLeftRocketFar = json['lowLeftRocketFar'];
+    lowLeftRocketNear = json['lowLeftRocketNear'];
+    lowRightRocketFar = json['lowRightRocketFar'];
+    lowRightRocketNear = json['lowRightRocketNear'];
+    midLeftRocketFar = json['midLeftRocketFar'];
+    midLeftRocketNear = json['midLeftRocketNear'];
+    midRightRocketFar = json['midRightRocketFar'];
+    midRightRocketNear = json['midRightRocketNear'];
+    preMatchBay1 = json['preMatchBay1'];
+    preMatchBay2 = json['preMatchBay2'];
+    preMatchBay3 = json['preMatchBay3'];
+    preMatchBay6 = json['preMatchBay6'];
+    preMatchBay7 = json['preMatchBay7'];
+    preMatchBay8 = json['preMatchBay8'];
+    preMatchLevelRobot1 = json['preMatchLevelRobot1'];
+    preMatchLevelRobot2 = json['preMatchLevelRobot2'];
+    preMatchLevelRobot3 = json['preMatchLevelRobot3'];
+    rp = json['rp'];
+    sandStormBonusPoints = json['sandStormBonusPoints'];
+    techFoulCount = json['techFoulCount'];
+    teleopPoints = json['teleopPoints'];
+    topLeftRocketFar = json['topLeftRocketFar'];
+    topLeftRocketNear = json['topLeftRocketNear'];
+    topRightRocketFar = json['topRightRocketFar'];
+    topRightRocketNear = json['topRightRocketNear'];
+    totalPoints = json['totalPoints'];
+  }
 
+  Map<String, dynamic> toJson() {
+    Map <String, dynamic> json = {};
+    if (adjustPoints != null)
+      json['adjustPoints'] = adjustPoints;
+    if (autoPoints != null)
+      json['autoPoints'] = autoPoints;
+    if (bay1 != null)
+      json['bay1'] = bay1;
+    if (bay2 != null)
+      json['bay2'] = bay2;
+    if (bay3 != null)
+      json['bay3'] = bay3;
+    if (bay4 != null)
+      json['bay4'] = bay4;
+    if (bay5 != null)
+      json['bay5'] = bay5;
+    if (bay6 != null)
+      json['bay6'] = bay6;
+    if (bay7 != null)
+      json['bay7'] = bay7;
+    if (bay8 != null)
+      json['bay8'] = bay8;
+    if (cargoPoints != null)
+      json['cargoPoints'] = cargoPoints;
+    if (completeRocketRankingPoint != null)
+      json['completeRocketRankingPoint'] = completeRocketRankingPoint;
+    if (completedRocketFar != null)
+      json['completedRocketFar'] = completedRocketFar;
+    if (completedRocketNear != null)
+      json['completedRocketNear'] = completedRocketNear;
+    if (endgameRobot1 != null)
+      json['endgameRobot1'] = endgameRobot1;
+    if (endgameRobot2 != null)
+      json['endgameRobot2'] = endgameRobot2;
+    if (endgameRobot3 != null)
+      json['endgameRobot3'] = endgameRobot3;
+    if (foulCount != null)
+      json['foulCount'] = foulCount;
+    if (foulPoints != null)
+      json['foulPoints'] = foulPoints;
+    if (habClimbPoints != null)
+      json['habClimbPoints'] = habClimbPoints;
+    if (habDockingRankingPoint != null)
+      json['habDockingRankingPoint'] = habDockingRankingPoint;
+    if (habLineRobot1 != null)
+      json['habLineRobot1'] = habLineRobot1;
+    if (habLineRobot2 != null)
+      json['habLineRobot2'] = habLineRobot2;
+    if (habLineRobot3 != null)
+      json['habLineRobot3'] = habLineRobot3;
+    if (hatchPanelPoints != null)
+      json['hatchPanelPoints'] = hatchPanelPoints;
+    if (lowLeftRocketFar != null)
+      json['lowLeftRocketFar'] = lowLeftRocketFar;
+    if (lowLeftRocketNear != null)
+      json['lowLeftRocketNear'] = lowLeftRocketNear;
+    if (lowRightRocketFar != null)
+      json['lowRightRocketFar'] = lowRightRocketFar;
+    if (lowRightRocketNear != null)
+      json['lowRightRocketNear'] = lowRightRocketNear;
+    if (midLeftRocketFar != null)
+      json['midLeftRocketFar'] = midLeftRocketFar;
+    if (midLeftRocketNear != null)
+      json['midLeftRocketNear'] = midLeftRocketNear;
+    if (midRightRocketFar != null)
+      json['midRightRocketFar'] = midRightRocketFar;
+    if (midRightRocketNear != null)
+      json['midRightRocketNear'] = midRightRocketNear;
+    if (preMatchBay1 != null)
+      json['preMatchBay1'] = preMatchBay1;
+    if (preMatchBay2 != null)
+      json['preMatchBay2'] = preMatchBay2;
+    if (preMatchBay3 != null)
+      json['preMatchBay3'] = preMatchBay3;
+    if (preMatchBay6 != null)
+      json['preMatchBay6'] = preMatchBay6;
+    if (preMatchBay7 != null)
+      json['preMatchBay7'] = preMatchBay7;
+    if (preMatchBay8 != null)
+      json['preMatchBay8'] = preMatchBay8;
+    if (preMatchLevelRobot1 != null)
+      json['preMatchLevelRobot1'] = preMatchLevelRobot1;
+    if (preMatchLevelRobot2 != null)
+      json['preMatchLevelRobot2'] = preMatchLevelRobot2;
+    if (preMatchLevelRobot3 != null)
+      json['preMatchLevelRobot3'] = preMatchLevelRobot3;
+    if (rp != null)
+      json['rp'] = rp;
+    if (sandStormBonusPoints != null)
+      json['sandStormBonusPoints'] = sandStormBonusPoints;
+    if (techFoulCount != null)
+      json['techFoulCount'] = techFoulCount;
+    if (teleopPoints != null)
+      json['teleopPoints'] = teleopPoints;
+    if (topLeftRocketFar != null)
+      json['topLeftRocketFar'] = topLeftRocketFar;
+    if (topLeftRocketNear != null)
+      json['topLeftRocketNear'] = topLeftRocketNear;
+    if (topRightRocketFar != null)
+      json['topRightRocketFar'] = topRightRocketFar;
+    if (topRightRocketNear != null)
+      json['topRightRocketNear'] = topRightRocketNear;
+    if (totalPoints != null)
+      json['totalPoints'] = totalPoints;
+    return json;
+  }
+
+  static List<MatchScoreBreakdown2019Alliance> listFromJson(List<dynamic> json) {
+    return json == null ? List<MatchScoreBreakdown2019Alliance>() : json.map((value) => MatchScoreBreakdown2019Alliance.fromJson(value)).toList();
+  }
+
+  static Map<String, MatchScoreBreakdown2019Alliance> mapFromJson(Map<String, dynamic> json) {
+    var map = Map<String, MatchScoreBreakdown2019Alliance>();
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic value) => map[key] = MatchScoreBreakdown2019Alliance.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of MatchScoreBreakdown2019Alliance-objects as value to a dart map
+  static Map<String, List<MatchScoreBreakdown2019Alliance>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<MatchScoreBreakdown2019Alliance>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = MatchScoreBreakdown2019Alliance.listFromJson(value);
+       });
+     }
+     return map;
+  }
 }
 

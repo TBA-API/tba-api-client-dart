@@ -1,35 +1,55 @@
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-
-
-part 'event_district_points_tiebreakers.jser.dart';
+part of tba_api_client.api;
 
 class EventDistrictPointsTiebreakers {
   
-  @Alias('highest_qual_scores', isNullable: false,  )
-  final List<int> highestQualScores;
+  List<int> highestQualScores = [];
   
-  @Alias('qual_wins', isNullable: false,  )
-  final int qualWins;
-  
-
-  EventDistrictPointsTiebreakers(
-      
-
-{
-     this.highestQualScores = const [],  
-     this.qualWins = null 
-    
-    }
-  );
+  int qualWins = null;
+  EventDistrictPointsTiebreakers();
 
   @override
   String toString() {
     return 'EventDistrictPointsTiebreakers[highestQualScores=$highestQualScores, qualWins=$qualWins, ]';
   }
-}
 
-@GenSerializer(nullableFields: true)
-class EventDistrictPointsTiebreakersSerializer extends Serializer<EventDistrictPointsTiebreakers> with _$EventDistrictPointsTiebreakersSerializer {
+  EventDistrictPointsTiebreakers.fromJson(Map<String, dynamic> json) {
+    if (json == null) return;
+    highestQualScores = (json['highest_qual_scores'] == null) ?
+      null :
+      (json['highest_qual_scores'] as List).cast<int>();
+    qualWins = json['qual_wins'];
+  }
 
+  Map<String, dynamic> toJson() {
+    Map <String, dynamic> json = {};
+    if (highestQualScores != null)
+      json['highest_qual_scores'] = highestQualScores;
+    if (qualWins != null)
+      json['qual_wins'] = qualWins;
+    return json;
+  }
+
+  static List<EventDistrictPointsTiebreakers> listFromJson(List<dynamic> json) {
+    return json == null ? List<EventDistrictPointsTiebreakers>() : json.map((value) => EventDistrictPointsTiebreakers.fromJson(value)).toList();
+  }
+
+  static Map<String, EventDistrictPointsTiebreakers> mapFromJson(Map<String, dynamic> json) {
+    var map = Map<String, EventDistrictPointsTiebreakers>();
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic value) => map[key] = EventDistrictPointsTiebreakers.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of EventDistrictPointsTiebreakers-objects as value to a dart map
+  static Map<String, List<EventDistrictPointsTiebreakers>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<EventDistrictPointsTiebreakers>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = EventDistrictPointsTiebreakers.listFromJson(value);
+       });
+     }
+     return map;
+  }
 }
 

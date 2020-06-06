@@ -1,185 +1,236 @@
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-
-
-part 'match_score_breakdown2016_alliance.jser.dart';
+part of tba_api_client.api;
 
 class MatchScoreBreakdown2016Alliance {
   
-  @Alias('autoPoints', isNullable: false,  )
-  final int autoPoints;
+  int autoPoints = null;
   
-  @Alias('teleopPoints', isNullable: false,  )
-  final int teleopPoints;
+  int teleopPoints = null;
   
-  @Alias('breachPoints', isNullable: false,  )
-  final int breachPoints;
+  int breachPoints = null;
   
-  @Alias('foulPoints', isNullable: false,  )
-  final int foulPoints;
+  int foulPoints = null;
   
-  @Alias('capturePoints', isNullable: false,  )
-  final int capturePoints;
+  int capturePoints = null;
   
-  @Alias('adjustPoints', isNullable: false,  )
-  final int adjustPoints;
+  int adjustPoints = null;
   
-  @Alias('totalPoints', isNullable: false,  )
-  final int totalPoints;
+  int totalPoints = null;
   
-  @Alias('robot1Auto', isNullable: false,
-          
-  )
-  final String robot1Auto;
-  //enum robot1AutoEnum {  Crossed,  Reached,  None,  };
-  @Alias('robot2Auto', isNullable: false,
-          
-  )
-  final String robot2Auto;
-  //enum robot2AutoEnum {  Crossed,  Reached,  None,  };
-  @Alias('robot3Auto', isNullable: false,
-          
-  )
-  final String robot3Auto;
-  //enum robot3AutoEnum {  Crossed,  Reached,  None,  };
-  @Alias('autoReachPoints', isNullable: false,  )
-  final int autoReachPoints;
+  String robot1Auto = null;
+  //enum robot1AutoEnum {  Crossed,  Reached,  None,  };{
   
-  @Alias('autoCrossingPoints', isNullable: false,  )
-  final int autoCrossingPoints;
+  String robot2Auto = null;
+  //enum robot2AutoEnum {  Crossed,  Reached,  None,  };{
   
-  @Alias('autoBouldersLow', isNullable: false,  )
-  final int autoBouldersLow;
+  String robot3Auto = null;
+  //enum robot3AutoEnum {  Crossed,  Reached,  None,  };{
   
-  @Alias('autoBouldersHigh', isNullable: false,  )
-  final int autoBouldersHigh;
+  int autoReachPoints = null;
   
-  @Alias('autoBoulderPoints', isNullable: false,  )
-  final int autoBoulderPoints;
+  int autoCrossingPoints = null;
   
-  @Alias('teleopCrossingPoints', isNullable: false,  )
-  final int teleopCrossingPoints;
+  int autoBouldersLow = null;
   
-  @Alias('teleopBouldersLow', isNullable: false,  )
-  final int teleopBouldersLow;
+  int autoBouldersHigh = null;
   
-  @Alias('teleopBouldersHigh', isNullable: false,  )
-  final int teleopBouldersHigh;
+  int autoBoulderPoints = null;
   
-  @Alias('teleopBoulderPoints', isNullable: false,  )
-  final int teleopBoulderPoints;
+  int teleopCrossingPoints = null;
   
-  @Alias('teleopDefensesBreached', isNullable: false,  )
-  final bool teleopDefensesBreached;
+  int teleopBouldersLow = null;
   
-  @Alias('teleopChallengePoints', isNullable: false,  )
-  final int teleopChallengePoints;
+  int teleopBouldersHigh = null;
   
-  @Alias('teleopScalePoints', isNullable: false,  )
-  final int teleopScalePoints;
+  int teleopBoulderPoints = null;
   
-  @Alias('teleopTowerCaptured', isNullable: false,  )
-  final int teleopTowerCaptured;
+  bool teleopDefensesBreached = null;
   
-  @Alias('towerFaceA', isNullable: false,  )
-  final String towerFaceA;
+  int teleopChallengePoints = null;
   
-  @Alias('towerFaceB', isNullable: false,  )
-  final String towerFaceB;
+  int teleopScalePoints = null;
   
-  @Alias('towerFaceC', isNullable: false,  )
-  final String towerFaceC;
+  int teleopTowerCaptured = null;
   
-  @Alias('towerEndStrength', isNullable: false,  )
-  final int towerEndStrength;
+  String towerFaceA = null;
   
-  @Alias('techFoulCount', isNullable: false,  )
-  final int techFoulCount;
+  String towerFaceB = null;
   
-  @Alias('foulCount', isNullable: false,  )
-  final int foulCount;
+  String towerFaceC = null;
   
-  @Alias('position2', isNullable: false,  )
-  final String position2;
+  int towerEndStrength = null;
   
-  @Alias('position3', isNullable: false,  )
-  final String position3;
+  int techFoulCount = null;
   
-  @Alias('position4', isNullable: false,  )
-  final String position4;
+  int foulCount = null;
   
-  @Alias('position5', isNullable: false,  )
-  final String position5;
+  String position2 = null;
   
-  @Alias('position1crossings', isNullable: false,  )
-  final int position1crossings;
+  String position3 = null;
   
-  @Alias('position2crossings', isNullable: false,  )
-  final int position2crossings;
+  String position4 = null;
   
-  @Alias('position3crossings', isNullable: false,  )
-  final int position3crossings;
+  String position5 = null;
   
-  @Alias('position4crossings', isNullable: false,  )
-  final int position4crossings;
+  int position1crossings = null;
   
-  @Alias('position5crossings', isNullable: false,  )
-  final int position5crossings;
+  int position2crossings = null;
   
-
-  MatchScoreBreakdown2016Alliance(
-      
-
-{
-     this.autoPoints = null,  
-     this.teleopPoints = null,  
-     this.breachPoints = null,  
-     this.foulPoints = null,  
-     this.capturePoints = null,  
-     this.adjustPoints = null,  
-     this.totalPoints = null,  
-     this.robot1Auto = null,  
-     this.robot2Auto = null,  
-     this.robot3Auto = null,  
-     this.autoReachPoints = null,  
-     this.autoCrossingPoints = null,  
-     this.autoBouldersLow = null,  
-     this.autoBouldersHigh = null,  
-     this.autoBoulderPoints = null,  
-     this.teleopCrossingPoints = null,  
-     this.teleopBouldersLow = null,  
-     this.teleopBouldersHigh = null,  
-     this.teleopBoulderPoints = null,  
-     this.teleopDefensesBreached = null,  
-     this.teleopChallengePoints = null,  
-     this.teleopScalePoints = null,  
-     this.teleopTowerCaptured = null,  
-     this.towerFaceA = null,  
-     this.towerFaceB = null,  
-     this.towerFaceC = null,  
-     this.towerEndStrength = null,  
-     this.techFoulCount = null,  
-     this.foulCount = null,  
-     this.position2 = null,  
-     this.position3 = null,  
-     this.position4 = null,  
-     this.position5 = null,  
-     this.position1crossings = null,  
-     this.position2crossings = null,  
-     this.position3crossings = null,  
-     this.position4crossings = null,  
-     this.position5crossings = null 
-    
-    }
-  );
+  int position3crossings = null;
+  
+  int position4crossings = null;
+  
+  int position5crossings = null;
+  MatchScoreBreakdown2016Alliance();
 
   @override
   String toString() {
     return 'MatchScoreBreakdown2016Alliance[autoPoints=$autoPoints, teleopPoints=$teleopPoints, breachPoints=$breachPoints, foulPoints=$foulPoints, capturePoints=$capturePoints, adjustPoints=$adjustPoints, totalPoints=$totalPoints, robot1Auto=$robot1Auto, robot2Auto=$robot2Auto, robot3Auto=$robot3Auto, autoReachPoints=$autoReachPoints, autoCrossingPoints=$autoCrossingPoints, autoBouldersLow=$autoBouldersLow, autoBouldersHigh=$autoBouldersHigh, autoBoulderPoints=$autoBoulderPoints, teleopCrossingPoints=$teleopCrossingPoints, teleopBouldersLow=$teleopBouldersLow, teleopBouldersHigh=$teleopBouldersHigh, teleopBoulderPoints=$teleopBoulderPoints, teleopDefensesBreached=$teleopDefensesBreached, teleopChallengePoints=$teleopChallengePoints, teleopScalePoints=$teleopScalePoints, teleopTowerCaptured=$teleopTowerCaptured, towerFaceA=$towerFaceA, towerFaceB=$towerFaceB, towerFaceC=$towerFaceC, towerEndStrength=$towerEndStrength, techFoulCount=$techFoulCount, foulCount=$foulCount, position2=$position2, position3=$position3, position4=$position4, position5=$position5, position1crossings=$position1crossings, position2crossings=$position2crossings, position3crossings=$position3crossings, position4crossings=$position4crossings, position5crossings=$position5crossings, ]';
   }
-}
 
-@GenSerializer(nullableFields: true)
-class MatchScoreBreakdown2016AllianceSerializer extends Serializer<MatchScoreBreakdown2016Alliance> with _$MatchScoreBreakdown2016AllianceSerializer {
+  MatchScoreBreakdown2016Alliance.fromJson(Map<String, dynamic> json) {
+    if (json == null) return;
+    autoPoints = json['autoPoints'];
+    teleopPoints = json['teleopPoints'];
+    breachPoints = json['breachPoints'];
+    foulPoints = json['foulPoints'];
+    capturePoints = json['capturePoints'];
+    adjustPoints = json['adjustPoints'];
+    totalPoints = json['totalPoints'];
+    robot1Auto = json['robot1Auto'];
+    robot2Auto = json['robot2Auto'];
+    robot3Auto = json['robot3Auto'];
+    autoReachPoints = json['autoReachPoints'];
+    autoCrossingPoints = json['autoCrossingPoints'];
+    autoBouldersLow = json['autoBouldersLow'];
+    autoBouldersHigh = json['autoBouldersHigh'];
+    autoBoulderPoints = json['autoBoulderPoints'];
+    teleopCrossingPoints = json['teleopCrossingPoints'];
+    teleopBouldersLow = json['teleopBouldersLow'];
+    teleopBouldersHigh = json['teleopBouldersHigh'];
+    teleopBoulderPoints = json['teleopBoulderPoints'];
+    teleopDefensesBreached = json['teleopDefensesBreached'];
+    teleopChallengePoints = json['teleopChallengePoints'];
+    teleopScalePoints = json['teleopScalePoints'];
+    teleopTowerCaptured = json['teleopTowerCaptured'];
+    towerFaceA = json['towerFaceA'];
+    towerFaceB = json['towerFaceB'];
+    towerFaceC = json['towerFaceC'];
+    towerEndStrength = json['towerEndStrength'];
+    techFoulCount = json['techFoulCount'];
+    foulCount = json['foulCount'];
+    position2 = json['position2'];
+    position3 = json['position3'];
+    position4 = json['position4'];
+    position5 = json['position5'];
+    position1crossings = json['position1crossings'];
+    position2crossings = json['position2crossings'];
+    position3crossings = json['position3crossings'];
+    position4crossings = json['position4crossings'];
+    position5crossings = json['position5crossings'];
+  }
 
+  Map<String, dynamic> toJson() {
+    Map <String, dynamic> json = {};
+    if (autoPoints != null)
+      json['autoPoints'] = autoPoints;
+    if (teleopPoints != null)
+      json['teleopPoints'] = teleopPoints;
+    if (breachPoints != null)
+      json['breachPoints'] = breachPoints;
+    if (foulPoints != null)
+      json['foulPoints'] = foulPoints;
+    if (capturePoints != null)
+      json['capturePoints'] = capturePoints;
+    if (adjustPoints != null)
+      json['adjustPoints'] = adjustPoints;
+    if (totalPoints != null)
+      json['totalPoints'] = totalPoints;
+    if (robot1Auto != null)
+      json['robot1Auto'] = robot1Auto;
+    if (robot2Auto != null)
+      json['robot2Auto'] = robot2Auto;
+    if (robot3Auto != null)
+      json['robot3Auto'] = robot3Auto;
+    if (autoReachPoints != null)
+      json['autoReachPoints'] = autoReachPoints;
+    if (autoCrossingPoints != null)
+      json['autoCrossingPoints'] = autoCrossingPoints;
+    if (autoBouldersLow != null)
+      json['autoBouldersLow'] = autoBouldersLow;
+    if (autoBouldersHigh != null)
+      json['autoBouldersHigh'] = autoBouldersHigh;
+    if (autoBoulderPoints != null)
+      json['autoBoulderPoints'] = autoBoulderPoints;
+    if (teleopCrossingPoints != null)
+      json['teleopCrossingPoints'] = teleopCrossingPoints;
+    if (teleopBouldersLow != null)
+      json['teleopBouldersLow'] = teleopBouldersLow;
+    if (teleopBouldersHigh != null)
+      json['teleopBouldersHigh'] = teleopBouldersHigh;
+    if (teleopBoulderPoints != null)
+      json['teleopBoulderPoints'] = teleopBoulderPoints;
+    if (teleopDefensesBreached != null)
+      json['teleopDefensesBreached'] = teleopDefensesBreached;
+    if (teleopChallengePoints != null)
+      json['teleopChallengePoints'] = teleopChallengePoints;
+    if (teleopScalePoints != null)
+      json['teleopScalePoints'] = teleopScalePoints;
+    if (teleopTowerCaptured != null)
+      json['teleopTowerCaptured'] = teleopTowerCaptured;
+    if (towerFaceA != null)
+      json['towerFaceA'] = towerFaceA;
+    if (towerFaceB != null)
+      json['towerFaceB'] = towerFaceB;
+    if (towerFaceC != null)
+      json['towerFaceC'] = towerFaceC;
+    if (towerEndStrength != null)
+      json['towerEndStrength'] = towerEndStrength;
+    if (techFoulCount != null)
+      json['techFoulCount'] = techFoulCount;
+    if (foulCount != null)
+      json['foulCount'] = foulCount;
+    if (position2 != null)
+      json['position2'] = position2;
+    if (position3 != null)
+      json['position3'] = position3;
+    if (position4 != null)
+      json['position4'] = position4;
+    if (position5 != null)
+      json['position5'] = position5;
+    if (position1crossings != null)
+      json['position1crossings'] = position1crossings;
+    if (position2crossings != null)
+      json['position2crossings'] = position2crossings;
+    if (position3crossings != null)
+      json['position3crossings'] = position3crossings;
+    if (position4crossings != null)
+      json['position4crossings'] = position4crossings;
+    if (position5crossings != null)
+      json['position5crossings'] = position5crossings;
+    return json;
+  }
+
+  static List<MatchScoreBreakdown2016Alliance> listFromJson(List<dynamic> json) {
+    return json == null ? List<MatchScoreBreakdown2016Alliance>() : json.map((value) => MatchScoreBreakdown2016Alliance.fromJson(value)).toList();
+  }
+
+  static Map<String, MatchScoreBreakdown2016Alliance> mapFromJson(Map<String, dynamic> json) {
+    var map = Map<String, MatchScoreBreakdown2016Alliance>();
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic value) => map[key] = MatchScoreBreakdown2016Alliance.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of MatchScoreBreakdown2016Alliance-objects as value to a dart map
+  static Map<String, List<MatchScoreBreakdown2016Alliance>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<MatchScoreBreakdown2016Alliance>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = MatchScoreBreakdown2016Alliance.listFromJson(value);
+       });
+     }
+     return map;
+  }
 }
 

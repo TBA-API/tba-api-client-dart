@@ -1,645 +1,2104 @@
-import 'package:jaguar_retrofit/annotations/annotations.dart';
-import 'package:jaguar_retrofit/jaguar_retrofit.dart';
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-import 'package:jaguar_mimetype/jaguar_mimetype.dart';
-import 'dart:async';
+part of tba_api_client.api;
 
-import 'package:tba_api_client/model/event_district_points.dart';
-import 'package:tba_api_client/model/team_simple.dart';
-import 'package:tba_api_client/model/event_simple.dart';
-import 'package:tba_api_client/model/elimination_alliance.dart';
-import 'package:tba_api_client/model/match_simple.dart';
-import 'package:tba_api_client/model/team_event_status.dart';
-import 'package:tba_api_client/model/match.dart';
-import 'package:tba_api_client/model/event_ranking.dart';
-import 'package:tba_api_client/model/event_insights.dart';
-import 'package:tba_api_client/model/team.dart';
-import 'package:tba_api_client/model/event_op_rs.dart';
-import 'package:tba_api_client/model/award.dart';
-import 'package:tba_api_client/model/event.dart';
 
-part 'event_api.jretro.dart';
 
-@GenApiClient()
-class EventApi extends ApiClient with _$EventApiClient {
-    final Route base;
-    final Map<String, CodecRepo> converters;
-    final Duration timeout;
+class EventApi {
+  final ApiClient apiClient;
 
-    EventApi({this.base, this.converters, this.timeout = const Duration(minutes: 2)});
+  EventApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-    /// 
-    ///
-    /// Gets a list of events in the given district.
-    @GetReq(path: "/district/:district_key/events", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Event>> getDistrictEvents(
-            @PathParam("district_key") String districtKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getDistrictEvents(
-        districtKey
-        ,
-        ifModifiedSince
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of events in the given district.
+  Future<Response> getDistrictEventsWithHttpInfo(String districtKey, { String ifModifiedSince }) async {
+    Object postBody;
 
-        ).timeout(timeout);
+    // verify required params are set
+    if(districtKey == null) {
+     throw ApiException(400, "Missing required param: districtKey");
     }
 
-    /// 
-    ///
-    /// Gets a list of event keys for events in the given district.
-    @GetReq(path: "/district/:district_key/events/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<String>> getDistrictEventsKeys(
-            @PathParam("district_key") String districtKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getDistrictEventsKeys(
-        districtKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/district/{district_key}/events".replaceAll("{format}","json").replaceAll("{" + "district_key" + "}", districtKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a short-form list of events in the given district.
-    @GetReq(path: "/district/:district_key/events/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<EventSimple>> getDistrictEventsSimple(
-            @PathParam("district_key") String districtKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getDistrictEventsSimple(
-        districtKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of events in the given district.
+  Future<List<Event>> getDistrictEvents(String districtKey, { String ifModifiedSince }) async {
+    Response response = await getDistrictEventsWithHttpInfo(districtKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Event>') as List).map((item) => item as Event).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of event keys for events in the given district.
+  Future<Response> getDistrictEventsKeysWithHttpInfo(String districtKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(districtKey == null) {
+     throw ApiException(400, "Missing required param: districtKey");
     }
 
-    /// 
-    ///
-    /// Gets an Event.
-    @GetReq(path: "/event/:event_key", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<Event> getEvent(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEvent(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/district/{district_key}/events/keys".replaceAll("{format}","json").replaceAll("{" + "district_key" + "}", districtKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of Elimination Alliances for the given Event.
-    @GetReq(path: "/event/:event_key/alliances", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<EliminationAlliance>> getEventAlliances(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventAlliances(
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of event keys for events in the given district.
+  Future<List<String>> getDistrictEventsKeys(String districtKey, { String ifModifiedSince }) async {
+    Response response = await getDistrictEventsKeysWithHttpInfo(districtKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a short-form list of events in the given district.
+  Future<Response> getDistrictEventsSimpleWithHttpInfo(String districtKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(districtKey == null) {
+     throw ApiException(400, "Missing required param: districtKey");
     }
 
-    /// 
-    ///
-    /// Gets a list of awards from the given event.
-    @GetReq(path: "/event/:event_key/awards", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Award>> getEventAwards(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventAwards(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/district/{district_key}/events/simple".replaceAll("{format}","json").replaceAll("{" + "district_key" + "}", districtKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of team rankings for the Event.
-    @GetReq(path: "/event/:event_key/district_points", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<EventDistrictPoints> getEventDistrictPoints(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventDistrictPoints(
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a short-form list of events in the given district.
+  Future<List<EventSimple>> getDistrictEventsSimple(String districtKey, { String ifModifiedSince }) async {
+    Response response = await getDistrictEventsSimpleWithHttpInfo(districtKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<EventSimple>') as List).map((item) => item as EventSimple).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets an Event.
+  Future<Response> getEventWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a set of Event-specific insights for the given Event.
-    @GetReq(path: "/event/:event_key/insights", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<EventInsights> getEventInsights(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventInsights(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets an array of Match Keys for the given event key that have timeseries data. Returns an empty array if no matches have timeseries data. *WARNING:* This is *not* official data, and is subject to a significant possibility of error, or missing data. Do not rely on this data for any purpose. In fact, pretend we made it up. *WARNING:* This endpoint and corresponding data models are under *active development* and may change at any time, including in breaking ways.
-    @GetReq(path: "/event/:event_key/matches/timeseries", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<String>> getEventMatchTimeseries(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventMatchTimeseries(
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets an Event.
+  Future<Event> getEvent(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Event') as Event;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of Elimination Alliances for the given Event.
+  Future<Response> getEventAlliancesWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a list of matches for the given event.
-    @GetReq(path: "/event/:event_key/matches", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Match>> getEventMatches(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventMatches(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/alliances".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of match keys for the given event.
-    @GetReq(path: "/event/:event_key/matches/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<String>> getEventMatchesKeys(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventMatchesKeys(
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of Elimination Alliances for the given Event.
+  Future<List<EliminationAlliance>> getEventAlliances(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventAlliancesWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<EliminationAlliance>') as List).map((item) => item as EliminationAlliance).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of awards from the given event.
+  Future<Response> getEventAwardsWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a short-form list of matches for the given event.
-    @GetReq(path: "/event/:event_key/matches/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<MatchSimple>> getEventMatchesSimple(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventMatchesSimple(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/awards".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a set of Event OPRs (including OPR, DPR, and CCWM) for the given Event.
-    @GetReq(path: "/event/:event_key/oprs", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<EventOPRs> getEventOPRs(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventOPRs(
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of awards from the given event.
+  Future<List<Award>> getEventAwards(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventAwardsWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Award>') as List).map((item) => item as Award).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of team rankings for the Event.
+  Future<Response> getEventDistrictPointsWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets information on TBA-generated predictions for the given Event. Contains year-specific information. *WARNING* This endpoint is currently under development and may change at any time.
-    @GetReq(path: "/event/:event_key/predictions", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<Object> getEventPredictions(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventPredictions(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/district_points".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of team rankings for the Event.
-    @GetReq(path: "/event/:event_key/rankings", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<EventRanking> getEventRankings(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventRankings(
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of team rankings for the Event.
+  Future<EventDistrictPoints> getEventDistrictPoints(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventDistrictPointsWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'EventDistrictPoints') as EventDistrictPoints;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a set of Event-specific insights for the given Event.
+  Future<Response> getEventInsightsWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a short-form Event.
-    @GetReq(path: "/event/:event_key/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<EventSimple> getEventSimple(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventSimple(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/insights".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of &#x60;Team&#x60; objects that competed in the given event.
-    @GetReq(path: "/event/:event_key/teams", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Team>> getEventTeams(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventTeams(
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a set of Event-specific insights for the given Event.
+  Future<EventInsights> getEventInsights(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventInsightsWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'EventInsights') as EventInsights;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets an array of Match Keys for the given event key that have timeseries data. Returns an empty array if no matches have timeseries data. *WARNING:* This is *not* official data, and is subject to a significant possibility of error, or missing data. Do not rely on this data for any purpose. In fact, pretend we made it up. *WARNING:* This endpoint and corresponding data models are under *active development* and may change at any time, including in breaking ways.
+  Future<Response> getEventMatchTimeseriesWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a list of &#x60;Team&#x60; keys that competed in the given event.
-    @GetReq(path: "/event/:event_key/teams/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<String>> getEventTeamsKeys(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventTeamsKeys(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/matches/timeseries".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a short-form list of &#x60;Team&#x60; objects that competed in the given event.
-    @GetReq(path: "/event/:event_key/teams/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<TeamSimple>> getEventTeamsSimple(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventTeamsSimple(
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets an array of Match Keys for the given event key that have timeseries data. Returns an empty array if no matches have timeseries data. *WARNING:* This is *not* official data, and is subject to a significant possibility of error, or missing data. Do not rely on this data for any purpose. In fact, pretend we made it up. *WARNING:* This endpoint and corresponding data models are under *active development* and may change at any time, including in breaking ways.
+  Future<List<String>> getEventMatchTimeseries(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventMatchTimeseriesWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of matches for the given event.
+  Future<Response> getEventMatchesWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a key-value list of the event statuses for teams competing at the given event.
-    @GetReq(path: "/event/:event_key/teams/statuses", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<Map<String, TeamEventStatus>> getEventTeamsStatuses(
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventTeamsStatuses(
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/matches".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of events in the given year.
-    @GetReq(path: "/events/:year", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Event>> getEventsByYear(
-            @PathParam("year") int year
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventsByYear(
-        year
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of matches for the given event.
+  Future<List<Match>> getEventMatches(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventMatchesWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Match>') as List).map((item) => item as Match).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of match keys for the given event.
+  Future<Response> getEventMatchesKeysWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a list of event keys in the given year.
-    @GetReq(path: "/events/:year/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<String>> getEventsByYearKeys(
-            @PathParam("year") int year
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventsByYearKeys(
-        year
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/matches/keys".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a short-form list of events in the given year.
-    @GetReq(path: "/events/:year/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<EventSimple>> getEventsByYearSimple(
-            @PathParam("year") int year
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getEventsByYearSimple(
-        year
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of match keys for the given event.
+  Future<List<String>> getEventMatchesKeys(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventMatchesKeysWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a short-form list of matches for the given event.
+  Future<Response> getEventMatchesSimpleWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a list of awards the given team won at the given event.
-    @GetReq(path: "/team/:team_key/event/:event_key/awards", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Award>> getTeamEventAwards(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventAwards(
-        teamKey, 
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/matches/simple".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of matches for the given team and event.
-    @GetReq(path: "/team/:team_key/event/:event_key/matches", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Match>> getTeamEventMatches(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventMatches(
-        teamKey, 
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a short-form list of matches for the given event.
+  Future<List<MatchSimple>> getEventMatchesSimple(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventMatchesSimpleWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<MatchSimple>') as List).map((item) => item as MatchSimple).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a set of Event OPRs (including OPR, DPR, and CCWM) for the given Event.
+  Future<Response> getEventOPRsWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a list of match keys for matches for the given team and event.
-    @GetReq(path: "/team/:team_key/event/:event_key/matches/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<String>> getTeamEventMatchesKeys(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventMatchesKeys(
-        teamKey, 
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/oprs".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a short-form list of matches for the given team and event.
-    @GetReq(path: "/team/:team_key/event/:event_key/matches/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Match>> getTeamEventMatchesSimple(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventMatchesSimple(
-        teamKey, 
-        eventKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a set of Event OPRs (including OPR, DPR, and CCWM) for the given Event.
+  Future<EventOPRs> getEventOPRs(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventOPRsWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'EventOPRs') as EventOPRs;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets information on TBA-generated predictions for the given Event. Contains year-specific information. *WARNING* This endpoint is currently under development and may change at any time.
+  Future<Response> getEventPredictionsWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets the competition rank and status of the team at the given event.
-    @GetReq(path: "/team/:team_key/event/:event_key/status", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<TeamEventStatus> getTeamEventStatus(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("event_key") String eventKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventStatus(
-        teamKey, 
-        eventKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/predictions".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of all events this team has competed at.
-    @GetReq(path: "/team/:team_key/events", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Event>> getTeamEvents(
-            @PathParam("team_key") String teamKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEvents(
-        teamKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets information on TBA-generated predictions for the given Event. Contains year-specific information. *WARNING* This endpoint is currently under development and may change at any time.
+  Future<Object> getEventPredictions(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventPredictionsWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of team rankings for the Event.
+  Future<Response> getEventRankingsWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a list of events this team has competed at in the given year.
-    @GetReq(path: "/team/:team_key/events/:year", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<Event>> getTeamEventsByYear(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("year") int year
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventsByYear(
-        teamKey, 
-        year
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/rankings".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of the event keys for events this team has competed at in the given year.
-    @GetReq(path: "/team/:team_key/events/:year/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<String>> getTeamEventsByYearKeys(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("year") int year
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventsByYearKeys(
-        teamKey, 
-        year
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of team rankings for the Event.
+  Future<EventRanking> getEventRankings(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventRankingsWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'EventRanking') as EventRanking;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a short-form Event.
+  Future<Response> getEventSimpleWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a short-form list of events this team has competed at in the given year.
-    @GetReq(path: "/team/:team_key/events/:year/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<EventSimple>> getTeamEventsByYearSimple(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("year") int year
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventsByYearSimple(
-        teamKey, 
-        year
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/simple".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a list of the event keys for all events this team has competed at.
-    @GetReq(path: "/team/:team_key/events/keys", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<String>> getTeamEventsKeys(
-            @PathParam("team_key") String teamKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventsKeys(
-        teamKey
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a short-form Event.
+  Future<EventSimple> getEventSimple(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventSimpleWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'EventSimple') as EventSimple;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of &#x60;Team&#x60; objects that competed in the given event.
+  Future<Response> getEventTeamsWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
-    /// 
-    ///
-    /// Gets a short-form list of all events this team has competed at.
-    @GetReq(path: "/team/:team_key/events/simple", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<List<EventSimple>> getTeamEventsSimple(
-            @PathParam("team_key") String teamKey
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventsSimple(
-        teamKey
-        ,
-        ifModifiedSince
+    // create path and map variables
+    String path = "/event/{event_key}/teams".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
 
-        ).timeout(timeout);
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
     }
 
-    /// 
-    ///
-    /// Gets a key-value list of the event statuses for events this team has competed at in the given year.
-    @GetReq(path: "/team/:team_key/events/:year/statuses", metadata: {"auth": [ {"type": "apiKey", "name": "apiKey", "keyName": "X-TBA-Auth-Key", "where": "header" }]})
-    Future<Map<String, TeamEventStatus>> getTeamEventsStatusesByYear(
-            @PathParam("team_key") String teamKey, 
-            @PathParam("year") int year
-        ,
-            @Header("If-Modified-Since") String ifModifiedSince
-        ) {
-        return super.getTeamEventsStatusesByYear(
-        teamKey, 
-        year
-        ,
-        ifModifiedSince
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
 
-        ).timeout(timeout);
+  /// 
+  ///
+  /// Gets a list of &#x60;Team&#x60; objects that competed in the given event.
+  Future<List<Team>> getEventTeams(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventTeamsWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Team>') as List).map((item) => item as Team).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of &#x60;Team&#x60; keys that competed in the given event.
+  Future<Response> getEventTeamsKeysWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
     }
 
+    // create path and map variables
+    String path = "/event/{event_key}/teams/keys".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of &#x60;Team&#x60; keys that competed in the given event.
+  Future<List<String>> getEventTeamsKeys(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventTeamsKeysWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a short-form list of &#x60;Team&#x60; objects that competed in the given event.
+  Future<Response> getEventTeamsSimpleWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
+    }
+
+    // create path and map variables
+    String path = "/event/{event_key}/teams/simple".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a short-form list of &#x60;Team&#x60; objects that competed in the given event.
+  Future<List<TeamSimple>> getEventTeamsSimple(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventTeamsSimpleWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<TeamSimple>') as List).map((item) => item as TeamSimple).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a key-value list of the event statuses for teams competing at the given event.
+  Future<Response> getEventTeamsStatusesWithHttpInfo(String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
+    }
+
+    // create path and map variables
+    String path = "/event/{event_key}/teams/statuses".replaceAll("{format}","json").replaceAll("{" + "event_key" + "}", eventKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a key-value list of the event statuses for teams competing at the given event.
+  Future<Map<String, TeamEventStatus>> getEventTeamsStatuses(String eventKey, { String ifModifiedSince }) async {
+    Response response = await getEventTeamsStatusesWithHttpInfo(eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return Map<String, TeamEventStatus>.from(apiClient.deserialize(_decodeBodyBytes(response), 'Map<String, TeamEventStatus>'));
+          ;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of events in the given year.
+  Future<Response> getEventsByYearWithHttpInfo(int year, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(year == null) {
+     throw ApiException(400, "Missing required param: year");
+    }
+
+    // create path and map variables
+    String path = "/events/{year}".replaceAll("{format}","json").replaceAll("{" + "year" + "}", year.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of events in the given year.
+  Future<List<Event>> getEventsByYear(int year, { String ifModifiedSince }) async {
+    Response response = await getEventsByYearWithHttpInfo(year,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Event>') as List).map((item) => item as Event).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of event keys in the given year.
+  Future<Response> getEventsByYearKeysWithHttpInfo(int year, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(year == null) {
+     throw ApiException(400, "Missing required param: year");
+    }
+
+    // create path and map variables
+    String path = "/events/{year}/keys".replaceAll("{format}","json").replaceAll("{" + "year" + "}", year.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of event keys in the given year.
+  Future<List<String>> getEventsByYearKeys(int year, { String ifModifiedSince }) async {
+    Response response = await getEventsByYearKeysWithHttpInfo(year,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a short-form list of events in the given year.
+  Future<Response> getEventsByYearSimpleWithHttpInfo(int year, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(year == null) {
+     throw ApiException(400, "Missing required param: year");
+    }
+
+    // create path and map variables
+    String path = "/events/{year}/simple".replaceAll("{format}","json").replaceAll("{" + "year" + "}", year.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a short-form list of events in the given year.
+  Future<List<EventSimple>> getEventsByYearSimple(int year, { String ifModifiedSince }) async {
+    Response response = await getEventsByYearSimpleWithHttpInfo(year,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<EventSimple>') as List).map((item) => item as EventSimple).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of awards the given team won at the given event.
+  Future<Response> getTeamEventAwardsWithHttpInfo(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/event/{event_key}/awards".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "event_key" + "}", eventKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of awards the given team won at the given event.
+  Future<List<Award>> getTeamEventAwards(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Response response = await getTeamEventAwardsWithHttpInfo(teamKey, eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Award>') as List).map((item) => item as Award).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of matches for the given team and event.
+  Future<Response> getTeamEventMatchesWithHttpInfo(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/event/{event_key}/matches".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "event_key" + "}", eventKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of matches for the given team and event.
+  Future<List<Match>> getTeamEventMatches(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Response response = await getTeamEventMatchesWithHttpInfo(teamKey, eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Match>') as List).map((item) => item as Match).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of match keys for matches for the given team and event.
+  Future<Response> getTeamEventMatchesKeysWithHttpInfo(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/event/{event_key}/matches/keys".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "event_key" + "}", eventKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of match keys for matches for the given team and event.
+  Future<List<String>> getTeamEventMatchesKeys(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Response response = await getTeamEventMatchesKeysWithHttpInfo(teamKey, eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a short-form list of matches for the given team and event.
+  Future<Response> getTeamEventMatchesSimpleWithHttpInfo(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/event/{event_key}/matches/simple".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "event_key" + "}", eventKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a short-form list of matches for the given team and event.
+  Future<List<Match>> getTeamEventMatchesSimple(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Response response = await getTeamEventMatchesSimpleWithHttpInfo(teamKey, eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Match>') as List).map((item) => item as Match).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets the competition rank and status of the team at the given event.
+  Future<Response> getTeamEventStatusWithHttpInfo(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(eventKey == null) {
+     throw ApiException(400, "Missing required param: eventKey");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/event/{event_key}/status".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "event_key" + "}", eventKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets the competition rank and status of the team at the given event.
+  Future<TeamEventStatus> getTeamEventStatus(String teamKey, String eventKey, { String ifModifiedSince }) async {
+    Response response = await getTeamEventStatusWithHttpInfo(teamKey, eventKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'TeamEventStatus') as TeamEventStatus;
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of all events this team has competed at.
+  Future<Response> getTeamEventsWithHttpInfo(String teamKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/events".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of all events this team has competed at.
+  Future<List<Event>> getTeamEvents(String teamKey, { String ifModifiedSince }) async {
+    Response response = await getTeamEventsWithHttpInfo(teamKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Event>') as List).map((item) => item as Event).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of events this team has competed at in the given year.
+  Future<Response> getTeamEventsByYearWithHttpInfo(String teamKey, int year, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(year == null) {
+     throw ApiException(400, "Missing required param: year");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/events/{year}".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "year" + "}", year.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of events this team has competed at in the given year.
+  Future<List<Event>> getTeamEventsByYear(String teamKey, int year, { String ifModifiedSince }) async {
+    Response response = await getTeamEventsByYearWithHttpInfo(teamKey, year,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Event>') as List).map((item) => item as Event).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of the event keys for events this team has competed at in the given year.
+  Future<Response> getTeamEventsByYearKeysWithHttpInfo(String teamKey, int year, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(year == null) {
+     throw ApiException(400, "Missing required param: year");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/events/{year}/keys".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "year" + "}", year.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of the event keys for events this team has competed at in the given year.
+  Future<List<String>> getTeamEventsByYearKeys(String teamKey, int year, { String ifModifiedSince }) async {
+    Response response = await getTeamEventsByYearKeysWithHttpInfo(teamKey, year,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a short-form list of events this team has competed at in the given year.
+  Future<Response> getTeamEventsByYearSimpleWithHttpInfo(String teamKey, int year, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(year == null) {
+     throw ApiException(400, "Missing required param: year");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/events/{year}/simple".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "year" + "}", year.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a short-form list of events this team has competed at in the given year.
+  Future<List<EventSimple>> getTeamEventsByYearSimple(String teamKey, int year, { String ifModifiedSince }) async {
+    Response response = await getTeamEventsByYearSimpleWithHttpInfo(teamKey, year,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<EventSimple>') as List).map((item) => item as EventSimple).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a list of the event keys for all events this team has competed at.
+  Future<Response> getTeamEventsKeysWithHttpInfo(String teamKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/events/keys".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a list of the event keys for all events this team has competed at.
+  Future<List<String>> getTeamEventsKeys(String teamKey, { String ifModifiedSince }) async {
+    Response response = await getTeamEventsKeysWithHttpInfo(teamKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<String>') as List).map((item) => item as String).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a short-form list of all events this team has competed at.
+  Future<Response> getTeamEventsSimpleWithHttpInfo(String teamKey, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/events/simple".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a short-form list of all events this team has competed at.
+  Future<List<EventSimple>> getTeamEventsSimple(String teamKey, { String ifModifiedSince }) async {
+    Response response = await getTeamEventsSimpleWithHttpInfo(teamKey,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<EventSimple>') as List).map((item) => item as EventSimple).toList();
+    } else {
+      return null;
+    }
+  }
+
+  ///  with HTTP info returned
+  ///
+  /// Gets a key-value list of the event statuses for events this team has competed at in the given year.
+  Future<Response> getTeamEventsStatusesByYearWithHttpInfo(String teamKey, int year, { String ifModifiedSince }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(teamKey == null) {
+     throw ApiException(400, "Missing required param: teamKey");
+    }
+    if(year == null) {
+     throw ApiException(400, "Missing required param: year");
+    }
+
+    // create path and map variables
+    String path = "/team/{team_key}/events/{year}/statuses".replaceAll("{format}","json").replaceAll("{" + "team_key" + "}", teamKey.toString()).replaceAll("{" + "year" + "}", year.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["If-Modified-Since"] = ifModifiedSince;
+
+    List<String> contentTypes = [];
+
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    List<String> authNames = ["apiKey"];
+
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'GET',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             nullableContentType,
+                                             authNames);
+    return response;
+  }
+
+  /// 
+  ///
+  /// Gets a key-value list of the event statuses for events this team has competed at in the given year.
+  Future<Map<String, TeamEventStatus>> getTeamEventsStatusesByYear(String teamKey, int year, { String ifModifiedSince }) async {
+    Response response = await getTeamEventsStatusesByYearWithHttpInfo(teamKey, year,  ifModifiedSince: ifModifiedSince );
+    if(response.statusCode >= 400) {
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return Map<String, TeamEventStatus>.from(apiClient.deserialize(_decodeBodyBytes(response), 'Map<String, TeamEventStatus>'));
+          ;
+    } else {
+      return null;
+    }
+  }
 
 }

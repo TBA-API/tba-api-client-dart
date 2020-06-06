@@ -1,45 +1,64 @@
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-
-
-import 'package:tba_api_client/model/event_ranking_sort_order_info.dart';
-
-import 'package:tba_api_client/model/event_ranking_rankings.dart';
-
-import 'package:tba_api_client/model/event_ranking_extra_stats_info.dart';
-
-part 'event_ranking.jser.dart';
+part of tba_api_client.api;
 
 class EventRanking {
-   /* List of rankings at the event. */
-  @Alias('rankings', isNullable: false,  )
-  final List<EventRankingRankings> rankings;
-   /* List of special TBA-generated values provided in the `extra_stats` array for each item. */
-  @Alias('extra_stats_info', isNullable: false,  )
-  final List<EventRankingExtraStatsInfo> extraStatsInfo;
-   /* List of year-specific values provided in the `sort_orders` array for each team. */
-  @Alias('sort_order_info', isNullable: false,  )
-  final List<EventRankingSortOrderInfo> sortOrderInfo;
-  
-
-  EventRanking(
-      
-
-{
-    
-     this.rankings = const [],   this.extraStatsInfo = const [],  
-    
-     this.sortOrderInfo = const [] 
-    }
-  );
+  /* List of rankings at the event. */
+  List<EventRankingRankings> rankings = [];
+  /* List of special TBA-generated values provided in the `extra_stats` array for each item. */
+  List<EventRankingExtraStatsInfo> extraStatsInfo = [];
+  /* List of year-specific values provided in the `sort_orders` array for each team. */
+  List<EventRankingSortOrderInfo> sortOrderInfo = [];
+  EventRanking();
 
   @override
   String toString() {
     return 'EventRanking[rankings=$rankings, extraStatsInfo=$extraStatsInfo, sortOrderInfo=$sortOrderInfo, ]';
   }
-}
 
-@GenSerializer(nullableFields: true)
-class EventRankingSerializer extends Serializer<EventRanking> with _$EventRankingSerializer {
+  EventRanking.fromJson(Map<String, dynamic> json) {
+    if (json == null) return;
+    rankings = (json['rankings'] == null) ?
+      null :
+      EventRankingRankings.listFromJson(json['rankings']);
+    extraStatsInfo = (json['extra_stats_info'] == null) ?
+      null :
+      EventRankingExtraStatsInfo.listFromJson(json['extra_stats_info']);
+    sortOrderInfo = (json['sort_order_info'] == null) ?
+      null :
+      EventRankingSortOrderInfo.listFromJson(json['sort_order_info']);
+  }
 
+  Map<String, dynamic> toJson() {
+    Map <String, dynamic> json = {};
+    if (rankings != null)
+      json['rankings'] = rankings;
+    if (extraStatsInfo != null)
+      json['extra_stats_info'] = extraStatsInfo;
+    if (sortOrderInfo != null)
+      json['sort_order_info'] = sortOrderInfo;
+    return json;
+  }
+
+  static List<EventRanking> listFromJson(List<dynamic> json) {
+    return json == null ? List<EventRanking>() : json.map((value) => EventRanking.fromJson(value)).toList();
+  }
+
+  static Map<String, EventRanking> mapFromJson(Map<String, dynamic> json) {
+    var map = Map<String, EventRanking>();
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic value) => map[key] = EventRanking.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of EventRanking-objects as value to a dart map
+  static Map<String, List<EventRanking>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<EventRanking>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = EventRanking.listFromJson(value);
+       });
+     }
+     return map;
+  }
 }
 

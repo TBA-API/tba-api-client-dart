@@ -1,49 +1,70 @@
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-
-
-import 'package:tba_api_client/model/district_ranking_event_points.dart';
-
-part 'district_ranking.jser.dart';
+part of tba_api_client.api;
 
 class DistrictRanking {
-   /* TBA team key for the team. */
-  @Alias('team_key', isNullable: false,  )
-  final String teamKey;
-   /* Numerical rank of the team, 1 being top rank. */
-  @Alias('rank', isNullable: false,  )
-  final int rank;
-   /* Any points added to a team as a result of the rookie bonus. */
-  @Alias('rookie_bonus', isNullable: false,  )
-  final int rookieBonus;
-   /* Total district points for the team. */
-  @Alias('point_total', isNullable: false,  )
-  final int pointTotal;
-   /* List of events that contributed to the point total for the team. */
-  @Alias('event_points', isNullable: false,  )
-  final List<DistrictRankingEventPoints> eventPoints;
-  
-
-  DistrictRanking(
-      
-
-{
-    
-     this.teamKey = null,  
-     this.rank = null,   this.rookieBonus = null,  
-    
-     this.pointTotal = null,   this.eventPoints = const [] 
-    
-    }
-  );
+  /* TBA team key for the team. */
+  String teamKey = null;
+  /* Numerical rank of the team, 1 being top rank. */
+  int rank = null;
+  /* Any points added to a team as a result of the rookie bonus. */
+  int rookieBonus = null;
+  /* Total district points for the team. */
+  int pointTotal = null;
+  /* List of events that contributed to the point total for the team. */
+  List<DistrictRankingEventPoints> eventPoints = [];
+  DistrictRanking();
 
   @override
   String toString() {
     return 'DistrictRanking[teamKey=$teamKey, rank=$rank, rookieBonus=$rookieBonus, pointTotal=$pointTotal, eventPoints=$eventPoints, ]';
   }
-}
 
-@GenSerializer(nullableFields: true)
-class DistrictRankingSerializer extends Serializer<DistrictRanking> with _$DistrictRankingSerializer {
+  DistrictRanking.fromJson(Map<String, dynamic> json) {
+    if (json == null) return;
+    teamKey = json['team_key'];
+    rank = json['rank'];
+    rookieBonus = json['rookie_bonus'];
+    pointTotal = json['point_total'];
+    eventPoints = (json['event_points'] == null) ?
+      null :
+      DistrictRankingEventPoints.listFromJson(json['event_points']);
+  }
 
+  Map<String, dynamic> toJson() {
+    Map <String, dynamic> json = {};
+    if (teamKey != null)
+      json['team_key'] = teamKey;
+    if (rank != null)
+      json['rank'] = rank;
+    if (rookieBonus != null)
+      json['rookie_bonus'] = rookieBonus;
+    if (pointTotal != null)
+      json['point_total'] = pointTotal;
+    if (eventPoints != null)
+      json['event_points'] = eventPoints;
+    return json;
+  }
+
+  static List<DistrictRanking> listFromJson(List<dynamic> json) {
+    return json == null ? List<DistrictRanking>() : json.map((value) => DistrictRanking.fromJson(value)).toList();
+  }
+
+  static Map<String, DistrictRanking> mapFromJson(Map<String, dynamic> json) {
+    var map = Map<String, DistrictRanking>();
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic value) => map[key] = DistrictRanking.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of DistrictRanking-objects as value to a dart map
+  static Map<String, List<DistrictRanking>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<DistrictRanking>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = DistrictRanking.listFromJson(value);
+       });
+     }
+     return map;
+  }
 }
 

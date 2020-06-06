@@ -1,25 +1,16 @@
-import 'dart:async';
-import 'package:tba_api_client/auth/auth.dart';
-import 'package:jaguar_retrofit/jaguar_retrofit.dart';
+part of tba_api_client.api;
 
-class OAuthInterceptor extends AuthInterceptor {
-    Map<String, String> tokens = {};
+class OAuth implements Authentication {
+  String _accessToken;
 
-    @override
-    FutureOr<void> before(RouteBase route) {
-        final authInfo = getAuthInfo(route, "oauth");
-        for (var info in authInfo) {
-            final token = tokens[info["name"]];
-            if(token != null) {
-                route.header("Authorization", "Bearer ${token}");
-                break;
-            }
-        }
-        return super.before(route);
+  OAuth({String accessToken}) : _accessToken = accessToken;
+
+  @override
+  void applyToParams(List<QueryParam> queryParams, Map<String, String> headerParams) {
+    if (_accessToken != null) {
+      headerParams["Authorization"] = "Bearer $_accessToken";
     }
+  }
 
-    @override
-    FutureOr after(StringResponse response) {
-        return Future.value(response);
-    }
+  set accessToken(String accessToken) => _accessToken = accessToken;
 }

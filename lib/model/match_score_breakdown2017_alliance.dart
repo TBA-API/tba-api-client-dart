@@ -1,165 +1,211 @@
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-
-
-part 'match_score_breakdown2017_alliance.jser.dart';
+part of tba_api_client.api;
 
 class MatchScoreBreakdown2017Alliance {
   
-  @Alias('autoPoints', isNullable: false,  )
-  final int autoPoints;
+  int autoPoints = null;
   
-  @Alias('teleopPoints', isNullable: false,  )
-  final int teleopPoints;
+  int teleopPoints = null;
   
-  @Alias('foulPoints', isNullable: false,  )
-  final int foulPoints;
+  int foulPoints = null;
   
-  @Alias('adjustPoints', isNullable: false,  )
-  final int adjustPoints;
+  int adjustPoints = null;
   
-  @Alias('totalPoints', isNullable: false,  )
-  final int totalPoints;
+  int totalPoints = null;
   
-  @Alias('robot1Auto', isNullable: false,
-          
-  )
-  final String robot1Auto;
-  //enum robot1AutoEnum {  Unknown,  Mobility,  None,  };
-  @Alias('robot2Auto', isNullable: false,
-          
-  )
-  final String robot2Auto;
-  //enum robot2AutoEnum {  Unknown,  Mobility,  None,  };
-  @Alias('robot3Auto', isNullable: false,
-          
-  )
-  final String robot3Auto;
-  //enum robot3AutoEnum {  Unknown,  Mobility,  None,  };
-  @Alias('rotor1Auto', isNullable: false,  )
-  final bool rotor1Auto;
+  String robot1Auto = null;
+  //enum robot1AutoEnum {  Unknown,  Mobility,  None,  };{
   
-  @Alias('rotor2Auto', isNullable: false,  )
-  final bool rotor2Auto;
+  String robot2Auto = null;
+  //enum robot2AutoEnum {  Unknown,  Mobility,  None,  };{
   
-  @Alias('autoFuelLow', isNullable: false,  )
-  final int autoFuelLow;
+  String robot3Auto = null;
+  //enum robot3AutoEnum {  Unknown,  Mobility,  None,  };{
   
-  @Alias('autoFuelHigh', isNullable: false,  )
-  final int autoFuelHigh;
+  bool rotor1Auto = null;
   
-  @Alias('autoMobilityPoints', isNullable: false,  )
-  final int autoMobilityPoints;
+  bool rotor2Auto = null;
   
-  @Alias('autoRotorPoints', isNullable: false,  )
-  final int autoRotorPoints;
+  int autoFuelLow = null;
   
-  @Alias('autoFuelPoints', isNullable: false,  )
-  final int autoFuelPoints;
+  int autoFuelHigh = null;
   
-  @Alias('teleopFuelPoints', isNullable: false,  )
-  final int teleopFuelPoints;
+  int autoMobilityPoints = null;
   
-  @Alias('teleopFuelLow', isNullable: false,  )
-  final int teleopFuelLow;
+  int autoRotorPoints = null;
   
-  @Alias('teleopFuelHigh', isNullable: false,  )
-  final int teleopFuelHigh;
+  int autoFuelPoints = null;
   
-  @Alias('teleopRotorPoints', isNullable: false,  )
-  final int teleopRotorPoints;
+  int teleopFuelPoints = null;
   
-  @Alias('kPaRankingPointAchieved', isNullable: false,  )
-  final bool kPaRankingPointAchieved;
+  int teleopFuelLow = null;
   
-  @Alias('teleopTakeoffPoints', isNullable: false,  )
-  final int teleopTakeoffPoints;
+  int teleopFuelHigh = null;
   
-  @Alias('kPaBonusPoints', isNullable: false,  )
-  final int kPaBonusPoints;
+  int teleopRotorPoints = null;
   
-  @Alias('rotorBonusPoints', isNullable: false,  )
-  final int rotorBonusPoints;
+  bool kPaRankingPointAchieved = null;
   
-  @Alias('rotor1Engaged', isNullable: false,  )
-  final bool rotor1Engaged;
+  int teleopTakeoffPoints = null;
   
-  @Alias('rotor2Engaged', isNullable: false,  )
-  final bool rotor2Engaged;
+  int kPaBonusPoints = null;
   
-  @Alias('rotor3Engaged', isNullable: false,  )
-  final bool rotor3Engaged;
+  int rotorBonusPoints = null;
   
-  @Alias('rotor4Engaged', isNullable: false,  )
-  final bool rotor4Engaged;
+  bool rotor1Engaged = null;
   
-  @Alias('rotorRankingPointAchieved', isNullable: false,  )
-  final bool rotorRankingPointAchieved;
+  bool rotor2Engaged = null;
   
-  @Alias('techFoulCount', isNullable: false,  )
-  final int techFoulCount;
+  bool rotor3Engaged = null;
   
-  @Alias('foulCount', isNullable: false,  )
-  final int foulCount;
+  bool rotor4Engaged = null;
   
-  @Alias('touchpadNear', isNullable: false,  )
-  final String touchpadNear;
+  bool rotorRankingPointAchieved = null;
   
-  @Alias('touchpadMiddle', isNullable: false,  )
-  final String touchpadMiddle;
+  int techFoulCount = null;
   
-  @Alias('touchpadFar', isNullable: false,  )
-  final String touchpadFar;
+  int foulCount = null;
   
-
-  MatchScoreBreakdown2017Alliance(
-      
-
-{
-     this.autoPoints = null,  
-     this.teleopPoints = null,  
-     this.foulPoints = null,  
-     this.adjustPoints = null,  
-     this.totalPoints = null,  
-     this.robot1Auto = null,  
-     this.robot2Auto = null,  
-     this.robot3Auto = null,  
-     this.rotor1Auto = null,  
-     this.rotor2Auto = null,  
-     this.autoFuelLow = null,  
-     this.autoFuelHigh = null,  
-     this.autoMobilityPoints = null,  
-     this.autoRotorPoints = null,  
-     this.autoFuelPoints = null,  
-     this.teleopFuelPoints = null,  
-     this.teleopFuelLow = null,  
-     this.teleopFuelHigh = null,  
-     this.teleopRotorPoints = null,  
-     this.kPaRankingPointAchieved = null,  
-     this.teleopTakeoffPoints = null,  
-     this.kPaBonusPoints = null,  
-     this.rotorBonusPoints = null,  
-     this.rotor1Engaged = null,  
-     this.rotor2Engaged = null,  
-     this.rotor3Engaged = null,  
-     this.rotor4Engaged = null,  
-     this.rotorRankingPointAchieved = null,  
-     this.techFoulCount = null,  
-     this.foulCount = null,  
-     this.touchpadNear = null,  
-     this.touchpadMiddle = null,  
-     this.touchpadFar = null 
-    
-    }
-  );
+  String touchpadNear = null;
+  
+  String touchpadMiddle = null;
+  
+  String touchpadFar = null;
+  MatchScoreBreakdown2017Alliance();
 
   @override
   String toString() {
     return 'MatchScoreBreakdown2017Alliance[autoPoints=$autoPoints, teleopPoints=$teleopPoints, foulPoints=$foulPoints, adjustPoints=$adjustPoints, totalPoints=$totalPoints, robot1Auto=$robot1Auto, robot2Auto=$robot2Auto, robot3Auto=$robot3Auto, rotor1Auto=$rotor1Auto, rotor2Auto=$rotor2Auto, autoFuelLow=$autoFuelLow, autoFuelHigh=$autoFuelHigh, autoMobilityPoints=$autoMobilityPoints, autoRotorPoints=$autoRotorPoints, autoFuelPoints=$autoFuelPoints, teleopFuelPoints=$teleopFuelPoints, teleopFuelLow=$teleopFuelLow, teleopFuelHigh=$teleopFuelHigh, teleopRotorPoints=$teleopRotorPoints, kPaRankingPointAchieved=$kPaRankingPointAchieved, teleopTakeoffPoints=$teleopTakeoffPoints, kPaBonusPoints=$kPaBonusPoints, rotorBonusPoints=$rotorBonusPoints, rotor1Engaged=$rotor1Engaged, rotor2Engaged=$rotor2Engaged, rotor3Engaged=$rotor3Engaged, rotor4Engaged=$rotor4Engaged, rotorRankingPointAchieved=$rotorRankingPointAchieved, techFoulCount=$techFoulCount, foulCount=$foulCount, touchpadNear=$touchpadNear, touchpadMiddle=$touchpadMiddle, touchpadFar=$touchpadFar, ]';
   }
-}
 
-@GenSerializer(nullableFields: true)
-class MatchScoreBreakdown2017AllianceSerializer extends Serializer<MatchScoreBreakdown2017Alliance> with _$MatchScoreBreakdown2017AllianceSerializer {
+  MatchScoreBreakdown2017Alliance.fromJson(Map<String, dynamic> json) {
+    if (json == null) return;
+    autoPoints = json['autoPoints'];
+    teleopPoints = json['teleopPoints'];
+    foulPoints = json['foulPoints'];
+    adjustPoints = json['adjustPoints'];
+    totalPoints = json['totalPoints'];
+    robot1Auto = json['robot1Auto'];
+    robot2Auto = json['robot2Auto'];
+    robot3Auto = json['robot3Auto'];
+    rotor1Auto = json['rotor1Auto'];
+    rotor2Auto = json['rotor2Auto'];
+    autoFuelLow = json['autoFuelLow'];
+    autoFuelHigh = json['autoFuelHigh'];
+    autoMobilityPoints = json['autoMobilityPoints'];
+    autoRotorPoints = json['autoRotorPoints'];
+    autoFuelPoints = json['autoFuelPoints'];
+    teleopFuelPoints = json['teleopFuelPoints'];
+    teleopFuelLow = json['teleopFuelLow'];
+    teleopFuelHigh = json['teleopFuelHigh'];
+    teleopRotorPoints = json['teleopRotorPoints'];
+    kPaRankingPointAchieved = json['kPaRankingPointAchieved'];
+    teleopTakeoffPoints = json['teleopTakeoffPoints'];
+    kPaBonusPoints = json['kPaBonusPoints'];
+    rotorBonusPoints = json['rotorBonusPoints'];
+    rotor1Engaged = json['rotor1Engaged'];
+    rotor2Engaged = json['rotor2Engaged'];
+    rotor3Engaged = json['rotor3Engaged'];
+    rotor4Engaged = json['rotor4Engaged'];
+    rotorRankingPointAchieved = json['rotorRankingPointAchieved'];
+    techFoulCount = json['techFoulCount'];
+    foulCount = json['foulCount'];
+    touchpadNear = json['touchpadNear'];
+    touchpadMiddle = json['touchpadMiddle'];
+    touchpadFar = json['touchpadFar'];
+  }
 
+  Map<String, dynamic> toJson() {
+    Map <String, dynamic> json = {};
+    if (autoPoints != null)
+      json['autoPoints'] = autoPoints;
+    if (teleopPoints != null)
+      json['teleopPoints'] = teleopPoints;
+    if (foulPoints != null)
+      json['foulPoints'] = foulPoints;
+    if (adjustPoints != null)
+      json['adjustPoints'] = adjustPoints;
+    if (totalPoints != null)
+      json['totalPoints'] = totalPoints;
+    if (robot1Auto != null)
+      json['robot1Auto'] = robot1Auto;
+    if (robot2Auto != null)
+      json['robot2Auto'] = robot2Auto;
+    if (robot3Auto != null)
+      json['robot3Auto'] = robot3Auto;
+    if (rotor1Auto != null)
+      json['rotor1Auto'] = rotor1Auto;
+    if (rotor2Auto != null)
+      json['rotor2Auto'] = rotor2Auto;
+    if (autoFuelLow != null)
+      json['autoFuelLow'] = autoFuelLow;
+    if (autoFuelHigh != null)
+      json['autoFuelHigh'] = autoFuelHigh;
+    if (autoMobilityPoints != null)
+      json['autoMobilityPoints'] = autoMobilityPoints;
+    if (autoRotorPoints != null)
+      json['autoRotorPoints'] = autoRotorPoints;
+    if (autoFuelPoints != null)
+      json['autoFuelPoints'] = autoFuelPoints;
+    if (teleopFuelPoints != null)
+      json['teleopFuelPoints'] = teleopFuelPoints;
+    if (teleopFuelLow != null)
+      json['teleopFuelLow'] = teleopFuelLow;
+    if (teleopFuelHigh != null)
+      json['teleopFuelHigh'] = teleopFuelHigh;
+    if (teleopRotorPoints != null)
+      json['teleopRotorPoints'] = teleopRotorPoints;
+    if (kPaRankingPointAchieved != null)
+      json['kPaRankingPointAchieved'] = kPaRankingPointAchieved;
+    if (teleopTakeoffPoints != null)
+      json['teleopTakeoffPoints'] = teleopTakeoffPoints;
+    if (kPaBonusPoints != null)
+      json['kPaBonusPoints'] = kPaBonusPoints;
+    if (rotorBonusPoints != null)
+      json['rotorBonusPoints'] = rotorBonusPoints;
+    if (rotor1Engaged != null)
+      json['rotor1Engaged'] = rotor1Engaged;
+    if (rotor2Engaged != null)
+      json['rotor2Engaged'] = rotor2Engaged;
+    if (rotor3Engaged != null)
+      json['rotor3Engaged'] = rotor3Engaged;
+    if (rotor4Engaged != null)
+      json['rotor4Engaged'] = rotor4Engaged;
+    if (rotorRankingPointAchieved != null)
+      json['rotorRankingPointAchieved'] = rotorRankingPointAchieved;
+    if (techFoulCount != null)
+      json['techFoulCount'] = techFoulCount;
+    if (foulCount != null)
+      json['foulCount'] = foulCount;
+    if (touchpadNear != null)
+      json['touchpadNear'] = touchpadNear;
+    if (touchpadMiddle != null)
+      json['touchpadMiddle'] = touchpadMiddle;
+    if (touchpadFar != null)
+      json['touchpadFar'] = touchpadFar;
+    return json;
+  }
+
+  static List<MatchScoreBreakdown2017Alliance> listFromJson(List<dynamic> json) {
+    return json == null ? List<MatchScoreBreakdown2017Alliance>() : json.map((value) => MatchScoreBreakdown2017Alliance.fromJson(value)).toList();
+  }
+
+  static Map<String, MatchScoreBreakdown2017Alliance> mapFromJson(Map<String, dynamic> json) {
+    var map = Map<String, MatchScoreBreakdown2017Alliance>();
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic value) => map[key] = MatchScoreBreakdown2017Alliance.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of MatchScoreBreakdown2017Alliance-objects as value to a dart map
+  static Map<String, List<MatchScoreBreakdown2017Alliance>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<MatchScoreBreakdown2017Alliance>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = MatchScoreBreakdown2017Alliance.listFromJson(value);
+       });
+     }
+     return map;
+  }
 }
 

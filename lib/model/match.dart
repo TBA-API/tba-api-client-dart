@@ -1,87 +1,114 @@
-import 'package:jaguar_serializer/jaguar_serializer.dart';
-
-
-import 'package:tba_api_client/model/match_videos.dart';
-
-import 'package:tba_api_client/model/match_simple_alliances.dart';
-
-part 'match.jser.dart';
+part of tba_api_client.api;
 
 class Match {
-   /* TBA match key with the format `yyyy[EVENT_CODE]_[COMP_LEVEL]m[MATCH_NUMBER]`, where `yyyy` is the year, and `EVENT_CODE` is the event code of the event, `COMP_LEVEL` is (qm, ef, qf, sf, f), and `MATCH_NUMBER` is the match number in the competition level. A set number may be appended to the competition level if more than one match in required per set. */
-  @Alias('key', isNullable: false,  )
-  final String key;
-   /* The competition level the match was played at. */
-  @Alias('comp_level', isNullable: false,
-          
-  )
-  final String compLevel;
-  //enum compLevelEnum {  qm,  ef,  qf,  sf,  f,  }; /* The set number in a series of matches where more than one match is required in the match series. */
-  @Alias('set_number', isNullable: false,  )
-  final int setNumber;
-   /* The match number of the match in the competition level. */
-  @Alias('match_number', isNullable: false,  )
-  final int matchNumber;
+  /* TBA match key with the format `yyyy[EVENT_CODE]_[COMP_LEVEL]m[MATCH_NUMBER]`, where `yyyy` is the year, and `EVENT_CODE` is the event code of the event, `COMP_LEVEL` is (qm, ef, qf, sf, f), and `MATCH_NUMBER` is the match number in the competition level. A set number may be appended to the competition level if more than one match in required per set. */
+  String key = null;
+  /* The competition level the match was played at. */
+  String compLevel = null;
+  //enum compLevelEnum {  qm,  ef,  qf,  sf,  f,  };{
+  /* The set number in a series of matches where more than one match is required in the match series. */
+  int setNumber = null;
+  /* The match number of the match in the competition level. */
+  int matchNumber = null;
   
-  @Alias('alliances', isNullable: false,  )
-  final MatchSimpleAlliances alliances;
-   /* The color (red/blue) of the winning alliance. Will contain an empty string in the event of no winner, or a tie. */
-  @Alias('winning_alliance', isNullable: false,
-          
-  )
-  final String winningAlliance;
-  //enum winningAllianceEnum {  red,  blue,  ,  }; /* Event key of the event the match was played at. */
-  @Alias('event_key', isNullable: false,  )
-  final String eventKey;
-   /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) of the scheduled match time, as taken from the published schedule. */
-  @Alias('time', isNullable: false,  )
-  final int time;
-   /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) of actual match start time. */
-  @Alias('actual_time', isNullable: false,  )
-  final int actualTime;
-   /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) of the TBA predicted match start time. */
-  @Alias('predicted_time', isNullable: false,  )
-  final int predictedTime;
-   /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) when the match result was posted. */
-  @Alias('post_result_time', isNullable: false,  )
-  final int postResultTime;
-   /* Score breakdown for auto, teleop, etc. points. Varies from year to year. May be null. */
-  @Alias('score_breakdown', isNullable: false,  )
-  final Object scoreBreakdown;
-   /* Array of video objects associated with this match. */
-  @Alias('videos', isNullable: false,  )
-  final List<MatchVideos> videos;
-  
-
-  Match(
-      
-
-{
-    
-     this.key = null,  
-     this.compLevel = null,  
-     this.setNumber = null,  
-     this.matchNumber = null,   this.alliances = null,  
-     this.winningAlliance = null,  
-    
-     this.eventKey = null,   this.time = null,  
-     this.actualTime = null,  
-     this.predictedTime = null,  
-     this.postResultTime = null,  
-     this.scoreBreakdown = null,  
-     this.videos = const [] 
-    
-    }
-  );
+  MatchSimpleAlliances alliances = null;
+  /* The color (red/blue) of the winning alliance. Will contain an empty string in the event of no winner, or a tie. */
+  String winningAlliance = null;
+  //enum winningAllianceEnum {  red,  blue,  ,  };{
+  /* Event key of the event the match was played at. */
+  String eventKey = null;
+  /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) of the scheduled match time, as taken from the published schedule. */
+  int time = null;
+  /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) of actual match start time. */
+  int actualTime = null;
+  /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) of the TBA predicted match start time. */
+  int predictedTime = null;
+  /* UNIX timestamp (seconds since 1-Jan-1970 00:00:00) when the match result was posted. */
+  int postResultTime = null;
+  /* Score breakdown for auto, teleop, etc. points. Varies from year to year. May be null. */
+  Object scoreBreakdown = null;
+  /* Array of video objects associated with this match. */
+  List<MatchVideos> videos = [];
+  Match();
 
   @override
   String toString() {
     return 'Match[key=$key, compLevel=$compLevel, setNumber=$setNumber, matchNumber=$matchNumber, alliances=$alliances, winningAlliance=$winningAlliance, eventKey=$eventKey, time=$time, actualTime=$actualTime, predictedTime=$predictedTime, postResultTime=$postResultTime, scoreBreakdown=$scoreBreakdown, videos=$videos, ]';
   }
-}
 
-@GenSerializer(nullableFields: true)
-class MatchSerializer extends Serializer<Match> with _$MatchSerializer {
+  Match.fromJson(Map<String, dynamic> json) {
+    if (json == null) return;
+    key = json['key'];
+    compLevel = json['comp_level'];
+    setNumber = json['set_number'];
+    matchNumber = json['match_number'];
+    alliances = (json['alliances'] == null) ?
+      null :
+      MatchSimpleAlliances.fromJson(json['alliances']);
+    winningAlliance = json['winning_alliance'];
+    eventKey = json['event_key'];
+    time = json['time'];
+    actualTime = json['actual_time'];
+    predictedTime = json['predicted_time'];
+    postResultTime = json['post_result_time'];
+    scoreBreakdown = json['score_breakdown'];
+    videos = (json['videos'] == null) ?
+      null :
+      MatchVideos.listFromJson(json['videos']);
+  }
 
+  Map<String, dynamic> toJson() {
+    Map <String, dynamic> json = {};
+    if (key != null)
+      json['key'] = key;
+    if (compLevel != null)
+      json['comp_level'] = compLevel;
+    if (setNumber != null)
+      json['set_number'] = setNumber;
+    if (matchNumber != null)
+      json['match_number'] = matchNumber;
+    if (alliances != null)
+      json['alliances'] = alliances;
+    if (winningAlliance != null)
+      json['winning_alliance'] = winningAlliance;
+    if (eventKey != null)
+      json['event_key'] = eventKey;
+    if (time != null)
+      json['time'] = time;
+    if (actualTime != null)
+      json['actual_time'] = actualTime;
+    if (predictedTime != null)
+      json['predicted_time'] = predictedTime;
+    if (postResultTime != null)
+      json['post_result_time'] = postResultTime;
+    if (scoreBreakdown != null)
+      json['score_breakdown'] = scoreBreakdown;
+    if (videos != null)
+      json['videos'] = videos;
+    return json;
+  }
+
+  static List<Match> listFromJson(List<dynamic> json) {
+    return json == null ? List<Match>() : json.map((value) => Match.fromJson(value)).toList();
+  }
+
+  static Map<String, Match> mapFromJson(Map<String, dynamic> json) {
+    var map = Map<String, Match>();
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic value) => map[key] = Match.fromJson(value));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of Match-objects as value to a dart map
+  static Map<String, List<Match>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<Match>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = Match.listFromJson(value);
+       });
+     }
+     return map;
+  }
 }
 
