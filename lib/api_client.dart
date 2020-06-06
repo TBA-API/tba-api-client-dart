@@ -158,11 +158,11 @@ class ApiClient {
           {
             Match match;
             if (value is List &&
-                (match = _regList.firstMatch(targetType)) != null) {
+                (match = _regList.firstMatch(targetType) as Match) != null) {
               var newTargetType = match[1];
               return value.map((v) => _deserialize(v, newTargetType)).toList();
             } else if (value is Map &&
-                (match = _regMap.firstMatch(targetType)) != null) {
+                (match = _regMap.firstMatch(targetType) as Match) != null) {
               var newTargetType = match[1];
               return Map.fromIterables(value.keys,
                   value.values.map((v) => _deserialize(v, newTargetType)));
