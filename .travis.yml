@@ -8,4 +8,4 @@ install:
 - pub get
 
 script:
-- pub run test
+- dartanalyzer test lib
