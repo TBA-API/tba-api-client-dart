@@ -3,25 +3,22 @@ part of tba_api_client.api;
 class Webcast {
   /* Type of webcast, typically descriptive of the streaming provider. */
   String type = null;
-  //enum typeEnum {  youtube,  twitch,  ustream,  iframe,  html5,  rtmp,  livestream,  direct_link,  mms,  justin,  stemtv,  dacast,  };{
+  //enum typeEnum {  youtube,  twitch,  ustream,  iframe,  html5,  rtmp,  livestream,  };{
   /* Type specific channel information. May be the YouTube stream, or Twitch channel name. In the case of iframe types, contains HTML to embed the stream in an HTML iframe. */
   String channel = null;
-  /* The date for the webcast in `yyyy-mm-dd` format. May be null. */
-  String date = null;
   /* File identification as may be required for some types. May be null. */
   String file = null;
   Webcast();
 
   @override
   String toString() {
-    return 'Webcast[type=$type, channel=$channel, date=$date, file=$file, ]';
+    return 'Webcast[type=$type, channel=$channel, file=$file, ]';
   }
 
   Webcast.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     type = json['type'];
     channel = json['channel'];
-    date = json['date'];
     file = json['file'];
   }
 
@@ -31,8 +28,6 @@ class Webcast {
       json['type'] = type;
     if (channel != null)
       json['channel'] = channel;
-    if (date != null)
-      json['date'] = date;
     if (file != null)
       json['file'] = file;
     return json;

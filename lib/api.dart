@@ -56,8 +56,6 @@ part 'model/match_score_breakdown2018.dart';
 part 'model/match_score_breakdown2018_alliance.dart';
 part 'model/match_score_breakdown2019.dart';
 part 'model/match_score_breakdown2019_alliance.dart';
-part 'model/match_score_breakdown2020.dart';
-part 'model/match_score_breakdown2020_alliance.dart';
 part 'model/match_simple.dart';
 part 'model/match_simple_alliances.dart';
 part 'model/match_timeseries2018.dart';
@@ -75,9 +73,6 @@ part 'model/team_robot.dart';
 part 'model/team_simple.dart';
 part 'model/wlt_record.dart';
 part 'model/webcast.dart';
-part 'model/zebra.dart';
-part 'model/zebra_alliances.dart';
-part 'model/zebra_team.dart';
 
 
 ApiClient defaultApiClient = ApiClient();

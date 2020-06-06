@@ -110,10 +110,6 @@ class ApiClient {
           return MatchScoreBreakdown2019.fromJson(value);
         case 'MatchScoreBreakdown2019Alliance':
           return MatchScoreBreakdown2019Alliance.fromJson(value);
-        case 'MatchScoreBreakdown2020':
-          return MatchScoreBreakdown2020.fromJson(value);
-        case 'MatchScoreBreakdown2020Alliance':
-          return MatchScoreBreakdown2020Alliance.fromJson(value);
         case 'MatchSimple':
           return MatchSimple.fromJson(value);
         case 'MatchSimpleAlliances':
@@ -148,12 +144,6 @@ class ApiClient {
           return WLTRecord.fromJson(value);
         case 'Webcast':
           return Webcast.fromJson(value);
-        case 'Zebra':
-          return Zebra.fromJson(value);
-        case 'ZebraAlliances':
-          return ZebraAlliances.fromJson(value);
-        case 'ZebraTeam':
-          return ZebraTeam.fromJson(value);
         default:
           {
             Match match;

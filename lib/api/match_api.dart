@@ -422,65 +422,6 @@ class MatchApi {
 
   ///  with HTTP info returned
   ///
-  /// Gets Zebra MotionWorks data for a Match for the given match key.
-  Future<Response> getMatchZebraWithHttpInfo(String matchKey, { String ifModifiedSince }) async {
-    Object postBody;
-
-    // verify required params are set
-    if(matchKey == null) {
-     throw ApiException(400, "Missing required param: matchKey");
-    }
-
-    // create path and map variables
-    String path = "/match/{match_key}/zebra_motionworks".replaceAll("{format}","json").replaceAll("{" + "match_key" + "}", matchKey.toString());
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["If-Modified-Since"] = ifModifiedSince;
-
-    List<String> contentTypes = [];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["apiKey"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  /// Gets Zebra MotionWorks data for a Match for the given match key.
-  Future<Zebra> getMatchZebra(String matchKey, { String ifModifiedSince }) async {
-    Response response = await getMatchZebraWithHttpInfo(matchKey,  ifModifiedSince: ifModifiedSince );
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Zebra') as Zebra;
-    } else {
-      return null;
-    }
-  }
-
-  ///  with HTTP info returned
-  ///
   /// Gets a list of matches for the given team and event.
   Future<Response> getTeamEventMatchesWithHttpInfo(String teamKey, String eventKey, { String ifModifiedSince }) async {
     Object postBody;
